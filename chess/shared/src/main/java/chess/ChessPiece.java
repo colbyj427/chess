@@ -94,17 +94,43 @@ public class ChessPiece {
         //one for going up left, up right, down left, down right.
 
         //if position is occupied, do not add, break loop if in one as it can't move past it.
+        boolean keepMoving = true;
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+
+        int row;
+        int column;
+
         //up and left:
-        boolean keep_moving = false;
-        ChessPosition next_square = new ChessPosition(currentPosition.getRow(),currentPosition.getColumn());
-        int row = currentPosition.getRow();
-        int col = currentPosition.getColumn();
+        while (keepMoving) {
+            if (upLeft.getRow() <= 0 || upLeft.getRow() >= 7) {
+                keepMoving=false;
+                break;
+            } else if (upLeft.getColumn() <= 0 || upLeft.getColumn() >= 7) {
+                keepMoving=false;
+                break;
+            } else {
+                row = upLeft.getRow();
+                column = upLeft.getColumn();
+                upLeft = new ChessPosition(row + 1, column - 1);
 
-        while (keep_moving) {
-            if (board.getPiece(currentPosition) != null) {
-
+                if (board.getPiece(currentPosition) == null && board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
+                    keepMoving=false;
+                    break;
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                }
             }
-        }
+//            next_square.row += 1;
+            }
+        //up and right
+//        keepMoving = true;
+//        ChessPosition nextSquare = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+//        while (keepMoving) {
+//
+//        }
 
 
 //    validMoves.add(move)
@@ -124,6 +150,7 @@ public class ChessPiece {
     }
     public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
+        //just call for rook and bishop
         return validMoves;
     }
     public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
