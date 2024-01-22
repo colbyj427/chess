@@ -2,6 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Represents a single chess piece
@@ -65,11 +66,13 @@ public class ChessPiece {
         //switch statement on which type
         switch (my_piece.getPieceType()) {
             case PieceType.KING:
+//                return
                 break;
             case PieceType.QUEEN:
                 break;
             case PieceType.BISHOP:
-                break;
+                return bishopMoves(board, myPosition);
+//                break;
             case PieceType.KNIGHT:
                 break;
             case PieceType.ROOK:
@@ -81,5 +84,53 @@ public class ChessPiece {
 
         //returns a collection of moves
         return new ArrayList<>();
+
+
     }
+
+    public Collection<ChessMove> bishopMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves  = new HashSet<>();
+        //while loop for while a value is less than 8 or more than 0. May need 4 loops.
+        //one for going up left, up right, down left, down right.
+
+        //if position is occupied, do not add, break loop if in one as it can't move past it.
+        //up and left:
+        boolean keep_moving = false;
+        ChessPosition next_square = new ChessPosition(currentPosition.getRow(),currentPosition.getColumn());
+        int row = currentPosition.getRow();
+        int col = currentPosition.getColumn();
+
+        while (keep_moving) {
+            if (board.getPiece(currentPosition) != null) {
+
+            }
+        }
+
+
+//    validMoves.add(move)
+        return validMoves;
+    }
+    public Collection<ChessMove> pawnMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+        return validMoves;
+    }
+    public Collection<ChessMove> rookMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+        return validMoves;
+    }
+    public Collection<ChessMove> knightMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+        return validMoves;
+    }
+    public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+        return validMoves;
+    }
+    public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves  = new HashSet<>();
+//    validMoves.add(move)
+        return validMoves;
+    }
+
+
 }
