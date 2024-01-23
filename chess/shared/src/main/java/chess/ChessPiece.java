@@ -66,17 +66,15 @@ public class ChessPiece {
         //switch statement on which type
         switch (my_piece.getPieceType()) {
             case PieceType.KING:
-//                return
-                break;
+                return kingMoves(board, myPosition);
             case PieceType.QUEEN:
-                break;
+                return queenMoves(board, myPosition);
             case PieceType.BISHOP:
                 return bishopMoves(board, myPosition);
-//                break;
             case PieceType.KNIGHT:
-                break;
+                return knightMoves(board, myPosition);
             case PieceType.ROOK:
-                break;
+                return rookMoves(board, myPosition);
             case PieceType.PAWN:
                 break;
         }
@@ -95,67 +93,533 @@ public class ChessPiece {
 
         //if position is occupied, do not add, break loop if in one as it can't move past it.
         boolean keepMoving = true;
-        ChessPosition upLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
-        ChessPosition upRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
-        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
-        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
 
         int row;
         int column;
 
         //up and left:
         while (keepMoving) {
-            if (upLeft.getRow() <= 0 || upLeft.getRow() >= 7) {
+            // check the upper left boundaries
+            if (upLeft.getRow() >=7 || upLeft.getColumn() <= 0) {
                 keepMoving=false;
                 break;
-            } else if (upLeft.getColumn() <= 0 || upLeft.getColumn() >= 7) {
-                keepMoving=false;
-                break;
-            } else {
-                row = upLeft.getRow();
-                column = upLeft.getColumn();
+            }
+        else {
+                //create new position to add if no same team piece is there.
+                row = upLeft.getRow() + 1;
+                column = upLeft.getColumn() + 1;
                 upLeft = new ChessPosition(row + 1, column - 1);
 
-                if (board.getPiece(currentPosition) == null && board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
-                    keepMoving=false;
-                    break;
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(upLeft) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                        keepMoving = false;
+                        break;
+                    }
                 } else {
                     validMoves.add(new ChessMove(currentPosition, upLeft, null));
                 }
             }
-//            next_square.row += 1;
             }
         //up and right
-//        keepMoving = true;
-//        ChessPosition nextSquare = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
-//        while (keepMoving) {
-//
-//        }
+        keepMoving = true;
+        while (keepMoving) {
+            // check the upper right boundaries
+            if (upRight.getRow() >=7 || upRight.getColumn() >= 7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = upRight.getRow() + 1;
+                column = upRight.getColumn() + 1;
+                upRight = new ChessPosition(row + 1, column + 1);
 
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(upRight) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upRight).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, upRight, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, upRight, null));
+                }
+            }
+        }
+        //down and left
+        keepMoving = true;
+        while (keepMoving) {
+            // check lower left boundaries
+            if (downLeft.getRow() <= 0 || downLeft.getColumn() <= 0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = downLeft.getRow() + 1;
+                column = downLeft.getColumn() + 1;
+                downLeft = new ChessPosition(row - 1, column - 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(downLeft) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(downLeft).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                }
+            }
+        }
+
+        //down and right
+        keepMoving = true;
+        while (keepMoving) {
+            // check the lower right boundaries
+            if (downRight.getRow() <= 0 || downRight.getColumn() >= 7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = downRight.getRow() + 1;
+                column = downRight.getColumn() + 1;
+                downRight = new ChessPosition(row - 1, column + 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(downRight) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(downRight).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, downRight, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, downRight, null));
+                }
+            }
+        }
 
 //    validMoves.add(move)
         return validMoves;
     }
-    public Collection<ChessMove> pawnMoves(ChessBoard board, ChessPosition currentPosition) {
-        Collection<ChessMove> validMoves = new HashSet<>();
-        return validMoves;
-    }
     public Collection<ChessMove> rookMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
+
+        //if position is occupied, do not add, break loop if in one as it can't move past it.
+        boolean keepMoving = true;
+        ChessPosition up = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition down = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition left = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+        ChessPosition right = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
+
+        int row;
+        int column;
+
+        //up:
+        while (keepMoving) {
+            // check the upper boundary
+            if (up.getRow() >=7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = up.getRow() + 1;
+                column = up.getColumn() + 1;
+                up = new ChessPosition(row + 1, column);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(up) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(up).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, up, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, up, null));
+                }
+            }
+        }
+        //down:
+        keepMoving = true;
+        while (keepMoving) {
+            // check the lower boundary
+            if (down.getRow() <=0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = down.getRow() + 1;
+                column = down.getColumn() + 1;
+                down = new ChessPosition(row - 1, column);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(down) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, down, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, down, null));
+                }
+            }
+        }
+        //left:
+        keepMoving = true;
+        while (keepMoving) {
+            // check the left boundary
+            if (left.getColumn() <= 0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = left.getRow() + 1;
+                column = left.getColumn() + 1;
+                left = new ChessPosition(row, column - 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(down) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, left, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, left, null));
+                }
+            }
+        }
+        //right
+        keepMoving = true;
+        while (keepMoving) {
+            // check the right boundary
+            if (right.getColumn() >=7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = right.getRow() + 1;
+                column = right.getColumn() + 1;
+                right = new ChessPosition(row, column + 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(right) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(right).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, right, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, right, null));
+                }
+            }
+        }
+        return validMoves;
+    }
+    public Collection<ChessMove> pawnMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+
+        //if there is a piece diagonal, can take it. can't move with piece in front.
+
+
+        //if on row 2, can move one or two.
+        ChessPosition forwardOne = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 1);
+        ChessPosition forwardTwo = new ChessPosition(currentPosition.getRow() + 3, currentPosition.getColumn() + 1);
+        ChessPosition takePieceLeft = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn());
+        ChessPosition takePieceRight = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 2);
+
+        //if ends on row 8, needs a promotion piece.
+
+        //first check if start position.row returns 6, if so then do promotion moves.
+        //else, check if the start positon.row returns 1, then add the forward two if the space in front and two in front are empty
+        //then add the forward one if nobody in front.
+        //last, add diagonal moves if there are pieces to take there.
+
+
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn());
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 2);
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 2);
+
+
+
         return validMoves;
     }
     public Collection<ChessMove> knightMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
+
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 3, currentPosition.getColumn());
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 3, currentPosition.getColumn() + 2);
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow() - 1, currentPosition.getColumn());
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow() - 1, currentPosition.getColumn() + 2);
+
+        ChessPosition leftUp = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() -1);
+        ChessPosition leftDown = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() -1);
+        ChessPosition rightUp = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 3);
+        ChessPosition rightDown = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 3);
+
+        // up and left:
+        // if in bounds
+        if (upLeft.getRow() <= 7 && upLeft.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(upLeft) != null) {
+                // if piece can be taken
+                if (board.getPiece(upLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, upLeft, null));
+            }
+        }
+        // if in bounds
+        if (upRight.getRow() <= 7 && upRight.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(upRight) != null) {
+                // if piece can be taken
+                if (board.getPiece(upRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, upRight, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, upRight, null));
+            }
+        }
+        // if in bounds
+        if (downLeft.getRow() >= 0 && downLeft.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(downLeft) != null) {
+                // if piece can be taken
+                if (board.getPiece(downLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, downLeft, null));
+            }
+        }
+        // if in bounds
+        if (downRight.getRow() >= 0 && downRight.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(downRight) != null) {
+                // if piece can be taken
+                if (board.getPiece(downRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, downRight, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, downRight, null));
+            }
+        }
+        // if in bounds
+        if (leftUp.getRow() <= 7 && leftUp.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(leftUp) != null) {
+                // if piece can be taken
+                if (board.getPiece(leftUp).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, leftUp, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, leftUp, null));
+            }
+        }
+        // if in bounds
+        if (leftDown.getRow() >= 0 && leftDown.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(leftDown) != null) {
+                // if piece can be taken
+                if (board.getPiece(leftDown).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, leftDown, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, leftDown, null));
+            }
+        }
+        // if in bounds
+        if (rightUp.getRow() <= 7 && rightUp.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(rightUp) != null) {
+                // if piece can be taken
+                if (board.getPiece(rightUp).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, rightUp, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, rightUp, null));
+            }
+        }
+        // if in bounds
+        if (rightDown.getRow() >= 0 && rightDown.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(rightDown) != null) {
+                // if piece can be taken
+                if (board.getPiece(rightDown).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, rightDown, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, rightDown, null));
+            }
+        }
         return validMoves;
     }
     public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
         //just call for rook and bishop
+        for (ChessMove move : bishopMoves(board, currentPosition))
+            validMoves.add(move);
+        for (ChessMove move : rookMoves(board, currentPosition))
+            validMoves.add(move);
+
         return validMoves;
     }
     public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves  = new HashSet<>();
-//    validMoves.add(move)
+
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn());
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 2);
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 2);
+
+        ChessPosition left = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn());
+        ChessPosition down = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 1);
+        ChessPosition up = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 1);
+        ChessPosition right = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 2);
+
+        // up and left:
+        // if in bounds
+        if (upLeft.getRow() <= 7 && upLeft.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(upLeft) != null) {
+                // if piece can be taken
+                if (board.getPiece(upLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, upLeft, null));
+            }
+        }
+        // if in bounds
+        if (upRight.getRow() <= 7 && upRight.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(upRight) != null) {
+                // if piece can be taken
+                if (board.getPiece(upRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, upRight, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, upRight, null));
+            }
+        }
+        // if in bounds
+        if (downLeft.getRow() >= 0 && downLeft.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(downLeft) != null) {
+                // if piece can be taken
+                if (board.getPiece(downLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, downLeft, null));
+            }
+        }
+        // if in bounds
+        if (downRight.getRow() >= 0 && downRight.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(downRight) != null) {
+                // if piece can be taken
+                if (board.getPiece(downRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, downRight, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, downRight, null));
+            }
+        }
+        // if in bounds
+        if (up.getRow() <= 7) {
+            //if there is a piece
+            if (board.getPiece(up) != null) {
+                // if piece can be taken
+                if (board.getPiece(up).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, up, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, up, null));
+            }
+        }
+        // if in bounds
+        if (down.getRow() >= 0) {
+            //if there is a piece
+            if (board.getPiece(down) != null) {
+                // if piece can be taken
+                if (board.getPiece(down).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, down, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, down, null));
+            }
+        }
+        // if in bounds
+        if (left.getColumn() >= 0) {
+            //if there is a piece
+            if (board.getPiece(left) != null) {
+                // if piece can be taken
+                if (board.getPiece(left).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, left, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, left, null));
+            }
+        }
+        // if in bounds
+        if (right.getColumn() <= 7) {
+            //if there is a piece
+            if (board.getPiece(right) != null) {
+                // if piece can be taken
+                if (board.getPiece(right).pieceColor != board.getPiece(currentPosition).pieceColor) {
+                    validMoves.add(new ChessMove(currentPosition, right, null));
+                }
+            } else { //if move is in bounds and empty
+                validMoves.add(new ChessMove(currentPosition, right, null));
+            }
+        }
         return validMoves;
     }
 
