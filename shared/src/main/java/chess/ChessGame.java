@@ -67,8 +67,9 @@ public class ChessGame {
             }
             board = new ChessBoard(newBoard);
         }
-
-        return newMoves;
+        if (newMoves.isEmpty()) {
+            return null;
+        } else {return newMoves}
     }
 
     /**
