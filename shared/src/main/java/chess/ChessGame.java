@@ -96,6 +96,9 @@ public class ChessGame {
         }
         //makes the valid moves, gets the position and piece of attempted move.
         Collection <ChessMove> moves =  validMoves(move.getStartPosition());
+        if (moves == null) {
+            throw new InvalidMoveException();
+        }
         ChessPosition currentPosition = new ChessPosition(move.getStartPosition().getRow() + 1, move.getStartPosition().getColumn() + 1);
         ChessPiece currentPiece = board.getPiece(currentPosition);
         //if there is a piece, and it is their turn:
@@ -104,6 +107,10 @@ public class ChessGame {
             if (moves.contains(move)) {
                 board.addPiece(move.getEndPosition(), board.getPiece(move.getStartPosition()));
                 board.addPiece(move.getStartPosition(), null);
+                // if theres a promotion piece, put it on the board.
+                if (move.getPromotionPiece() != null) {
+                    board.addPiece(move.getEndPosition(), new ChessPiece(team_turn, move.getPromotionPiece()));
+                }
 
                 //change whose turn it is after the move.
                 if (team_turn == TeamColor.BLACK) {
@@ -187,7 +194,7 @@ public class ChessGame {
                     if (currentPiece != null) {
                         if (currentPiece.getTeamColor() == teamColor) {
                             //check for any valid moves, if any, return false
-                            if (!validMoves(currentPosition).isEmpty()) {
+                            if (validMoves(currentPosition) != null) {
                                 return false;
                             }
                         }
