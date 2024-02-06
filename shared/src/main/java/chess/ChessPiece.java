@@ -326,7 +326,7 @@ public class ChessPiece {
 
                 // if there is a piece there, either take it and stop, or stop if your team.
                 if (board.getPiece(left) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(left).pieceColor) {
                         keepMoving=false;
                         break;
                     }
