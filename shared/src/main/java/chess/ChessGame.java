@@ -62,13 +62,13 @@ public class ChessGame {
         for (ChessMove move : oldMoves) {
             board.addPiece(move.getEndPosition(), board.getPiece(move.getStartPosition()));
             board.addPiece(move.getStartPosition(), null);
-            if (!isInCheck(team_turn)) {
+            if (!isInCheck(piece.getTeamColor())) {
                 newMoves.add(move);
             }
             board = new ChessBoard(newBoard);
         }
         if (newMoves.isEmpty()) {
-            return null;
+            return newMoves;
         } else {return newMoves;}
     }
 
@@ -194,7 +194,7 @@ public class ChessGame {
                     if (currentPiece != null) {
                         if (currentPiece.getTeamColor() == teamColor) {
                             //check for any valid moves, if any, return false
-                            if (validMoves(currentPosition) != null) {
+                            if (validMoves(currentPosition) != null && !validMoves(currentPosition).isEmpty()) {
                                 return false;
                             }
                         }
@@ -225,8 +225,10 @@ public class ChessGame {
                         // at each postition, if moves is not empty, not in stalemate
                         ChessPosition currentPosition= new ChessPosition(row, col);
                         if (board.getPiece(currentPosition) != null) {
-                            if (validMoves(currentPosition) != null && board.getPiece(currentPosition).getTeamColor() == teamColor) {
-                                return false;
+                            if (validMoves(currentPosition) != null) {
+                                if (!validMoves(currentPosition).isEmpty() && board.getPiece(currentPosition).getTeamColor() == teamColor) {
+                                    return false;
+                                }
                             }
                         }
                     }
