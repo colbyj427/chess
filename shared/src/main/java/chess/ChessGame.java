@@ -69,7 +69,7 @@ public class ChessGame {
         }
         if (newMoves.isEmpty()) {
             return null;
-        } else {return newMoves}
+        } else {return newMoves;}
     }
 
     /**
