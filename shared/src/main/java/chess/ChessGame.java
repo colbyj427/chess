@@ -114,9 +114,9 @@ public class ChessGame {
 
                 //change whose turn it is after the move.
                 if (team_turn == TeamColor.BLACK) {
-                    team_turn=TeamColor.WHITE;
+                    team_turn = TeamColor.WHITE;
                 } else if (team_turn == TeamColor.WHITE) {
-                    team_turn=TeamColor.BLACK;
+                    team_turn = TeamColor.BLACK;
                 }
             } else { throw new InvalidMoveException(); }
         }
