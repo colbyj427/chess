@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added CRUD operations classes to data access package.">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/model/AuthRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/model/GameRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/model/UserRecord.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added handler files to server package.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/CreateData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DeleteData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/ReadData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UpdateData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataModels/AuthData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataModels/GameData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataModels/UserData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
     </list>
@@ -34,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,7 +121,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708571187347</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added the files i actually need for dao and interfaces and began implementing a clear handler/service.">
+      <option name="closed" value="true" />
+      <created>1708632499039</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708632499040</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added handler files to server package.">
+      <option name="closed" value="true" />
+      <created>1708632742871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708632742871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,6 +146,8 @@
     <MESSAGE value="fixed authdata constructor" />
     <MESSAGE value="added getters and setters to dataModels." />
     <MESSAGE value="added CRUD operations classes to data access package." />
-    <option name="LAST_COMMIT_MESSAGE" value="added CRUD operations classes to data access package." />
+    <MESSAGE value="Added the files i actually need for dao and interfaces and began implementing a clear handler/service." />
+    <MESSAGE value="added handler files to server package." />
+    <option name="LAST_COMMIT_MESSAGE" value="added handler files to server package." />
   </component>
 </project>

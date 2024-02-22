@@ -1,12 +1,15 @@
 package server;
 
 import dataAccess.*;
+import service.ClearService;
 import spark.*;
 
 public class Server {
-    public UserDaoInterface memoryUserDao = new MemoryUserDao();
-    public AuthDaoInterface memoryAuthDao = new MemoryAuthDao();
-    public GameDaoInterface memoryGameDao = new MemoryGameDao();
+    public static UserDaoInterface memoryUserDao = new MemoryUserDao();
+    public static AuthDaoInterface memoryAuthDao = new MemoryAuthDao();
+    public static GameDaoInterface memoryGameDao = new MemoryGameDao();
+
+
     public int run(int desiredPort) {
         Spark.port(desiredPort);
 
