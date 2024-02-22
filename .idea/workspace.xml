@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added interface classes, moved memory models. set up test server.">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataModels/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataModels/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataModels/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataModels/UserData.java" afterDir="false" />
-    </list>
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed authdata constructor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,11 +77,29 @@
       <option name="project" value="LOCAL" />
       <updated>1708566976898</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="populated data models with attributes.">
+      <option name="closed" value="true" />
+      <created>1708567618140</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708567618140</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixed authdata constructor">
+      <option name="closed" value="true" />
+      <created>1708567648097</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708567648098</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added interface classes, moved memory models. set up test server." />
-    <option name="LAST_COMMIT_MESSAGE" value="added interface classes, moved memory models. set up test server." />
+    <MESSAGE value="populated data models with attributes." />
+    <MESSAGE value="fixed authdata constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed authdata constructor" />
   </component>
 </project>
