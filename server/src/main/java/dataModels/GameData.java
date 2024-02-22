@@ -1,4 +1,4 @@
-package dataAccess;
+package dataModels;
 
 public class GameData {
 }
