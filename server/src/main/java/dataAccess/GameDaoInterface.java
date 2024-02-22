@@ -1,4 +1,5 @@
 package dataAccess;
 
-public class GameDaoInterface {
+public interface GameDaoInterface {
+  void clear();
 }

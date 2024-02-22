@@ -1,4 +1,5 @@
 package dataAccess;
 
-public class UserDaoInterface {
+public interface UserDaoInterface {
+    void clear();
 }

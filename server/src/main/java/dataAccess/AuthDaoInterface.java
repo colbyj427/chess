@@ -1,4 +1,5 @@
 package dataAccess;
 
-public class AuthDaoInterface {
+public interface AuthDaoInterface {
+  void clear();
 }
