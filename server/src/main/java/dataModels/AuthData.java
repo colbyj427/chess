@@ -8,7 +8,7 @@ public class AuthData {
   private String userName;
 
 
-  public GameData(final String authToken, final String userName) {
+  public AuthData(final String authToken, final String userName) {
     this.authToken=authToken;
     this.userName = userName;
   }
