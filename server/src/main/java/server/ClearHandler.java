@@ -6,9 +6,9 @@ import spark.*;
 import com.google.gson.Gson;
 
 public class ClearHandler {
-  private ClearService clearService = new ClearService();
+  private ClearService clearService=new ClearService();
 
-  private String clear(Request req, Response res) throws DataAccessException {
+  public String clear(Request req, Response res) throws DataAccessException {
     clearService.clear();
     res.status(200);
     return new Gson().toJson(res);

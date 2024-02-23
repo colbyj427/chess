@@ -1,7 +1,6 @@
 package server;
 
 import dataAccess.*;
-import service.ClearService;
 import spark.*;
 
 public class Server {
@@ -16,6 +15,7 @@ public class Server {
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
+        Spark.delete("/db", this::deleteAll);
 
         Spark.init();
         return Spark.port();
@@ -24,6 +24,16 @@ public class Server {
     public void stop() {
         Spark.stop();
         Spark.awaitStop();
+    }
+
+    private Object deleteAll(Request req, Response res) throws DataAccessException {
+        try {
+            ClearHandler clearHandler=new ClearHandler();
+            return clearHandler.clear(req, res);
+        }
+        catch (DataAccessException dataAccessException){
+            throw new DataAccessException("500");
+        }
     }
 
     public static void main(String[] args) {
