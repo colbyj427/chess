@@ -2,5 +2,8 @@ package model;
 
 import chess.ChessGame;
 
-public record GameRecord(int gameID, String whiteUsername, String blackUsername, String gameName, ChessGame game) {
+import java.util.Collection;
+
+public record GameRecord(int gameID, String whiteUsername, String blackUsername,
+                         String gameName, ChessGame game, Collection<String> spectators) {
 }
