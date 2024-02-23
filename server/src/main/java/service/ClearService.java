@@ -1,13 +1,13 @@
 package service;
 
-import dataAccess.UserDaoInterface;
+import dataAccess.DataAccessException;
 
 import server.Server;
 
 
 public class ClearService {
 
-  public void clear(){
+  public void clear() throws DataAccessException {
     Server.memoryUserDao.clear();
     Server.memoryAuthDao.clear();
     Server.memoryGameDao.clear();
