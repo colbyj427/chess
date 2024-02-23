@@ -4,30 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="First implementation of the register endpoint.">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/ErrorResponse.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Implemented Register endpoint, login endpoint, and first draft of logout endpoint.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DataAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/DataAccessException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DataAccessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/DataAccessException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/service/ClearService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708664082831</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implemented Register endpoint, login endpoint, and first draft of logout endpoint.">
+      <option name="closed" value="true" />
+      <created>1708719998943</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708719998944</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,7 +225,19 @@
     <MESSAGE value="first implementation of clear handler and service." />
     <MESSAGE value="First implementation of clear endpoint." />
     <MESSAGE value="First implementation of the register endpoint." />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of the register endpoint." />
+    <MESSAGE value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/UserHandler.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chess$StandardAPITests.ic" NAME="StandardAPITests Coverage Results" MODIFIED="1708639472855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

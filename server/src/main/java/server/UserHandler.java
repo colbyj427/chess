@@ -1,5 +1,6 @@
 package server;
 
+import com.google.gson.JsonObject;
 import dataAccess.DataAccessException;
 import dataAccess.ErrorResponse;
 import model.AuthRecord;
@@ -46,8 +47,8 @@ public class UserHandler {
   public static String logout(Request req, Response res) throws DataAccessException {
     try {
       var serializer=new Gson();
-      AuthRecord authInfo = serializer.fromJson(req.body(), AuthRecord.class);
-      userService.logout(authInfo.authToken());
+      String authToken = req.headers("Authorization");
+      userService.logout(authToken);
       res.status(200);
       return serializer.toJson(res);
     }

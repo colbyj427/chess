@@ -17,7 +17,7 @@ public class MemoryAuthDao implements AuthDaoInterface{
   }
   public void removeAuth(String authToken) throws DataAccessException{
     for (AuthRecord record: authDataArray){
-      if (record.authToken() == authToken) {
+      if (record.authToken().equals(authToken)) {
         authDataArray.remove(record);
       }
     }
