@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Implemented Register endpoint, login endpoint, and first draft of logout endpoint.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Logout endpoint runs but does not return correct string.">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" afterDir="false" />
@@ -20,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,7 +55,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="JUnit.UnitTests">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -98,8 +100,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UnitTests" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
@@ -211,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708719998944</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Logout endpoint runs but does not return correct string.">
+      <option name="closed" value="true" />
+      <created>1708722860787</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1708722860787</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -226,7 +252,8 @@
     <MESSAGE value="First implementation of clear endpoint." />
     <MESSAGE value="First implementation of the register endpoint." />
     <MESSAGE value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
+    <MESSAGE value="Logout endpoint runs but does not return correct string." />
+    <option name="LAST_COMMIT_MESSAGE" value="Logout endpoint runs but does not return correct string." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

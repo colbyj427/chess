@@ -19,6 +19,7 @@ public class MemoryAuthDao implements AuthDaoInterface{
     for (AuthRecord record: authDataArray){
       if (record.authToken().equals(authToken)) {
         authDataArray.remove(record);
+        return;
       }
     }
     //if authToken doesnt match, user is unauthorized

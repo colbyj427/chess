@@ -50,7 +50,7 @@ public class UserHandler {
       String authToken = req.headers("Authorization");
       userService.logout(authToken);
       res.status(200);
-      return serializer.toJson(res);
+      return "{}";
     }
     catch(DataAccessException dataAccessException) {
       //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
