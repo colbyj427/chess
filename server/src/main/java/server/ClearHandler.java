@@ -14,7 +14,7 @@ public class ClearHandler {
       clearService.clear();
       res.status(200);
       var serializer=new Gson();
-      return serializer.toJson(res);
+      return "{}";
     } catch (DataAccessException dataAccessException){
       ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
       res.status(dataAccessException.statusCode);

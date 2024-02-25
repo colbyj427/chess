@@ -15,6 +15,14 @@ public class MemoryAuthDao implements AuthDaoInterface{
     authDataArray.add(auth);
     return auth;
   }
+  public AuthRecord getAuth(String authToken) throws DataAccessException{
+    for (AuthRecord record: authDataArray){
+      if (record.authToken().equals(authToken)) {
+        return record;
+      }
+    }
+    throw new DataAccessException(401, "unauthorized");
+  }
   public void removeAuth(String authToken) throws DataAccessException{
     for (AuthRecord record: authDataArray){
       if (record.authToken().equals(authToken)) {
@@ -22,7 +30,7 @@ public class MemoryAuthDao implements AuthDaoInterface{
         return;
       }
     }
-    //if authToken doesnt match, user is unauthorized
+    //if authToken doesn't match, user is unauthorized
     throw new DataAccessException(401, "unauthorized");
   }
   public void clear(){

@@ -46,7 +46,6 @@ public class UserHandler {
   }
   public static String logout(Request req, Response res) throws DataAccessException {
     try {
-      var serializer=new Gson();
       String authToken = req.headers("Authorization");
       userService.logout(authToken);
       res.status(200);

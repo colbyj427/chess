@@ -18,10 +18,11 @@ public class Server {
         Spark.post("/user", UserHandler::register);
         Spark.post("/session", UserHandler::login);
         Spark.delete("/session", UserHandler::logout);
-//        Spark.post("/game", GameHandler::createGame);
+        Spark.get("/game", GameHandler::listGames);
+        Spark.post("/game", GameHandler::createGame);
         Spark.delete("/db", ClearHandler::clear);
 
-        Spark.init();
+        Spark.awaitInitialization();
         return Spark.port();
     }
 

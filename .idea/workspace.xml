@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Logout endpoint runs but does not return correct string.">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Implemented logout and one clearservice unit test.">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/AtomicIntegerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/UniqueIDGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/service/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/service/GameService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +70,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dataAccess" />
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UnitTests">
+  <component name="RunManager" selected="JUnit.StandardAPITests">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -117,9 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UnitTests" />
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.StandardAPITests" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.UnitTests" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
       </list>
     </recent_temporary>
@@ -237,8 +256,27 @@
       <option name="project" value="LOCAL" />
       <updated>1708722860787</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implemented logout and one clearservice unit test.">
+      <option name="closed" value="true" />
+      <created>1708754120006</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1708754120006</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added interface classes, moved memory models. set up test server." />
@@ -253,16 +291,16 @@
     <MESSAGE value="First implementation of the register endpoint." />
     <MESSAGE value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
     <MESSAGE value="Logout endpoint runs but does not return correct string." />
-    <option name="LAST_COMMIT_MESSAGE" value="Logout endpoint runs but does not return correct string." />
+    <MESSAGE value="Implemented logout and one clearservice unit test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented logout and one clearservice unit test." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/UserHandler.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.google.gson.JsonIOException" package="com.google.gson" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
