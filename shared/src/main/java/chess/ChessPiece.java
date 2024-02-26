@@ -75,9 +75,9 @@ public class ChessPiece {
             //create a set of subclasses to contain the movement rules for each piece.
 
         //get piece function.
-        ChessPiece my_piece = board.getPiece(myPosition);
+        ChessPiece myPiece = board.getPiece(myPosition);
         //switch statement on which type
-        switch (my_piece.getPieceType()) {
+        switch (myPiece.getPieceType()) {
             case PieceType.KING:
                 return kingMoves(board, myPosition);
             case PieceType.QUEEN:

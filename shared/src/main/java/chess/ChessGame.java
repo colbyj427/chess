@@ -10,7 +10,7 @@ import java.util.HashSet;
  * signature of the existing methods.
  */
 public class ChessGame {
-    private ChessGame.TeamColor team_turn = TeamColor.WHITE;
+    private ChessGame.TeamColor teamTurn= TeamColor.WHITE;
     private ChessBoard board;
 
     public ChessGame() {
@@ -21,7 +21,7 @@ public class ChessGame {
      * @return Which team's turn it is
      */
     public TeamColor getTeamTurn() {
-        return team_turn;
+        return teamTurn;
     }
 
     /**
@@ -30,7 +30,7 @@ public class ChessGame {
      * @param team the team whose turn it is
      */
     public void setTeamTurn(TeamColor team) {
-        team_turn = team;
+        teamTurn= team;
     }
 
     /**
@@ -102,21 +102,21 @@ public class ChessGame {
         ChessPosition currentPosition = new ChessPosition(move.getStartPosition().getRow() + 1, move.getStartPosition().getColumn() + 1);
         ChessPiece currentPiece = board.getPiece(currentPosition);
         //if there is a piece, and it is their turn:
-        if (currentPiece != null && currentPiece.getTeamColor() == team_turn) {
+        if (currentPiece != null && currentPiece.getTeamColor() == teamTurn) {
             //if the move is in valid moves, execute it and change the turn
             if (moves.contains(move)) {
                 board.addPiece(move.getEndPosition(), board.getPiece(move.getStartPosition()));
                 board.addPiece(move.getStartPosition(), null);
                 // if theres a promotion piece, put it on the board.
                 if (move.getPromotionPiece() != null) {
-                    board.addPiece(move.getEndPosition(), new ChessPiece(team_turn, move.getPromotionPiece()));
+                    board.addPiece(move.getEndPosition(), new ChessPiece(teamTurn, move.getPromotionPiece()));
                 }
 
                 //change whose turn it is after the move.
-                if (team_turn == TeamColor.BLACK) {
-                    team_turn = TeamColor.WHITE;
-                } else if (team_turn == TeamColor.WHITE) {
-                    team_turn = TeamColor.BLACK;
+                if (teamTurn == TeamColor.BLACK) {
+                    teamTurn= TeamColor.WHITE;
+                } else if (teamTurn == TeamColor.WHITE) {
+                    teamTurn= TeamColor.BLACK;
                 }
             } else { throw new InvalidMoveException(); }
         }
@@ -215,7 +215,7 @@ public class ChessGame {
      */
     public boolean isInStalemate(TeamColor teamColor) {
         //if its this teams turn check each square
-        if (team_turn == teamColor) {
+        if (teamTurn == teamColor) {
             // is the team is in check, check for stalemate, if not, return false.
             if (!isInCheck(teamColor)) {
                 //rows
