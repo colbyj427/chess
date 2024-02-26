@@ -2,7 +2,6 @@ package service;
 
 import dataAccess.DataAccessException;
 import model.AuthRecord;
-import model.UserRecord;
 import server.Server;
 
 public class UserService {
