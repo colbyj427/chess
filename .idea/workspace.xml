@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Implemented createGame, listGames endpoints.">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/model/JoinGameRecord.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Implemented final endpoint, joinGame.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/GameRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/GameRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,17 +100,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StandardAPITests.manyWatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serviceTests.*" />
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="serviceTests" />
-      <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="METHOD_NAME" value="manyWatch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StandardAPITests.uniqueAuthorizationTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="METHOD_NAME" value="uniqueAuthorizationTokens" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,9 +135,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.UnitTests" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
+        <item itemvalue="JUnit.StandardAPITests.manyWatch" />
+        <item itemvalue="JUnit.StandardAPITests.uniqueAuthorizationTokens" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708820977350</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implemented final endpoint, joinGame.">
+      <option name="closed" value="true" />
+      <created>1708825703870</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1708825703870</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +308,8 @@
     <MESSAGE value="Logout endpoint runs but does not return correct string." />
     <MESSAGE value="Implemented logout and one clearservice unit test." />
     <MESSAGE value="Implemented createGame, listGames endpoints." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented createGame, listGames endpoints." />
+    <MESSAGE value="Implemented final endpoint, joinGame." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented final endpoint, joinGame." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -293,8 +318,48 @@
           <properties class="com.google.gson.JsonIOException" package="com.google.gson" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>777</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/service/ClearService.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java</url>
+          <line>10</line>
+          <properties class="dataAccess.MemoryUserDao" method="getUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="blackUsername" />
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="whiteUsername" />
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="game" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chess$StandardAPITests.ic" NAME="StandardAPITests Coverage Results" MODIFIED="1708639472855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

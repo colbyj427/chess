@@ -49,7 +49,7 @@ public class GameHandler {
       //      return serializer.toJson(gameService.listGames(authToken));
       Collection<GameRecord> listOfGames = gameService.listGames(authToken);
       JsonObject jsonObject = new JsonObject();
-      jsonObject.add("gameList", new Gson().toJsonTree(listOfGames));
+      jsonObject.add("games", new Gson().toJsonTree(listOfGames));
       String jsonString = jsonObject.toString();
       return jsonString;
 

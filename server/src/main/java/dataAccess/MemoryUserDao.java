@@ -10,12 +10,11 @@ public class MemoryUserDao implements UserDaoInterface{
 
   public UserRecord getUser(String username, String password) throws DataAccessException{
     for (UserRecord user: userDataArray) {
-      if (user.username().equals(username) && user.password().equals(password)){
+      if (user.username().equals(username) && user.password().equals(password)) {
         return user;
       }
-    throw new DataAccessException(401, "unauthorized");
     }
-    return null;
+    throw new DataAccessException(401, "unauthorized");
   }
 
   public UserRecord addUser(String username, String password, String email) throws DataAccessException{

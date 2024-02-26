@@ -30,8 +30,8 @@ public class MemoryGameDao implements GameDaoInterface{
   public GameRecord addObserver(final String username, final GameRecord gameRecord) throws DataAccessException {
     ArrayList<String> newSpectators = new ArrayList<>(gameRecord.spectators().size());
 
-    for (int i = 0; i < gameRecord.spectators().size(); i++) {
-      newSpectators.set(i, gameRecord.spectators().get(i));
+    if (!gameRecord.spectators().isEmpty()) {
+      newSpectators.addAll(gameRecord.spectators());
     }
     newSpectators.add(username);
     GameRecord newGameRecord = new GameRecord(gameRecord.gameID(), gameRecord.whiteUsername(),

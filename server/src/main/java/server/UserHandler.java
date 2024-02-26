@@ -36,7 +36,6 @@ public class UserHandler {
       return serializer.toJson(userService.login(userInfo.username(), userInfo.password()));
     }
     catch(DataAccessException dataAccessException) {
-      //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
       ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
       res.status(dataAccessException.statusCode);
       res.body(dataAccessException.message);
