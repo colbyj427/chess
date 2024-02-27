@@ -101,110 +101,23 @@ public class ChessPiece {
 
     public Collection<ChessMove> bishopMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves  = new HashSet<>();
-        //while loop for while a value is less than 8 or more than 0. May need 4 loops.
-        //one for going up left, up right, down left, down right.
-
-        //if position is occupied, do not add, break loop if in one as it can't move past it.
         boolean keepMoving = true;
         ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
         ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
         ChessPosition downLeft = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
         ChessPosition downRight = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
 
+        calcBishopUpLeftMoves(board, currentPosition, keepMoving, upLeft, validMoves);
+        calcBishopUpRightMoves(board, currentPosition, upRight, validMoves);
+        calcBishopDownLeftMoves(board, currentPosition, downLeft, validMoves);
+        calcBishopDownRightMoves(board, currentPosition, downRight, validMoves);
+        return validMoves;
+    }
+
+    private static void calcBishopDownRightMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition downRight, Collection<ChessMove> validMoves) {
+        boolean keepMoving;
         int row;
         int column;
-
-        //up and left:
-        while (keepMoving) {
-            // check the upper left boundaries
-            if (upLeft.getRow() >=7 || upLeft.getColumn() <= 0) {
-                keepMoving=false;
-                break;
-            }
-        else {
-                //create new position to add if no same team piece is there.
-                row = upLeft.getRow() + 1;
-                column = upLeft.getColumn() + 1;
-                upLeft = new ChessPosition(row + 1, column - 1);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(upLeft) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, upLeft, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
-                }
-            }
-            }
-        //up and right
-        keepMoving = true;
-        while (keepMoving) {
-            // check the upper right boundaries
-            if (upRight.getRow() >=7 || upRight.getColumn() >= 7) {
-                keepMoving=false;
-                break;
-            }
-            else {
-                //create new position to add if no same team piece is there.
-                row = upRight.getRow() + 1;
-                column = upRight.getColumn() + 1;
-                upRight = new ChessPosition(row + 1, column + 1);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(upRight) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upRight).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, upRight, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, upRight, null));
-                }
-            }
-        }
-        //down and left
-        keepMoving = true;
-        while (keepMoving) {
-            // check lower left boundaries
-            if (downLeft.getRow() <= 0 || downLeft.getColumn() <= 0) {
-                keepMoving=false;
-                break;
-            }
-            else {
-                //create new position to add if no same team piece is there.
-                row = downLeft.getRow() + 1;
-                column = downLeft.getColumn() + 1;
-                downLeft = new ChessPosition(row - 1, column - 1);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(downLeft) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(downLeft).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, downLeft, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
-                }
-            }
-        }
-
-        //down and right
         keepMoving = true;
         while (keepMoving) {
             // check the lower right boundaries
@@ -216,7 +129,7 @@ public class ChessPiece {
                 //create new position to add if no same team piece is there.
                 row = downRight.getRow() + 1;
                 column = downRight.getColumn() + 1;
-                downRight = new ChessPosition(row - 1, column + 1);
+                downRight= new ChessPosition(row - 1, column + 1);
 
                 // if there is a piece there, either take it and stop, or stop if your team.
                 if (board.getPiece(downRight) != null) {
@@ -234,10 +147,111 @@ public class ChessPiece {
                 }
             }
         }
-
-//    validMoves.add(move)
-        return validMoves;
     }
+
+    private static void calcBishopDownLeftMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition downLeft, Collection<ChessMove> validMoves) {
+        int row;
+        boolean keepMoving;
+        int column;
+        keepMoving = true;
+        while (keepMoving) {
+            // check lower left boundaries
+            if (downLeft.getRow() <= 0 || downLeft.getColumn() <= 0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = downLeft.getRow() + 1;
+                column = downLeft.getColumn() + 1;
+                downLeft= new ChessPosition(row - 1, column - 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(downLeft) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(downLeft).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
+                }
+            }
+        }
+    }
+
+    private static void calcBishopUpRightMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition upRight, Collection<ChessMove> validMoves) {
+        int row;
+        boolean keepMoving;
+        int column;
+        keepMoving = true;
+        while (keepMoving) {
+            // check the upper right boundaries
+            if (upRight.getRow() >=7 || upRight.getColumn() >= 7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = upRight.getRow() + 1;
+                column = upRight.getColumn() + 1;
+                upRight= new ChessPosition(row + 1, column + 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(upRight) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upRight).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, upRight, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, upRight, null));
+                }
+            }
+        }
+    }
+
+    private static void calcBishopUpLeftMoves(ChessBoard board, ChessPosition currentPosition, boolean keepMoving, ChessPosition upLeft, Collection<ChessMove> validMoves) {
+        int row;
+        int column;
+        while (keepMoving) {
+            // check the upper left boundaries
+            if (upLeft.getRow() >=7 || upLeft.getColumn() <= 0) {
+                keepMoving=false;
+                break;
+            }
+        else {
+                //create new position to add if no same team piece is there.
+                row = upLeft.getRow() + 1;
+                column = upLeft.getColumn() + 1;
+                upLeft= new ChessPosition(row + 1, column - 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(upLeft) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                        keepMoving= false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
+                }
+            }
+            }
+    }
+
     public Collection<ChessMove> rookMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
 
@@ -248,99 +262,17 @@ public class ChessPiece {
         ChessPosition left = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
         ChessPosition right = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 1);
 
+        calcRookUpMoves(board, currentPosition, keepMoving, up, validMoves);
+        calcRookDownMoves(board, currentPosition, down, validMoves);
+        calcRookLeftMoves(board, currentPosition, left, validMoves);
+        calcRookRightMoves(board, currentPosition, right, validMoves);
+        return validMoves;
+    }
+
+    private static void calcRookRightMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition right, Collection<ChessMove> validMoves) {
         int row;
         int column;
-
-        //up:
-        while (keepMoving) {
-            // check the upper boundary
-            if (up.getRow() >=7) {
-                keepMoving=false;
-                break;
-            }
-            else {
-                //create new position to add if no same team piece is there.
-                row = up.getRow() + 1;
-                column = up.getColumn() + 1;
-                up = new ChessPosition(row + 1, column);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(up) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(up).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, up, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, up, null));
-                }
-            }
-        }
-        //down:
-        keepMoving = true;
-        while (keepMoving) {
-            // check the lower boundary
-            if (down.getRow() <=0) {
-                keepMoving=false;
-                break;
-            }
-            else {
-                //create new position to add if no same team piece is there.
-                row = down.getRow() + 1;
-                column = down.getColumn() + 1;
-                down = new ChessPosition(row - 1, column);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(down) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, down, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, down, null));
-                }
-            }
-        }
-        //left:
-        keepMoving = true;
-        while (keepMoving) {
-            // check the left boundary
-            if (left.getColumn() <= 0) {
-                keepMoving=false;
-                break;
-            }
-            else {
-                //create new position to add if no same team piece is there.
-                row = left.getRow() + 1;
-                column = left.getColumn() + 1;
-                left = new ChessPosition(row, column - 1);
-
-                // if there is a piece there, either take it and stop, or stop if your team.
-                if (board.getPiece(left) != null) {
-                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(left).pieceColor) {
-                        keepMoving=false;
-                        break;
-                    }
-                    else {
-                        validMoves.add(new ChessMove(currentPosition, left, null));
-                        keepMoving = false;
-                        break;
-                    }
-                } else {
-                    validMoves.add(new ChessMove(currentPosition, left, null));
-                }
-            }
-        }
-        //right
+        boolean keepMoving;
         keepMoving = true;
         while (keepMoving) {
             // check the right boundary
@@ -352,7 +284,7 @@ public class ChessPiece {
                 //create new position to add if no same team piece is there.
                 row = right.getRow() + 1;
                 column = right.getColumn() + 1;
-                right = new ChessPosition(row, column + 1);
+                right= new ChessPosition(row, column + 1);
 
                 // if there is a piece there, either take it and stop, or stop if your team.
                 if (board.getPiece(right) != null) {
@@ -370,8 +302,111 @@ public class ChessPiece {
                 }
             }
         }
-        return validMoves;
     }
+
+    private static void calcRookLeftMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition left, Collection<ChessMove> validMoves) {
+        boolean keepMoving;
+        int column;
+        int row;
+        keepMoving = true;
+        while (keepMoving) {
+            // check the left boundary
+            if (left.getColumn() <= 0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = left.getRow() + 1;
+                column = left.getColumn() + 1;
+                left= new ChessPosition(row, column - 1);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(left) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(left).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, left, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, left, null));
+                }
+            }
+        }
+    }
+
+    private static void calcRookDownMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition down, Collection<ChessMove> validMoves) {
+        int row;
+        int column;
+        boolean keepMoving;
+        keepMoving = true;
+        while (keepMoving) {
+            // check the lower boundary
+            if (down.getRow() <=0) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = down.getRow() + 1;
+                column = down.getColumn() + 1;
+                down= new ChessPosition(row - 1, column);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(down) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, down, null));
+                        keepMoving = false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, down, null));
+                }
+            }
+        }
+    }
+
+    private static void calcRookUpMoves(ChessBoard board, ChessPosition currentPosition, boolean keepMoving, ChessPosition up, Collection<ChessMove> validMoves) {
+        int column;
+        int row;
+        while (keepMoving) {
+            // check the upper boundary
+            if (up.getRow() >=7) {
+                keepMoving=false;
+                break;
+            }
+            else {
+                //create new position to add if no same team piece is there.
+                row = up.getRow() + 1;
+                column = up.getColumn() + 1;
+                up= new ChessPosition(row + 1, column);
+
+                // if there is a piece there, either take it and stop, or stop if your team.
+                if (board.getPiece(up) != null) {
+                    if (board.getPiece(currentPosition).pieceColor == board.getPiece(up).pieceColor) {
+                        keepMoving=false;
+                        break;
+                    }
+                    else {
+                        validMoves.add(new ChessMove(currentPosition, up, null));
+                        keepMoving= false;
+                        break;
+                    }
+                } else {
+                    validMoves.add(new ChessMove(currentPosition, up, null));
+                }
+            }
+        }
+    }
+
     public Collection<ChessMove> pawnMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
 
