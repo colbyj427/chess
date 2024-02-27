@@ -384,24 +384,7 @@ public class ChessPiece {
 
             //promotion moves
             if (forwardOne.getRow() == 7) {
-                if (board.getPiece(forwardOne) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.QUEEN));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.QUEEN));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.QUEEN));
-                }
+                calcPromotionMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             } else if (currentPosition.getRow() == 1) { //pawn hasn't moved yet
                 //add twos
                 if (board.getPiece(forwardOne) == null && board.getPiece(forwardTwo) == null) {
@@ -435,24 +418,7 @@ public class ChessPiece {
 
             //promotion moves
             if (forwardOne.getRow() == 0) {
-                if (board.getPiece(forwardOne) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.QUEEN));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.QUEEN));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.ROOK));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.KNIGHT));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.BISHOP));
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.QUEEN));
-                }
+                calcPromotionMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             } else if (currentPosition.getRow() == 6) { //pawn hasn't moved yet
                 //add twos
                 if (board.getPiece(forwardOne) == null && board.getPiece(forwardTwo) == null) {
@@ -481,6 +447,28 @@ public class ChessPiece {
         }
         return validMoves;
     }
+
+    private static void calcPromotionMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition forwardOne, Collection<ChessMove> validMoves, ChessPosition takePieceLeft, ChessPosition takePieceRight) {
+        if (board.getPiece(forwardOne) == null) {
+            validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.ROOK));
+            validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.KNIGHT));
+            validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.BISHOP));
+            validMoves.add(new ChessMove(currentPosition, forwardOne, PieceType.QUEEN));
+        }
+        if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.ROOK));
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.KNIGHT));
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.BISHOP));
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, PieceType.QUEEN));
+        }
+        if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.ROOK));
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.KNIGHT));
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.BISHOP));
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, PieceType.QUEEN));
+        }
+    }
+
     public Collection<ChessMove> knightMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
 
