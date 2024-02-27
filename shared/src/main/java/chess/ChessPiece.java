@@ -471,55 +471,7 @@ public class ChessPiece {
         ChessPosition rightUp = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 3);
         ChessPosition rightDown = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 3);
 
-        // up and left:
-        // if in bounds
-        if (upLeft.getRow() <= 7 && upLeft.getColumn() >= 0) {
-            //if there is a piece
-            if (board.getPiece(upLeft) != null) {
-                // if piece can be taken
-                if (board.getPiece(upLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, upLeft, null));
-                }
-            } else { //if move is in bounds and empty
-                validMoves.add(new ChessMove(currentPosition, upLeft, null));
-            }
-        }
-        // if in bounds
-        if (upRight.getRow() <= 7 && upRight.getColumn() <= 7) {
-            //if there is a piece
-            if (board.getPiece(upRight) != null) {
-                // if piece can be taken
-                if (board.getPiece(upRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, upRight, null));
-                }
-            } else { //if move is in bounds and empty
-                validMoves.add(new ChessMove(currentPosition, upRight, null));
-            }
-        }
-        // if in bounds
-        if (downLeft.getRow() >= 0 && downLeft.getColumn() >= 0) {
-            //if there is a piece
-            if (board.getPiece(downLeft) != null) {
-                // if piece can be taken
-                if (board.getPiece(downLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, downLeft, null));
-                }
-            } else { //if move is in bounds and empty
-                validMoves.add(new ChessMove(currentPosition, downLeft, null));
-            }
-        }
-        // if in bounds
-        if (downRight.getRow() >= 0 && downRight.getColumn() <= 7) {
-            //if there is a piece
-            if (board.getPiece(downRight) != null) {
-                // if piece can be taken
-                if (board.getPiece(downRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, downRight, null));
-                }
-            } else { //if move is in bounds and empty
-                validMoves.add(new ChessMove(currentPosition, downRight, null));
-            }
-        }
+        calcMovesAroundPiece(board, currentPosition, upLeft, validMoves, upRight, downLeft, downRight);
         // if in bounds
         if (leftUp.getRow() <= 7 && leftUp.getColumn() >= 0) {
             //if there is a piece
@@ -570,29 +522,8 @@ public class ChessPiece {
         }
         return validMoves;
     }
-    public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
-        Collection<ChessMove> validMoves = new HashSet<>();
-        //just call for rook and bishop
-        for (ChessMove move : bishopMoves(board, currentPosition))
-            validMoves.add(move);
-        for (ChessMove move : rookMoves(board, currentPosition))
-            validMoves.add(move);
 
-        return validMoves;
-    }
-    public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
-        Collection<ChessMove> validMoves  = new HashSet<>();
-
-        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn());
-        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 2);
-        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
-        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 2);
-
-        ChessPosition left = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn());
-        ChessPosition down = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 1);
-        ChessPosition up = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 1);
-        ChessPosition right = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 2);
-
+    private static void calcMovesAroundPiece(ChessBoard board, ChessPosition currentPosition, ChessPosition upLeft, Collection<ChessMove> validMoves, ChessPosition upRight, ChessPosition downLeft, ChessPosition downRight) {
         // up and left:
         // if in bounds
         if (upLeft.getRow() <= 7 && upLeft.getColumn() >= 0) {
@@ -642,6 +573,34 @@ public class ChessPiece {
                 validMoves.add(new ChessMove(currentPosition, downRight, null));
             }
         }
+    }
+
+    public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves = new HashSet<>();
+        //just call for rook and bishop
+        for (ChessMove move : bishopMoves(board, currentPosition))
+            validMoves.add(move);
+        for (ChessMove move : rookMoves(board, currentPosition))
+            validMoves.add(move);
+
+        return validMoves;
+    }
+    public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
+        Collection<ChessMove> validMoves  = new HashSet<>();
+
+        ChessPosition upLeft = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn());
+        ChessPosition upRight = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 2);
+        ChessPosition downLeft = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn());
+        ChessPosition downRight = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 2);
+
+        ChessPosition left = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn());
+        ChessPosition down = new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 1);
+        ChessPosition up = new ChessPosition(currentPosition.getRow() + 2, currentPosition.getColumn() + 1);
+        ChessPosition right = new ChessPosition(currentPosition.getRow() + 1, currentPosition.getColumn() + 2);
+
+        // up and left:
+        // if in bounds
+        calcMovesAroundPiece(board, currentPosition, upLeft, validMoves, upRight, downLeft, downRight);
         // if in bounds
         if (up.getRow() <= 7) {
             //if there is a piece
