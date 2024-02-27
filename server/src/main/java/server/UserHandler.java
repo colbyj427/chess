@@ -35,10 +35,10 @@ public class UserHandler {
       UserRecord userInfo = serializer.fromJson(req.body(), UserRecord.class);
       return serializer.toJson(userService.login(userInfo.username(), userInfo.password()));
     }
-    catch(DataAccessException dataAccessException) {
-      ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
-      res.status(dataAccessException.statusCode);
-      res.body(dataAccessException.message);
+    catch(DataAccessException loginException) {
+      ErrorResponse caughtError = new ErrorResponse(loginException.statusCode, loginException.message);
+      res.status(loginException.statusCode);
+      res.body(loginException.message);
       var serializer = new Gson();
       return serializer.toJson(caughtError);
     }
@@ -50,11 +50,11 @@ public class UserHandler {
       res.status(200);
       return "{}";
     }
-    catch(DataAccessException dataAccessException) {
+    catch(DataAccessException logoutException) {
       //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
-      ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
-      res.status(dataAccessException.statusCode);
-      res.body(dataAccessException.message);
+      ErrorResponse caughtError = new ErrorResponse(logoutException.statusCode, logoutException.message);
+      res.status(logoutException.statusCode);
+      res.body(logoutException.message);
       var serializer = new Gson();
       return serializer.toJson(caughtError);
     }

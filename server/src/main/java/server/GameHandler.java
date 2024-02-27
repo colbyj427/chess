@@ -12,7 +12,6 @@ import service.GameService;
 import spark.Request;
 import spark.Response;
 
-import javax.xml.crypto.Data;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -32,11 +31,11 @@ public class GameHandler {
 //      res.body(gson.toJson(gameID));
       return serializer.toJson(gameRecord);
     }
-    catch(DataAccessException dataAccessException) {
+    catch(DataAccessException createGameException) {
       //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
-      ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
-      res.status(dataAccessException.statusCode);
-      res.body(dataAccessException.message);
+      ErrorResponse caughtError = new ErrorResponse(createGameException.statusCode, createGameException.message);
+      res.status(createGameException.statusCode);
+      res.body(createGameException.message);
       var serializer = new Gson();
       return serializer.toJson(caughtError);
     }
@@ -54,11 +53,11 @@ public class GameHandler {
       return jsonString;
 
     }
-    catch(DataAccessException dataAccessException) {
+    catch(DataAccessException listGamesException) {
       //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
-      ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
-      res.status(dataAccessException.statusCode);
-      res.body(dataAccessException.message);
+      ErrorResponse caughtError = new ErrorResponse(listGamesException.statusCode, listGamesException.message);
+      res.status(listGamesException.statusCode);
+      res.body(listGamesException.message);
       var serializer = new Gson();
       return serializer.toJson(caughtError);
     }
@@ -71,11 +70,11 @@ public class GameHandler {
       gameService.joinGame(authToken, joinGameRecord.playerColor(), joinGameRecord.gameID());
       return "{}";
     }
-    catch(DataAccessException dataAccessException) {
+    catch(DataAccessException joinGameException) {
       //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
-      ErrorResponse caughtError = new ErrorResponse(dataAccessException.statusCode, dataAccessException.message);
-      res.status(dataAccessException.statusCode);
-      res.body(dataAccessException.message);
+      ErrorResponse caughtError = new ErrorResponse(joinGameException.statusCode, joinGameException.message);
+      res.status(joinGameException.statusCode);
+      res.body(joinGameException.message);
       var serializer = new Gson();
       return serializer.toJson(caughtError);
     }
