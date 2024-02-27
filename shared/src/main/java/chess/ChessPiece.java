@@ -386,29 +386,9 @@ public class ChessPiece {
             if (forwardOne.getRow() == 7) {
                 calcPromotionMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             } else if (currentPosition.getRow() == 1) { //pawn hasn't moved yet
-                //add twos
-                if (board.getPiece(forwardOne) == null && board.getPiece(forwardTwo) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardTwo, null));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                } else if (board.getPiece(forwardOne) == null) { //add ones
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
-                }
+                calcPawnDoubleMoves(board, currentPosition, forwardOne, forwardTwo, validMoves, takePieceLeft, takePieceRight);
             } else { // add moves not promotion and not first moves
-                if (board.getPiece(forwardOne) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
-                }
+                calcPawnSingleMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             }
         } else { // black pawn moves
             ChessPosition forwardOne=new ChessPosition(currentPosition.getRow(), currentPosition.getColumn() + 1);
@@ -421,31 +401,40 @@ public class ChessPiece {
                 calcPromotionMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             } else if (currentPosition.getRow() == 6) { //pawn hasn't moved yet
                 //add twos
-                if (board.getPiece(forwardOne) == null && board.getPiece(forwardTwo) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardTwo, null));
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                } else if (board.getPiece(forwardOne) == null) { //add ones
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
-                }
+                calcPawnDoubleMoves(board, currentPosition, forwardOne, forwardTwo, validMoves, takePieceLeft, takePieceRight);
             } else { // add moves not promotion and not first moves
-                if (board.getPiece(forwardOne) == null) {
-                    validMoves.add(new ChessMove(currentPosition, forwardOne, null));
-                }
-                if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
-                }
-                if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
-                    validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
-                }
+                calcPawnSingleMoves(board, currentPosition, forwardOne, validMoves, takePieceLeft, takePieceRight);
             }
         }
         return validMoves;
+    }
+
+    private static void calcPawnSingleMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition forwardOne, Collection<ChessMove> validMoves, ChessPosition takePieceLeft, ChessPosition takePieceRight) {
+        if (board.getPiece(forwardOne) == null) {
+            validMoves.add(new ChessMove(currentPosition, forwardOne, null));
+        }
+        if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
+        }
+        if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
+        }
+    }
+
+    private static void calcPawnDoubleMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition forwardOne, ChessPosition forwardTwo, Collection<ChessMove> validMoves, ChessPosition takePieceLeft, ChessPosition takePieceRight) {
+        //add twos
+        if (board.getPiece(forwardOne) == null && board.getPiece(forwardTwo) == null) {
+            validMoves.add(new ChessMove(currentPosition, forwardTwo, null));
+            validMoves.add(new ChessMove(currentPosition, forwardOne, null));
+        } else if (board.getPiece(forwardOne) == null) { //add ones
+            validMoves.add(new ChessMove(currentPosition, forwardOne, null));
+        }
+        if (takePieceLeft.getColumn() >= 0 && board.getPiece(takePieceLeft) != null && board.getPiece(takePieceLeft).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceLeft, null));
+        }
+        if (takePieceRight.getColumn() <= 7 && board.getPiece(takePieceRight) != null && board.getPiece(takePieceRight).pieceColor != board.getPiece(currentPosition).pieceColor) {
+            validMoves.add(new ChessMove(currentPosition, takePieceRight, null));
+        }
     }
 
     private static void calcPromotionMoves(ChessBoard board, ChessPosition currentPosition, ChessPosition forwardOne, Collection<ChessMove> validMoves, ChessPosition takePieceLeft, ChessPosition takePieceRight) {
