@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Renamed variables to match standard.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Wrote positive and negative unit tests for each method in UserService class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece.class" afterDir="false" />
@@ -56,8 +54,8 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UnitTests.userServiceBadLogout">
-    <configuration name="UnitTests.userServiceBadLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UnitTests">
+    <configuration name="UnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -67,13 +65,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="serviceTests" />
       <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="METHOD_NAME" value="userServiceBadLogin" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnitTests.gameServiceBadJoinGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
+      <option name="METHOD_NAME" value="gameServiceBadJoinGame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests.userServiceBadLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.gameServiceBadListGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -83,13 +96,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="serviceTests" />
       <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="METHOD_NAME" value="userServiceBadLogout" />
+      <option name="METHOD_NAME" value="gameServiceBadListGames" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests.userServiceBadRegister" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.gameServiceSuccessfulJoinGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -99,13 +112,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="serviceTests" />
       <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="METHOD_NAME" value="userServiceBadRegister" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulJoinGame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests.userServiceSuccessfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.gameServiceSuccessfulListGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -115,23 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="serviceTests" />
       <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="METHOD_NAME" value="userServiceSuccessfulLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UnitTests.userServiceSuccessfulLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="serviceTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="serviceTests" />
-      <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="METHOD_NAME" value="userServiceSuccessfulLogout" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulListGames" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UnitTests.userServiceBadLogout" />
-        <item itemvalue="JUnit.UnitTests.userServiceSuccessfulLogout" />
-        <item itemvalue="JUnit.UnitTests.userServiceBadLogin" />
-        <item itemvalue="JUnit.UnitTests.userServiceSuccessfulLogin" />
-        <item itemvalue="JUnit.UnitTests.userServiceBadRegister" />
+        <item itemvalue="JUnit.UnitTests" />
+        <item itemvalue="JUnit.UnitTests.gameServiceSuccessfulJoinGame" />
+        <item itemvalue="JUnit.UnitTests.gameServiceBadJoinGame" />
+        <item itemvalue="JUnit.UnitTests.gameServiceBadListGames" />
+        <item itemvalue="JUnit.UnitTests.gameServiceSuccessfulListGames" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708984714351</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Wrote positive and negative unit tests for each method in UserService class.">
+      <option name="closed" value="true" />
+      <created>1708988096570</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1708988096570</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +337,8 @@
     <MESSAGE value="Implemented final endpoint, joinGame." />
     <MESSAGE value="All passoff tests passed locally." />
     <MESSAGE value="Renamed variables to match standard." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed variables to match standard." />
+    <MESSAGE value="Wrote positive and negative unit tests for each method in UserService class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote positive and negative unit tests for each method in UserService class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
