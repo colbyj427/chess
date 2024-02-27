@@ -40,15 +40,11 @@ public class ChessPiece {
     /**
      * @return Which team this chess piece belongs to
      */
-    public ChessGame.TeamColor getTeamColor() {
-        return pieceColor;
-    }
+    public ChessGame.TeamColor getTeamColor() {return pieceColor;}
     /**
      * @return which type of chess piece this piece is
      */
-    public PieceType getPieceType() {
-        return type;
-    }
+    public PieceType getPieceType() {return type;}
     /**
      * Calculates all the positions a chess piece can move to
      * Does not take into account moves that are illegal due to leaving the king in
@@ -93,16 +89,14 @@ public class ChessPiece {
         while (keepMoving) { // check the lower right boundaries
             if (downRight.getRow() <= 0 || downRight.getColumn() >= 7) {
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = downRight.getRow() + 1;
                 column = downRight.getColumn() + 1;
                 downRight= new ChessPosition(row - 1, column + 1);
                 if (board.getPiece(downRight) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(downRight).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, downRight, null));
                         break;
                     }
@@ -118,16 +112,14 @@ public class ChessPiece {
         while (keepMoving) { // check lower left boundaries
             if (downLeft.getRow() <= 0 || downLeft.getColumn() <= 0) {
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = downLeft.getRow() + 1;
                 column = downLeft.getColumn() + 1;
                 downLeft= new ChessPosition(row - 1, column - 1);
                 if (board.getPiece(downLeft) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(downLeft).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, downLeft, null));
                         break;
                     }
@@ -143,16 +135,14 @@ public class ChessPiece {
         while (keepMoving) { // check the upper right boundaries
             if (upRight.getRow() >=7 || upRight.getColumn() >= 7) {
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = upRight.getRow() + 1;
                 column = upRight.getColumn() + 1;
                 upRight= new ChessPosition(row + 1, column + 1);
                 if (board.getPiece(upRight) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(upRight).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, upRight, null));
                         break;
                     }
@@ -168,16 +158,14 @@ public class ChessPiece {
         while (keepMoving) {
             if (upLeft.getRow() >=7 || upLeft.getColumn() <= 0) { // check the upper left boundaries
                 break;
-            }
-        else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = upLeft.getRow() + 1;
                 column = upLeft.getColumn() + 1;
                 upLeft= new ChessPosition(row + 1, column - 1);
                 if (board.getPiece(upLeft) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(upLeft).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, upLeft, null));
                         break;
                     }
@@ -185,7 +173,7 @@ public class ChessPiece {
                     validMoves.add(new ChessMove(currentPosition, upLeft, null));
                 }
             }
-            }
+        }
     }
     public Collection<ChessMove> rookMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
@@ -206,16 +194,14 @@ public class ChessPiece {
         while (keepMoving) {
             if (right.getColumn() >=7) { // check the right boundary
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = right.getRow() + 1;
                 column = right.getColumn() + 1;
                 right= new ChessPosition(row, column + 1);
                 if (board.getPiece(right) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(right).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, right, null));
                         break;
                     }
@@ -231,16 +217,14 @@ public class ChessPiece {
         while (keepMoving) {
             if (left.getColumn() <= 0) { // check the left boundary
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = left.getRow() + 1;
                 column = left.getColumn() + 1;
                 left= new ChessPosition(row, column - 1);
                 if (board.getPiece(left) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(left).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, left, null));
                         break;
                     }
@@ -256,16 +240,14 @@ public class ChessPiece {
         while (keepMoving) {
             if (down.getRow() <=0) { // check the lower boundary
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = down.getRow() + 1;
                 column = down.getColumn() + 1;
                 down= new ChessPosition(row - 1, column);
                 if (board.getPiece(down) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(down).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, down, null));
                         break;
                     }
@@ -281,16 +263,14 @@ public class ChessPiece {
         while (keepMoving) {
             if (up.getRow() >=7) { // check the upper boundary
                 break;
-            }
-            else { //create new position to add if no same team piece is there.
+            } else { //create new position to add if no same team piece is there.
                 row = up.getRow() + 1;
                 column = up.getColumn() + 1;
                 up = new ChessPosition(row + 1, column);
                 if (board.getPiece(up) != null) { // if there is a piece there, either take it and stop, or stop if your team.
                     if (board.getPiece(currentPosition).pieceColor == board.getPiece(up).pieceColor) {
                         break;
-                    }
-                    else {
+                    } else {
                         validMoves.add(new ChessMove(currentPosition, up, null));
                         break;
                     }
@@ -464,10 +444,8 @@ public class ChessPiece {
     }
     public Collection<ChessMove> queenMoves(ChessBoard board, ChessPosition currentPosition) {
         Collection<ChessMove> validMoves = new HashSet<>();
-        for (ChessMove move : bishopMoves(board, currentPosition))
-            validMoves.add(move);
-        for (ChessMove move : rookMoves(board, currentPosition))
-            validMoves.add(move);
+        validMoves.addAll(bishopMoves(board, currentPosition));
+        validMoves.addAll(rookMoves(board, currentPosition));
         return validMoves;
     }
     public Collection<ChessMove> kingMoves(ChessBoard board, ChessPosition currentPosition) {
