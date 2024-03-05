@@ -1,7 +1,6 @@
 package dataAccess;
 
 import model.GameRecord;
-import service.GameService;
 
 import java.util.Collection;
 

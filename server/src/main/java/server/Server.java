@@ -3,6 +3,8 @@ package server;
 import dataAccess.*;
 import spark.*;
 
+import java.sql.SQLException;
+
 public class Server {
     public static UserDaoInterface memoryUserDao = new MemoryUserDao();
     public static AuthDaoInterface memoryAuthDao = new MemoryAuthDao();
@@ -11,6 +13,14 @@ public class Server {
 
     public int run(int desiredPort) {
         Spark.port(desiredPort);
+
+        try {
+            DatabaseManager.configureDatabase();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        }
 
         Spark.staticFiles.location("web");
 

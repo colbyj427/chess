@@ -1,5 +1,7 @@
 package dataAccess;
 
+import com.google.gson.Gson;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -8,6 +10,10 @@ public class DatabaseManager {
     private static final String user;
     private static final String password;
     private static final String connectionUrl;
+
+    public DatabaseManager() throws SQLException, DataAccessException {
+            configureDatabase();
+    }
 
     /*
      * Load the database information for the db.properties file.
@@ -34,7 +40,7 @@ public class DatabaseManager {
     /**
      * Creates the database if it does not already exist.
      */
-    static void createDatabase() throws DataAccessException {
+    public static void createDatabase() throws DataAccessException {
         try {
             var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
             var conn = DriverManager.getConnection(connectionUrl, user, password);
@@ -58,7 +64,7 @@ public class DatabaseManager {
      * }
      * </code>
      */
-    static Connection getConnection() throws DataAccessException {
+    public static Connection getConnection() throws DataAccessException {
         try {
             var conn = DriverManager.getConnection(connectionUrl, user, password);
             conn.setCatalog(databaseName);
@@ -66,5 +72,63 @@ public class DatabaseManager {
         } catch (SQLException e) {
             throw new DataAccessException(500, e.getMessage());
         }
+    }
+
+    /**
+     * Creates the tables if they do not already exist.
+     */
+    private static final String[] createStatements = {
+//            """
+//            drop table if exists games;
+//            """,
+            """
+            CREATE TABLE IF NOT EXISTS 
+            users ( 
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username varchar(255), 
+            password varchar(255), 
+            email varchar(255));
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS 
+            authentication (
+            id INT AUTO_INCREMENT PRIMARY KEY, 
+            authToken varchar(255), 
+            username varchar(255));
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS 
+            games (
+            id INT AUTO_INCREMENT PRIMARY KEY, 
+            gameID INT, 
+            whiteUsername varchar(255), 
+            blackUsername varchar(255), 
+            gameName varchar(255), 
+            game JSON, 
+            spectators JSON);
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS 
+            joinGame (
+            id INT AUTO_INCREMENT PRIMARY KEY, 
+            playerColor varchar(255), 
+            gameID int);
+            """
+    };
+
+    public static String configureDatabase() throws SQLException, DataAccessException {
+        DatabaseManager.createDatabase();
+        try (var conn = DatabaseManager.getConnection()) {
+            for (var statement : createStatements) {
+                try (var preparedStatement = conn.prepareStatement(statement)) {
+                    preparedStatement.executeUpdate();
+                }
+            }
+        } catch (SQLException | DataAccessException ex) {
+            ErrorResponse caughtError = new ErrorResponse(500, ex.getMessage());
+            var serializer = new Gson();
+            return serializer.toJson(caughtError);
+        }
+        return "";
     }
 }

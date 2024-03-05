@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Added three starter files for phase 4.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="created MySQL interface files and added stubbed methods.">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/PawnMoveCalculatorMethods.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +71,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.passoffTests in shared">
+  <component name="RunManager">
     <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -360,7 +369,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709272031787</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="added my username and password to the database properties.">
+      <option name="closed" value="true" />
+      <created>1709329908050</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1709329908050</updated>
+    </task>
+    <task id="LOCAL-00030" summary="created MySQL interface files and added stubbed methods.">
+      <option name="closed" value="true" />
+      <created>1709358407639</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1709358407639</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -375,8 +400,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed authdata constructor" />
-    <MESSAGE value="added getters and setters to dataModels." />
     <MESSAGE value="added CRUD operations classes to data access package." />
     <MESSAGE value="Added the files i actually need for dao and interfaces and began implementing a clear handler/service." />
     <MESSAGE value="added handler files to server package." />
@@ -400,7 +423,9 @@
     <MESSAGE value="Shortened chess piece file to just over 500 lines." />
     <MESSAGE value="Shortened chess piece file to 500 lines by refactoring loops and correcting checkstyle warnings." />
     <MESSAGE value="Added three starter files for phase 4." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added three starter files for phase 4." />
+    <MESSAGE value="added my username and password to the database properties." />
+    <MESSAGE value="created MySQL interface files and added stubbed methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="created MySQL interface files and added stubbed methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -417,11 +442,6 @@
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
           <line>208</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/service/ClearService.java</url>
