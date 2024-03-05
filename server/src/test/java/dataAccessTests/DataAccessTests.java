@@ -1,5 +1,6 @@
 package dataAccessTests;
 
+import dataAccess.MySQLUserDao;
 import model.UserRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,12 +8,20 @@ import service.UserService;
 
 public class DataAccessTests {
   @Test
-  public void MySQLUserDaoSuccessfulLogin() {
-    UserRecord newUser = new UserRecord("username", "password", "email@gmail.com");
+  public void MySQLUserDaoSuccessfulAddUser() {
+    MySQLUserDao mySQLUserDao = new MySQLUserDao();
+    UserRecord newUser = new UserRecord("spongebob", "squarepants", "pineapple@gmail.com");
 
     Assertions.assertDoesNotThrow(() -> {
-      userService.register(newUser.username(), newUser.password(), newUser.email());
-      userService.login(newUser.username(), newUser.password());
+      mySQLUserDao.addUser(newUser.username(), newUser.password(), newUser.email());
+    });
+  }
+  @Test
+  public void MySQLUserDaoSuccessfulGetUser() {
+    MySQLUserDao mySQLUserDao = new MySQLUserDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLUserDao.getUser("username", "password");
     });
   }
 }
