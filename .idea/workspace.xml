@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="created MySQL interface files and added stubbed methods.">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Began mysql user dao implementation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/PawnMoveCalculatorMethods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.infernus.idea.checkstyle.CheckStyleConfigurable"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -71,7 +71,23 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DataAccessTests.userServiceSuccessfulLogin">
+    <configuration name="DataAccessTests.userServiceSuccessfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataAccessTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataAccessTests" />
+      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="userServiceSuccessfulLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -87,7 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTests.userServiceSuccessfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -97,15 +113,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="serviceTests" />
       <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="chessPieceTests in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests" />
+      <option name="METHOD_NAME" value="userServiceSuccessfulLogin" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DataAccessTests.userServiceSuccessfulLogin" />
+        <item itemvalue="JUnit.UnitTests.userServiceSuccessfulLogin" />
+        <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.passoffTests in shared" />
         <item itemvalue="JUnit.chessTests in shared" />
-        <item itemvalue="JUnit.chessPieceTests in shared" />
-        <item itemvalue="JUnit.UnitTests" />
-        <item itemvalue="JUnit.StandardAPITests" />
       </list>
     </recent_temporary>
   </component>
@@ -385,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709358407639</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Began mysql user dao implementation.">
+      <option name="closed" value="true" />
+      <created>1709668963772</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668963772</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added CRUD operations classes to data access package." />
     <MESSAGE value="Added the files i actually need for dao and interfaces and began implementing a clear handler/service." />
     <MESSAGE value="added handler files to server package." />
     <MESSAGE value="first implementation of clear handler and service." />
@@ -425,7 +441,8 @@
     <MESSAGE value="Added three starter files for phase 4." />
     <MESSAGE value="added my username and password to the database properties." />
     <MESSAGE value="created MySQL interface files and added stubbed methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="created MySQL interface files and added stubbed methods." />
+    <MESSAGE value="Began mysql user dao implementation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Began mysql user dao implementation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -442,20 +459,6 @@
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
           <line>208</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/service/ClearService.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java</url>
-          <line>10</line>
-          <properties class="dataAccess.MemoryUserDao" method="getUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

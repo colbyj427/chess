@@ -6,7 +6,7 @@ import spark.*;
 import java.sql.SQLException;
 
 public class Server {
-    public static UserDaoInterface memoryUserDao = new MemoryUserDao();
+    public static UserDaoInterface memoryUserDao = new MySQLUserDao();
     public static AuthDaoInterface memoryAuthDao = new MemoryAuthDao();
     public static GameDaoInterface memoryGameDao = new MemoryGameDao();
 

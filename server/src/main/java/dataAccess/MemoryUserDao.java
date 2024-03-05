@@ -18,13 +18,6 @@ public class MemoryUserDao implements UserDaoInterface{
   }
 
   public UserRecord addUser(String username, String password, String email) throws DataAccessException{
-    //checks if any field is null or empty
-    if (username == null | password == null | email == null){
-      throw new DataAccessException(400, "bad request");
-    }
-    if (username.isEmpty() | password.isEmpty() | email.isEmpty()){
-      throw new DataAccessException(400, "bad request");
-    }
     for (UserRecord user: userDataArray) {
       if (user.username().equals(username) && user.password().equals(password)) {
         throw new DataAccessException(403, "already taken");
