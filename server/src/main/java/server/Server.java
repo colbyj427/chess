@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Server {
     public static UserDaoInterface memoryUserDao = new MySQLUserDao();
-    public static AuthDaoInterface memoryAuthDao = new MemoryAuthDao();
+    public static AuthDaoInterface memoryAuthDao = new MySQLAuthDao();
     public static GameDaoInterface memoryGameDao = new MemoryGameDao();
 
 

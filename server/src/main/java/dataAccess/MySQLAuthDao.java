@@ -6,7 +6,7 @@ import model.UserRecord;
 import java.sql.ResultSet;
 import java.util.UUID;
 
-public class MySQLAuthDao {
+public class MySQLAuthDao implements AuthDaoInterface {
   public AuthRecord getAuth(String authToken) throws DataAccessException{
     var statement="SELECT authToken, username FROM authentication WHERE authToken = ?;";
     try {
@@ -41,7 +41,10 @@ public class MySQLAuthDao {
       var conn=DatabaseManager.getConnection();
       var preparedStatement=conn.prepareStatement(statement);
       preparedStatement.setString(1, authToken);
-      preparedStatement.executeUpdate();
+      int numDeleted = preparedStatement.executeUpdate();
+      if (numDeleted == 0) {
+        throw new DataAccessException(401, "unauthorized");
+      }
     } catch (Exception dataAccessException) {
       throw new DataAccessException(401, "unauthorized");
     }
@@ -59,6 +62,6 @@ public class MySQLAuthDao {
   private AuthRecord readAuth(ResultSet rs) throws Exception {
     String newAuthToken=rs.getString("authToken");
     String newUsername=rs.getString("username");
-    return new AuthRecord(newUsername, newAuthToken);
+    return new AuthRecord(newAuthToken, newUsername);
   }
 }
