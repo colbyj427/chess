@@ -11,7 +11,10 @@ import java.util.Collection;
 
 public class MySQLGameDao implements GameDaoInterface{
   public GameRecord createGame(String gameName) throws DataAccessException{
-    if (gameName == null | gameName.length() == 0) {
+    if (gameName == null) {
+      throw new DataAccessException(400, "bad request");
+    }
+    if (gameName.isEmpty()) {
       throw new DataAccessException(400, "bad request");
     }
     int gameID = UniqueIDGenerator.generateUniqueID();
