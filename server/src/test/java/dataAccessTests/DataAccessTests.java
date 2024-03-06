@@ -12,9 +12,13 @@ import service.ClearService;
 import service.GameService;
 import service.UserService;
 
+import java.util.Collection;
+
 public class DataAccessTests {
+
+//  MySQLUserDao Tests
   @Test
-  public void MySQLUserDaoSuccessfulAddUser() {
+  public void SuccessfulAddUser() {
     MySQLUserDao mySQLUserDao = new MySQLUserDao();
     UserRecord newUser = new UserRecord("spongebob", "squarepants", "pineapple@gmail.com");
 
@@ -24,7 +28,7 @@ public class DataAccessTests {
     });
   }
   @Test
-  public void MySQLUserDaoSuccessfulGetUser() {
+  public void SuccessfulGetUser() {
     MySQLUserDao mySQLUserDao = new MySQLUserDao();
     UserRecord newUser = new UserRecord("spongebob", "squarepants", "pineapple@gmail.com");
     Assertions.assertDoesNotThrow(() -> {
@@ -33,8 +37,11 @@ public class DataAccessTests {
       UserRecord userRecord = mySQLUserDao.getUser(newUser.username(), newUser.password());
     });
   }
+
+
+//  MySQLAuthDao Tests
   @Test
-  public void MySQLUserDaoSuccessfulAddAuth() {
+  public void SuccessfulAddAuth() {
     MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -43,7 +50,7 @@ public class DataAccessTests {
     });
   }
   @Test
-  public void MySQLUserDaoSuccessfulRemoveAuth() {
+  public void SuccessfulRemoveAuth() {
     MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -53,7 +60,7 @@ public class DataAccessTests {
     });
   }
   @Test
-  public void MySQLUserDaoSuccessfulGetAuth() {
+  public void SuccessfulGetAuth() {
     MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -62,8 +69,11 @@ public class DataAccessTests {
       mySQLAuthDao.getAuth(authRecord.authToken());
     });
   }
+
+
+//  MySQLGameDao Tests
   @Test
-  public void MySQLGameDaoSuccessfulCreateGame() {
+  public void SuccessfulCreateGame() {
     MySQLGameDao mySQLGameDao = new MySQLGameDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -72,7 +82,7 @@ public class DataAccessTests {
     });
   }
   @Test
-  public void MySQLGameDaoSuccessfulGetGame() {
+  public void SuccessfulGetGame() {
     MySQLGameDao mySQLGameDao = new MySQLGameDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -82,7 +92,7 @@ public class DataAccessTests {
     });
   }
   @Test
-  public void MySQLGameDaoSuccessfulAddObserver() {
+  public void SuccessfulAddObserver() {
     MySQLGameDao mySQLGameDao = new MySQLGameDao();
 
     Assertions.assertDoesNotThrow(() -> {
@@ -90,6 +100,28 @@ public class DataAccessTests {
       GameRecord gameRecord = mySQLGameDao.createGame("aNewGame");
       mySQLGameDao.addObserver("justWatching", gameRecord);
       mySQLGameDao.addObserver("ilovechess", gameRecord);
+    });
+  }
+  @Test
+  public void SuccessfulAddPlayer() {
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLGameDao.clear();
+      GameRecord gameRecord = mySQLGameDao.createGame("aNewGame");
+      mySQLGameDao.addPlayer("imgonnawin", "WHITE" ,gameRecord);
+      mySQLGameDao.addPlayer("ilovechess", "BLACK", gameRecord);
+    });
+  }
+  @Test
+  public void SuccessfulListGames() {
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLGameDao.clear();
+      GameRecord gameRecord = mySQLGameDao.createGame("aNewGame");
+      GameRecord gameRecord2 = mySQLGameDao.createGame("anotherGame");
+      Collection<GameRecord> games = mySQLGameDao.listGames();
     });
   }
   @Test

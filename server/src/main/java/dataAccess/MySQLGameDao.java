@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class MySQLGameDao {
+public class MySQLGameDao implements GameDaoInterface{
   public GameRecord createGame(String gameName) throws DataAccessException{
     int gameID = UniqueIDGenerator.generateUniqueID();
     ChessGame chessGame = new ChessGame();
@@ -48,12 +48,21 @@ public class MySQLGameDao {
       throw new DataAccessException(400, "bad request");
     }
   }
-//
-//  public Collection<GameRecord> listGames() throws DataAccessException{
-//    .
-//  }
-//
-//
+  public Collection<GameRecord> listGames() throws DataAccessException{
+    Collection<GameRecord> allGames = new ArrayList<>();
+    var statement="SELECT * FROM games;";
+    try {
+      var conn=DatabaseManager.getConnection();
+      var preparedStatement=conn.prepareStatement(statement);
+      ResultSet rs = preparedStatement.executeQuery();
+      while (rs.next()) {
+        allGames.add(readGame(rs));
+      }
+      return allGames;
+    } catch (Exception dataAccessException) {
+      throw new DataAccessException(500, dataAccessException.getMessage());
+    }
+  }
   public GameRecord addObserver(String username, GameRecord gameRecord) throws DataAccessException{
     ArrayList<String> newSpectators = new ArrayList<>(gameRecord.spectators().size());
 
@@ -80,12 +89,45 @@ public class MySQLGameDao {
     } catch (Exception dataAccessException) {
       throw new DataAccessException(400, "bad request");
     }
-
   }
-//
-//  public GameRecord addPlayer(String username, String playerColor, GameRecord gameRecord) throws DataAccessException{
-//    .
-//  }
+  public GameRecord addPlayer(String username, String playerColor, GameRecord gameRecord) throws DataAccessException {
+    if (playerColor.equals("WHITE") & gameRecord.whiteUsername() == null) {
+      GameRecord newGameRecord=new GameRecord(gameRecord.gameID(), username, gameRecord.blackUsername(),
+              gameRecord.gameName(), gameRecord.game(), gameRecord.spectators());
+      var statement="UPDATE games SET whiteUsername = ? WHERE gameID = ?;";
+      try {
+        var conn=DatabaseManager.getConnection();
+        var preparedStatement=conn.prepareStatement(statement);
+        preparedStatement.setString(1, username);
+        preparedStatement.setInt(2, gameRecord.gameID());
+        int numAffected=preparedStatement.executeUpdate();
+        if (numAffected == 0) {
+          throw new DataAccessException(400, "bad request");
+        }
+        return newGameRecord;
+      } catch (Exception e) {
+        throw new DataAccessException(400, "bad request");
+      }
+    } else if (playerColor.equals("BLACK") & gameRecord.blackUsername() == null) {
+      GameRecord newGameRecord=new GameRecord(gameRecord.gameID(), gameRecord.whiteUsername(), username,
+              gameRecord.gameName(), gameRecord.game(), gameRecord.spectators());
+      var statement="UPDATE games SET blackUsername = ? WHERE gameID = ?;";
+      try {
+        var conn=DatabaseManager.getConnection();
+        var preparedStatement=conn.prepareStatement(statement);
+        preparedStatement.setString(1, username);
+        preparedStatement.setInt(2, gameRecord.gameID());
+        int numAffected=preparedStatement.executeUpdate();
+        if (numAffected == 0) {
+          throw new DataAccessException(400, "bad request");
+        }
+        return newGameRecord;
+      } catch (Exception e) {
+        throw new DataAccessException(400, "bad request");
+      }
+    }
+    throw new DataAccessException(403, "already taken");
+  }
   public void clear() throws DataAccessException {
     var statement="DELETE FROM games;";
     try {
