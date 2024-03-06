@@ -14,6 +14,7 @@ public class MySQLAuthDao {
       var preparedStatement=conn.prepareStatement(statement);
       preparedStatement.setString(1, authToken);
       ResultSet rs = preparedStatement.executeQuery();
+      rs.next();
       return readAuth(rs);
     } catch (Exception dataAccessException) {
       throw new DataAccessException(401, "unauthorized");

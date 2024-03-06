@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="wrote unit tests for sql add and get user functions for debugging.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="MySQL user dao passing all tests, first implementation of mySQL auth dao.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,23 +61,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StandardAPITests">
-    <configuration name="DataAccessTests.MySQLSuccessfulClear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataAccessTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataAccessTests" />
-      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
-      <option name="METHOD_NAME" value="MySQLSuccessfulClear" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.DataAccessTests.MySQLUserDaoSuccessfulGetAuth">
     <configuration name="DataAccessTests.MySQLUserDaoSuccessfulAddAuth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -107,6 +89,22 @@
       <option name="PACKAGE_NAME" value="dataAccessTests" />
       <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
       <option name="METHOD_NAME" value="MySQLUserDaoSuccessfulAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataAccessTests.MySQLUserDaoSuccessfulGetAuth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataAccessTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataAccessTests" />
+      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="MySQLUserDaoSuccessfulGetAuth" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DataAccessTests.MySQLUserDaoSuccessfulGetAuth" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.DataAccessTests.MySQLUserDaoSuccessfulRemoveAuth" />
         <item itemvalue="JUnit.DataAccessTests.MySQLUserDaoSuccessfulAddAuth" />
         <item itemvalue="JUnit.DataAccessTests.MySQLUserDaoSuccessfulAddUser" />
-        <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
       </list>
     </recent_temporary>
   </component>
@@ -426,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709680526870</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="MySQL user dao passing all tests, first implementation of mySQL auth dao.">
+      <option name="closed" value="true" />
+      <created>1709752479149</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1709752479149</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first implementation of clear handler and service." />
     <MESSAGE value="First implementation of clear endpoint." />
     <MESSAGE value="First implementation of the register endpoint." />
     <MESSAGE value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
@@ -466,7 +471,8 @@
     <MESSAGE value="Began mysql user dao implementation." />
     <MESSAGE value="implemented MySQLUserDao" />
     <MESSAGE value="wrote unit tests for sql add and get user functions for debugging." />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote unit tests for sql add and get user functions for debugging." />
+    <MESSAGE value="MySQL user dao passing all tests, first implementation of mySQL auth dao." />
+    <option name="LAST_COMMIT_MESSAGE" value="MySQL user dao passing all tests, first implementation of mySQL auth dao." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -496,15 +502,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java</url>
-          <line>50</line>
-          <properties class="dataAccessTests.DataAccessTests" method="MySQLUserDaoSuccessfulRemoveAuth">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

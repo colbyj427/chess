@@ -57,4 +57,14 @@ public class DataAccessTests {
       mySQLAuthDao.removeAuth(auth.authToken());
     });
   }
+  @Test
+  public void MySQLUserDaoSuccessfulGetAuth() {
+    MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLAuthDao.clear();
+      AuthRecord authRecord = mySQLAuthDao.addAuth("spongebob");
+      mySQLAuthDao.getAuth(authRecord.authToken());
+    });
+  }
 }
