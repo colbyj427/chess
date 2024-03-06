@@ -1,11 +1,15 @@
 package dataAccessTests;
 
 import dataAccess.MySQLAuthDao;
+import dataAccess.MySQLGameDao;
 import dataAccess.MySQLUserDao;
 import model.AuthRecord;
+import model.GameRecord;
 import model.UserRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import service.ClearService;
+import service.GameService;
 import service.UserService;
 
 public class DataAccessTests {
@@ -27,15 +31,6 @@ public class DataAccessTests {
       mySQLUserDao.clear();
       mySQLUserDao.addUser(newUser.username(), newUser.password(), newUser.email());
       UserRecord userRecord = mySQLUserDao.getUser(newUser.username(), newUser.password());
-    });
-  }
-  @Test
-  public void MySQLSuccessfulClear() {
-    MySQLUserDao mySQLUserDao = new MySQLUserDao();
-    MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
-    Assertions.assertDoesNotThrow(() -> {
-      mySQLUserDao.clear();
-      mySQLAuthDao.clear();
     });
   }
   @Test
@@ -65,6 +60,47 @@ public class DataAccessTests {
       mySQLAuthDao.clear();
       AuthRecord authRecord = mySQLAuthDao.addAuth("spongebob");
       mySQLAuthDao.getAuth(authRecord.authToken());
+    });
+  }
+  @Test
+  public void MySQLGameDaoSuccessfulCreateGame() {
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLGameDao.clear();
+      mySQLGameDao.createGame("aNewGame");
+    });
+  }
+  @Test
+  public void MySQLGameDaoSuccessfulGetGame() {
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLGameDao.clear();
+      GameRecord gameRecord = mySQLGameDao.createGame("aNewGame");
+      mySQLGameDao.getGame(gameRecord.gameID());
+    });
+  }
+  @Test
+  public void MySQLGameDaoSuccessfulAddObserver() {
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLGameDao.clear();
+      GameRecord gameRecord = mySQLGameDao.createGame("aNewGame");
+      mySQLGameDao.addObserver("justWatching", gameRecord);
+      mySQLGameDao.addObserver("ilovechess", gameRecord);
+    });
+  }
+  @Test
+  public void MySQLSuccessfulClear() {
+    MySQLUserDao mySQLUserDao = new MySQLUserDao();
+    MySQLAuthDao mySQLAuthDao = new MySQLAuthDao();
+    MySQLGameDao mySQLGameDao = new MySQLGameDao();
+    Assertions.assertDoesNotThrow(() -> {
+      mySQLUserDao.clear();
+      mySQLAuthDao.clear();
+      mySQLGameDao.clear();
     });
   }
 }

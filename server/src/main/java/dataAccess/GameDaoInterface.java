@@ -8,7 +8,7 @@ public interface GameDaoInterface {
   GameRecord createGame(String gameName) throws DataAccessException;
   Collection<GameRecord> listGames() throws DataAccessException;
   public GameRecord getGame(int gameID) throws DataAccessException;
-  void clear();
+  void clear() throws DataAccessException;
 
   public GameRecord addObserver(String username, GameRecord gameRecord) throws DataAccessException;
 

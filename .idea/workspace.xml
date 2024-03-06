@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="MySQL auth dao passing all unit tests.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StandardAPITests">
+  <component name="RunManager" selected="JUnit.DataAccessTests.MySQLGameDaoSuccessfulAddObserver">
     <configuration name="DataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -76,81 +75,83 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataAccessTests" />
       <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulGetGame" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DataAccessTests.MySQLGameDaoSuccessfulAddObserver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="PATTERN" value="dataAccessTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="PACKAGE_NAME" value="dataAccessTests" />
+      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="MySQLGameDaoSuccessfulAddObserver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataAccessTests.gameServiceSuccessfulCreateGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataAccessTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataAccessTests" />
+      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulCreateGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataAccessTests.gameServiceSuccessfulGetGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataAccessTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataAccessTests" />
+      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulGetGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="serviceTests.UnitTests" />
+      <option name="METHOD_NAME" value="gameServiceSuccessfulCreateGame" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.failLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="failLogout" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.gamesList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="gamesList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.uniqueAuthorizationTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="uniqueAuthorizationTokens" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.StandardAPITests.gamesList" />
-        <item itemvalue="JUnit.StandardAPITests.failLogout" />
-        <item itemvalue="JUnit.StandardAPITests.uniqueAuthorizationTokens" />
+        <item itemvalue="JUnit.DataAccessTests.MySQLGameDaoSuccessfulAddObserver" />
         <item itemvalue="JUnit.DataAccessTests" />
+        <item itemvalue="JUnit.DataAccessTests.gameServiceSuccessfulGetGame" />
+        <item itemvalue="JUnit.DataAccessTests.gameServiceSuccessfulCreateGame" />
+        <item itemvalue="JUnit.UnitTests" />
       </list>
     </recent_temporary>
   </component>
@@ -443,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709753414750</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order.">
+      <option name="closed" value="true" />
+      <created>1709755782040</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1709755782040</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First implementation of the register endpoint." />
     <MESSAGE value="Implemented Register endpoint, login endpoint, and first draft of logout endpoint." />
     <MESSAGE value="Logout endpoint runs but does not return correct string." />
     <MESSAGE value="Implemented logout and one clearservice unit test." />
@@ -483,7 +491,8 @@
     <MESSAGE value="wrote unit tests for sql add and get user functions for debugging." />
     <MESSAGE value="MySQL user dao passing all tests, first implementation of mySQL auth dao." />
     <MESSAGE value="MySQL auth dao passing all unit tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="MySQL auth dao passing all unit tests." />
+    <MESSAGE value="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order." />
+    <option name="LAST_COMMIT_MESSAGE" value="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -546,15 +555,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java</url>
-          <line>26</line>
-          <properties class="dataAccess.MemoryGameDao" method="listGames">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
