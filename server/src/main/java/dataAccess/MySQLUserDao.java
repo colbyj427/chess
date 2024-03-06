@@ -39,6 +39,9 @@ public class MySQLUserDao implements UserDaoInterface{
       //putting that throw in a catch fixes the double registration test but fails all the rest.
       throw new SQLException();
     } catch (DataAccessException e){
+      if (password == null | password.length() == 0){
+        throw new DataAccessException(400, "bad request");
+      }
       BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
       String hashedPassword = encoder.encode(password);
       UserRecord newUser=new UserRecord(username, password, email);
@@ -52,7 +55,7 @@ public class MySQLUserDao implements UserDaoInterface{
         preparedStatement.executeUpdate();
         return newUser;
       } catch (Exception dataAccessException) {
-        throw new DataAccessException(500, dataAccessException.getMessage());
+        throw new DataAccessException(400, "bad request");
       }
     }
     catch (SQLException e) {

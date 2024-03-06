@@ -163,8 +163,4 @@ public class UnitTests {
       gameService.joinGame(authRecord.authToken(), "WHITE", 2);
     });
   }
-//  public void clearAll() {
-//    ClearService clearService = new ClearService();
-//    clearService.clear();
-//  }
 }

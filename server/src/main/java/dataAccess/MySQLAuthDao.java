@@ -21,6 +21,9 @@ public class MySQLAuthDao implements AuthDaoInterface {
     }
   }
   public AuthRecord addAuth(String username) throws DataAccessException{
+    if (username == null | username.length() == 0) {
+      throw new DataAccessException(400, "bad request");
+    }
     String authToken = UUID.randomUUID().toString();
     AuthRecord auth = new AuthRecord(authToken, username);
     var statement="INSERT INTO authentication (username, authToken) VALUES ( ?, ?)";
@@ -32,7 +35,7 @@ public class MySQLAuthDao implements AuthDaoInterface {
       preparedStatement.executeUpdate();
       return auth;
     } catch (Exception dataAccessException) {
-      throw new DataAccessException(500, dataAccessException.getMessage());
+      throw new DataAccessException(400, "bad request");
     }
   }
   public void removeAuth(String authToken) throws DataAccessException{

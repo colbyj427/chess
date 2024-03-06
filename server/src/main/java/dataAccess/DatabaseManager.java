@@ -78,23 +78,22 @@ public class DatabaseManager {
      * Creates the tables if they do not already exist.
      */
     private static final String[] createStatements = {
-//            """
-//            drop table if exists games;
-//            """,
             """
             CREATE TABLE IF NOT EXISTS 
             users ( 
             id INT AUTO_INCREMENT PRIMARY KEY,
-            username varchar(255), 
-            password varchar(255), 
-            email varchar(255));
+            username varchar(255) NOT NULL, 
+            password varchar(255) NOT NULL, 
+            email varchar(255) NOT NULL
+            );
             """,
             """
             CREATE TABLE IF NOT EXISTS 
             authentication (
             id INT AUTO_INCREMENT PRIMARY KEY, 
-            authToken varchar(255), 
-            username varchar(255));
+            authToken varchar(255) NOT NULL, 
+            username varchar(255) NOT NULL
+            );
             """,
             """
             CREATE TABLE IF NOT EXISTS 
@@ -105,14 +104,8 @@ public class DatabaseManager {
             blackUsername varchar(255), 
             gameName varchar(255), 
             game JSON, 
-            spectators JSON);
-            """,
-            """
-            CREATE TABLE IF NOT EXISTS 
-            joinGame (
-            id INT AUTO_INCREMENT PRIMARY KEY, 
-            playerColor varchar(255), 
-            gameID int);
+            spectators JSON
+            );
             """
     };
 

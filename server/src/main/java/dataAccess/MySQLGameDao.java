@@ -11,6 +11,9 @@ import java.util.Collection;
 
 public class MySQLGameDao implements GameDaoInterface{
   public GameRecord createGame(String gameName) throws DataAccessException{
+    if (gameName == null | gameName.length() == 0) {
+      throw new DataAccessException(400, "bad request");
+    }
     int gameID = UniqueIDGenerator.generateUniqueID();
     ChessGame chessGame = new ChessGame();
     ArrayList<String> spectators = new ArrayList<>();
@@ -32,7 +35,7 @@ public class MySQLGameDao implements GameDaoInterface{
       preparedStatement.executeUpdate();
       return gameRecord;
     } catch (Exception dataAccessException) {
-      throw new DataAccessException(500, dataAccessException.getMessage());
+      throw new DataAccessException(400, "bad request");
     }
   }
   public GameRecord getGame(int gameID) throws DataAccessException{
