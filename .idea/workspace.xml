@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Fixed null ptr exception in create game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -489,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709767807909</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed null ptr exception in create game.">
+      <option name="closed" value="true" />
+      <created>1709768354261</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709768354261</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -504,7 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="All passoff tests passed locally." />
     <MESSAGE value="Renamed variables to match standard." />
     <MESSAGE value="Wrote positive and negative unit tests for each method in UserService class." />
     <MESSAGE value="Created unit tests for each service class method." />
@@ -529,7 +535,8 @@
     <MESSAGE value="Fully implemented, passing each test individually but not as a whole." />
     <MESSAGE value="ALl tests passed in autograder, not locally." />
     <MESSAGE value="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary." />
+    <MESSAGE value="Fixed null ptr exception in create game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed null ptr exception in create game." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -546,7 +553,7 @@
           <properties class="dataAccess.DataAccessException" package="dataAccess" />
           <option name="timeStamp" value="20" />
         </breakpoint>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
           <line>208</line>
           <option name="timeStamp" value="8" />
@@ -560,11 +567,6 @@
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
           <line>300</line>
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
-          <line>569</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
