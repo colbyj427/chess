@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="chess board prints except for pieces.">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,31 +30,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2ceNMUJftLBdhItY0ICe2JHB0Nb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="chess.PawnMoveCalculatorMethods" />
@@ -513,7 +513,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710183818203</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="began drawing chess board.">
+      <option name="closed" value="true" />
+      <created>1710363773346</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1710363773346</updated>
+    </task>
+    <task id="LOCAL-00046" summary="chess board prints except for pieces.">
+      <option name="closed" value="true" />
+      <created>1710388417123</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1710388417123</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,8 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Wrote positive and negative unit tests for each method in UserService class." />
-    <MESSAGE value="Created unit tests for each service class method." />
     <MESSAGE value="Renamed exceptions for cod quality duplicate code." />
     <MESSAGE value="Refactored pawn promotion calculation to remove duplicate code." />
     <MESSAGE value="Refactored pawn single and double moves calculation to remove duplicate code." />
@@ -553,7 +567,9 @@
     <MESSAGE value="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary." />
     <MESSAGE value="Fixed null ptr exception in create game." />
     <MESSAGE value="Added starter code for phase 5." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added starter code for phase 5." />
+    <MESSAGE value="began drawing chess board." />
+    <MESSAGE value="chess board prints except for pieces." />
+    <option name="LAST_COMMIT_MESSAGE" value="chess board prints except for pieces." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
