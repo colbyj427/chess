@@ -13,9 +13,10 @@ public class DrawBoard {
   private static final int BOARD_SIZE_IN_SQUARES=8;
   private static final int SQUARE_SIZE_IN_CHARS=3;
   private static String[][] squares=new String[8][8];
+  //pass in a chessboard object, then get the piece color from the pieces and print that color.
   private static final String EMPTY=" ";
 
-  public static void main(String[] args) {
+  public static void main() {
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     setArrayToStart();
     out.print(ERASE_SCREEN);
