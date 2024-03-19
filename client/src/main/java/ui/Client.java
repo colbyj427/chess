@@ -78,12 +78,22 @@ public class Client {
     return "";
   }
   public String register(String... params) throws Exception {
-    UserRecord registerRequest = new UserRecord(params[0], params[1], params[2]); // check that there are enough paramerters.
-    AuthRecord response = ServerFacade.register(registerRequest);
-    System.out.println(response.authToken());
-    state = state.SIGNEDIN;
-    return "";
-    //throw new Exception("Expected: <yourname>");
+    try {
+      if (params.length != 3) {
+        throw new Exception("Expected <username> <password> <email>");
+      }
+      UserRecord registerRequest=new UserRecord(params[0], params[1], params[2]); // check that there are enough paramerters.
+      AuthRecord response=ServerFacade.register(registerRequest);
+      System.out.println(response.authToken());
+      state=state.SIGNEDIN;
+      return "";
+    }
+    catch (Exception exception){
+      if (exception.getMessage()  == null) {
+        throw new Exception("User already taken");
+      }
+      throw new Exception(exception.getMessage());
+    }
   }
   public String logOut(String... params) throws Exception {
     assertSignedIn();

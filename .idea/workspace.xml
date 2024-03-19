@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Client menu set up, all endppoints reachable and board draws to console. No http implemented.">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database.">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="replloop - 8080" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
@@ -137,37 +144,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.badGameIDJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="badGameIDJoin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.replloop - 8080" />
+      <item itemvalue="Application.Server" />
       <item itemvalue="Application.DrawBoard" />
       <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
       <item itemvalue="JUnit.StandardAPITests.badAuthJoin" />
       <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
-      <item itemvalue="JUnit.StandardAPITests.badGameIDJoin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.DrawBoard" />
         <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
         <item itemvalue="JUnit.StandardAPITests.badAuthJoin" />
         <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
-        <item itemvalue="JUnit.StandardAPITests.badGameIDJoin" />
       </list>
     </recent_temporary>
   </component>
@@ -179,14 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00001" summary="added interface classes, moved memory models. set up test server.">
-      <option name="closed" value="true" />
-      <created>1708566976898</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1708566976898</updated>
     </task>
     <task id="LOCAL-00002" summary="populated data models with attributes.">
       <option name="closed" value="true" />
@@ -572,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710807641923</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database.">
+      <option name="closed" value="true" />
+      <created>1710875413381</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1710875413385</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -587,7 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored knight and king bounds/move calculation to remove duplicate code." />
     <MESSAGE value="Refactored bishop and rook move calculation to remove duplicate code." />
     <MESSAGE value="Shortened chess piece file to just over 500 lines." />
     <MESSAGE value="Shortened chess piece file to 500 lines by refactoring loops and correcting checkstyle warnings." />
@@ -612,7 +602,8 @@
     <MESSAGE value="finished chess board ui for phase 5." />
     <MESSAGE value="Finished Chessboard drawing." />
     <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
+    <MESSAGE value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

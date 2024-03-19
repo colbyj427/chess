@@ -3,6 +3,7 @@ package ServerClientCommunication;
 import com.google.gson.Gson;
 import dataAccess.DataAccessException;
 import model.AuthRecord;
+import model.GameRecord;
 import model.UserRecord;
 
 import java.io.IOException;
@@ -17,11 +18,24 @@ public class ServerFacade {
   static String serverURL = "http://localhost:8080/";
   public static AuthRecord register(UserRecord registerRequest) throws Exception {
     return makeRequest("POST", "user", registerRequest, AuthRecord.class);
-
   }
-  public static String login(String url, String header, String body) throws Exception {
-
-    return ClientCommunicator.post(url, header, body);
+  public static AuthRecord login(UserRecord registerRequest) throws Exception {
+    return makeRequest("POST", "session", registerRequest, AuthRecord.class);
+  }
+  public static String logout(AuthRecord registerRequest) throws Exception {
+    return makeRequest("DELETE", "session", registerRequest, String.class); //check the return type later.
+  }
+  public static String listGames(AuthRecord registerRequest) throws Exception {
+    return makeRequest("GET", "game", registerRequest, String.class);
+  }
+  public static GameRecord createGame(GameRecord registerRequest) throws Exception {
+    return makeRequest("POST", "game", registerRequest, GameRecord.class);
+  }
+  public static GameRecord joinGame(GameRecord registerRequest) throws Exception {
+    return makeRequest("POST", "game", registerRequest, GameRecord.class);
+  }
+  public static String clear(String registerRequest) throws Exception {
+    return makeRequest("DELETE", "db", null, String.class);
   }
   private static <T> T makeRequest(String method, String path, Object request, Class<T> responseClass) throws Exception {
     try {
@@ -67,20 +81,5 @@ public class ServerFacade {
   }
   private static boolean isSuccessful(int status) {
     return status / 100 == 2;
-  }
-  public static String logout(String request) {
-    return "";
-  }
-  public static String listGames(String request) {
-    return "";
-  }
-  public static String createGame(String request) {
-    return "";
-  }
-  public static String joinGame(String request) {
-    return "";
-  }
-  public static String clear(String request) {
-    return "";
   }
 }
