@@ -1,35 +1,45 @@
 package ui;
 
+import ServerClientCommunication.ServerFacade;
+import dataAccess.DataAccessException;
+import model.AuthRecord;
+import model.UserRecord;
+import org.eclipse.jetty.server.Authentication;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
-import ui.EscapeSequences;
 
 import static ui.EscapeSequences.*;
 
 public class Client {
-
   private State state = State.SIGNEDOUT;
 
+  //mak an auth token
+
+
   public static void main(String[] args) {
-    //var piece = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN);
-    //System.out.println("♕ 240 Chess Client: " + piece);
     new Client().run();
   }
 
-//  String serverUrl;
-
-//  public Repl(String serverUrl) {
-//    String serverUrl = this.serverUrl;
-//  }
   public void run() {
     System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
     System.out.print(help() + "\n");
 
+
     Scanner scanner = new Scanner(System.in);
     var result = "";
     while (!result.equals("quit")) {
+      if (state == state.SIGNEDIN) {
+        System.out.print("Chess240 >>> ");
+      }
+      else {
+        System.out.print(">>> ");
+      }
       String line = scanner.nextLine();
-
       try {
         result = eval(line);
         System.out.print(SET_TEXT_COLOR_BLUE + result + "\n");
@@ -37,21 +47,45 @@ public class Client {
         var msg = e.toString();
         System.out.print(msg);
       }
+      finally {
+        if (result == "quit") {
+          result = "quit";
+        }
+        else {
+          result="";
+        }
+      }
     }
     System.out.println();
   }
 
-  public String signIn(String... params) throws Exception {
-    state = state.SIGNEDIN;
-    return "You signed in";
-    //throw new Exception("Expected: <yourname>");
+  public String logIn(String... params) throws Exception {
+//    try {
+//      if (params.length >= 2){
+//        String username = params[0];
+//        String password = params[1];
+//        String body = String.format("\"username\":\"%s\" \"password\":\"%s\"", username, password);
+//        ServerFacade.login(serverUrl, "", body);
+//        state=state.SIGNEDIN;
+//        return "You signed in";
+//      }
+//      throw new Exception("Expected: <username> <password>");
+//    }
+//    catch (Exception exception) {
+//      //throw new DataAccessException(400, "wrong user information");
+//      throw new Exception(exception.getMessage());
+//    }
+    return "";
   }
   public String register(String... params) throws Exception {
+    UserRecord registerRequest = new UserRecord(params[0], params[1], params[2]); // check that there are enough paramerters.
+    AuthRecord response = ServerFacade.register(registerRequest);
+    System.out.println(response.authToken());
     state = state.SIGNEDIN;
-    return "You registered";
+    return "";
     //throw new Exception("Expected: <yourname>");
   }
-  public String signOut(String... params) throws Exception {
+  public String logOut(String... params) throws Exception {
     assertSignedIn();
     state = state.SIGNEDOUT;
     return "You signed out";
@@ -107,9 +141,9 @@ public class Client {
       var cmd = (tokens.length > 0) ? tokens[0] : "help";
       var params = Arrays.copyOfRange(tokens, 1, tokens.length);
       return switch (cmd) {
-        case "login" -> signIn(params);
+        case "login" -> logIn(params);
         case "register" -> register(params);
-        case "logout" -> signOut();
+        case "logout" -> logOut();
         case "creategame" -> createGame(params);
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();

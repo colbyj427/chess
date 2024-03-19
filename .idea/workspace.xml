@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Finished Chessboard drawing.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Client menu set up, all endppoints reachable and board draws to console. No http implemented.">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +81,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="replloop - 8080" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ui.Client" />
+      <module name="client" />
+      <option name="PROGRAM_PARAMETERS" value="localhost:8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DataAccessTests.MySQLSuccessfulClear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -145,6 +153,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.replloop - 8080" />
+      <item itemvalue="Application.DrawBoard" />
+      <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
+      <item itemvalue="JUnit.StandardAPITests.badAuthJoin" />
+      <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
+      <item itemvalue="JUnit.StandardAPITests.badGameIDJoin" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DrawBoard" />
@@ -548,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710446288126</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Client menu set up, all endppoints reachable and board draws to console. No http implemented.">
+      <option name="closed" value="true" />
+      <created>1710807641923</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1710807641923</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -563,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored pawn single and double moves calculation to remove duplicate code." />
     <MESSAGE value="Refactored knight and king bounds/move calculation to remove duplicate code." />
     <MESSAGE value="Refactored bishop and rook move calculation to remove duplicate code." />
     <MESSAGE value="Shortened chess piece file to just over 500 lines." />
@@ -588,7 +611,8 @@
     <MESSAGE value="chess board prints except for pieces." />
     <MESSAGE value="finished chess board ui for phase 5." />
     <MESSAGE value="Finished Chessboard drawing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Chessboard drawing." />
+    <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -619,6 +643,21 @@
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
           <line>300</line>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
