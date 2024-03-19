@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added untested code for sever facade endpoints.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,14 +175,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00002" summary="populated data models with attributes.">
-      <option name="closed" value="true" />
-      <created>1708567618140</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1708567618140</updated>
     </task>
     <task id="LOCAL-00003" summary="fixed authdata constructor">
       <option name="closed" value="true" />
@@ -563,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710875413385</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="added untested code for sever facade endpoints.">
+      <option name="closed" value="true" />
+      <created>1710876573238</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1710876573239</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -578,7 +583,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored bishop and rook move calculation to remove duplicate code." />
     <MESSAGE value="Shortened chess piece file to just over 500 lines." />
     <MESSAGE value="Shortened chess piece file to 500 lines by refactoring loops and correcting checkstyle warnings." />
     <MESSAGE value="Added three starter files for phase 4." />
@@ -603,7 +607,8 @@
     <MESSAGE value="Finished Chessboard drawing." />
     <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
     <MESSAGE value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
+    <MESSAGE value="added untested code for sever facade endpoints." />
+    <option name="LAST_COMMIT_MESSAGE" value="added untested code for sever facade endpoints." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,11 +641,6 @@
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java</url>
           <line>61</line>
           <option name="timeStamp" value="48" />
@@ -649,6 +649,11 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java</url>
           <line>37</line>
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

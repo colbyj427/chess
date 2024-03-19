@@ -18,7 +18,7 @@ import static ui.EscapeSequences.*;
 public class Client {
   private State state = State.SIGNEDOUT;
 
-  //mak an auth token
+  private String authToken = "";
 
 
   public static void main(String[] args) {
@@ -60,31 +60,30 @@ public class Client {
   }
 
   public String logIn(String... params) throws Exception {
-//    try {
-//      if (params.length >= 2){
-//        String username = params[0];
-//        String password = params[1];
-//        String body = String.format("\"username\":\"%s\" \"password\":\"%s\"", username, password);
-//        ServerFacade.login(serverUrl, "", body);
-//        state=state.SIGNEDIN;
-//        return "You signed in";
-//      }
-//      throw new Exception("Expected: <username> <password>");
-//    }
-//    catch (Exception exception) {
-//      //throw new DataAccessException(400, "wrong user information");
-//      throw new Exception(exception.getMessage());
-//    }
-    return "";
+    try {
+      if (params.length != 2) {
+        throw new Exception("Expected: <username> <password>");
+      }
+        String username = params[0];
+        String password = params[1];
+        UserRecord registerRequest=new UserRecord(params[0], params[1], null);
+        AuthRecord response=ServerFacade.login(registerRequest);
+        authToken = response.authToken();
+        state=state.SIGNEDIN;
+        return "";
+      }
+    catch (Exception exception) {
+      throw new Exception("Incorrect login info");
+    }
   }
   public String register(String... params) throws Exception {
     try {
       if (params.length != 3) {
         throw new Exception("Expected <username> <password> <email>");
       }
-      UserRecord registerRequest=new UserRecord(params[0], params[1], params[2]); // check that there are enough paramerters.
+      UserRecord registerRequest=new UserRecord(params[0], params[1], params[2]);
       AuthRecord response=ServerFacade.register(registerRequest);
-      System.out.println(response.authToken());
+      authToken = response.authToken();
       state=state.SIGNEDIN;
       return "";
     }
@@ -97,9 +96,15 @@ public class Client {
   }
   public String logOut(String... params) throws Exception {
     assertSignedIn();
-    state = state.SIGNEDOUT;
-    return "You signed out";
-    //throw new Exception("Expected: <yourname>");
+    try {
+      ServerFacade.logout(null, authToken);
+      this.authToken = "";
+      state = state.SIGNEDOUT;
+      return "";
+    }
+    catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
   }
   public String createGame(String... params) throws Exception {
     assertSignedIn();
