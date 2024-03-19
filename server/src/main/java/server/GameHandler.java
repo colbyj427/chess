@@ -25,10 +25,8 @@ public class GameHandler {
       GameRecord gameInfo = serializer.fromJson(req.body(), GameRecord.class);
       GameRecord gameRecord = gameService.createGame(authToken, gameInfo.gameName());
       res.status(200);
-      //res.body(gameID);
       Gson gson = new GsonBuilder().registerTypeAdapter(AtomicInteger.class, new AtomicIntegerAdapter())
               .create();
-//      res.body(gson.toJson(gameID));
       return serializer.toJson(gameRecord);
     }
     catch(DataAccessException createGameException) {
@@ -45,7 +43,6 @@ public class GameHandler {
       var serializer = new Gson();
       String authToken = req.headers("Authorization");
       res.status(200);
-      //      return serializer.toJson(gameService.listGames(authToken));
       Collection<GameRecord> listOfGames = gameService.listGames(authToken);
       JsonObject jsonObject = new JsonObject();
       jsonObject.add("games", new Gson().toJsonTree(listOfGames));
@@ -54,7 +51,6 @@ public class GameHandler {
 
     }
     catch(DataAccessException listGamesException) {
-      //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
       ErrorResponse caughtError = new ErrorResponse(listGamesException.statusCode, listGamesException.message);
       res.status(listGamesException.statusCode);
       res.body(listGamesException.message);
@@ -71,7 +67,6 @@ public class GameHandler {
       return "{}";
     }
     catch(DataAccessException joinGameException) {
-      //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
       ErrorResponse caughtError = new ErrorResponse(joinGameException.statusCode, joinGameException.message);
       res.status(joinGameException.statusCode);
       res.body(joinGameException.message);
