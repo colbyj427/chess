@@ -16,9 +16,7 @@ import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.sun.tools.javac.util.StringUtils.toUpperCase;
 import static ui.EscapeSequences.*;
@@ -27,6 +25,7 @@ public class Client {
   private State state = State.SIGNEDOUT;
 
   private String authToken = "";
+  private Map<Integer, Integer> gameDict = new HashMap<>();
 
 
   public static void main(String[] args) {
@@ -68,6 +67,7 @@ public class Client {
   }
 
   public String logIn(String... params) throws Exception {
+    assertSignedOut();
     try {
       if (params.length != 2) {
         throw new Exception("Expected: <username> <password>");
@@ -85,6 +85,7 @@ public class Client {
     }
   }
   public String register(String... params) throws Exception {
+    assertSignedOut();
     try {
       if (params.length != 3) {
         throw new Exception("Expected <username> <password> <email>");
@@ -139,9 +140,9 @@ public class Client {
       if (params.length != 2) {
         throw new Exception("Expected <game ID> <team>");
       }
-      int gameID=Integer.valueOf(params[0]);
+      int gameNum=Integer.valueOf(params[0]);
       String team = params[1].toUpperCase();
-      JoinGameRecord joinGameRecord=new JoinGameRecord(team, gameID);
+      JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       DrawBoard.main();
       return "";
@@ -152,14 +153,19 @@ public class Client {
       throw new Exception(exception.getMessage());
     }
   }
+
+  private int getGameID(int gameNum) {
+    return gameDict.get(gameNum);
+  }
+
   public String joinObserver(String... params) throws Exception {
     assertSignedIn();
     try {
       if (params.length != 1) {
         throw new Exception("Expected <game id>");
       }
-      int gameID=Integer.valueOf(params[0]);
-      JoinGameRecord joinGameRecord=new JoinGameRecord(null, gameID);
+      int gameNum=Integer.valueOf(params[0]);
+      JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       DrawBoard.main();
       return "";
@@ -177,8 +183,11 @@ public class Client {
       Type collectionType = new TypeToken<Collection<GameRecord>>(){}.getType();
       Collection<GameRecord> listOfGames = new Gson().fromJson(games.get("games"), collectionType);
       String listOfGamesString = "";
+      int counter = 0;
       for (GameRecord game: listOfGames) {
-        listOfGamesString+=prettyGame(game);
+        counter += 1;
+        listOfGamesString+=prettyGame(game, counter);
+        gameDict.put(counter, game.gameID());
       }
       return listOfGamesString;
     } catch (Exception exception) {
@@ -186,18 +195,27 @@ public class Client {
     }
   }
 
-  private static String prettyGame(GameRecord game) {
+  private static String prettyGame(GameRecord game, int numGame) {
     String gameString = "";
+    gameString += numGame;
+    gameString += ". ";
     gameString+= "Game: ";
     gameString+= game.gameName();
-    gameString+= "; ID: ";
-    gameString+= game.gameID();
     gameString+= "; White Player: ";
     gameString+= game.whiteUsername();
     gameString+= "; Black Player: ";
     gameString+= game.blackUsername();
     gameString+= ";\n";
     return gameString;
+  }
+  public String clear(String... params) throws Exception {
+    assertSignedIn();
+    try {
+      ServerFacade.clear(null);
+      return "";
+    } catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
   }
 
   private String help() {
@@ -233,6 +251,7 @@ public class Client {
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();
         case "joinobserver" -> joinObserver(params);
+        case "clear" -> clear();
         case "quit" -> "quit";
         default -> help();
       };
@@ -243,6 +262,11 @@ public class Client {
   private void assertSignedIn() throws Exception {
     if (state == State.SIGNEDOUT) {
       throw new Exception("You must log in");
+    }
+  }
+  private void assertSignedOut() throws Exception {
+    if (state == State.SIGNEDIN) {
+      throw new Exception("You must log out");
     }
   }
   public enum State {

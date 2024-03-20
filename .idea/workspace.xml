@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="all functionality except clear added and tested, edge cases not covered but correct input receives correct output.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="list games prettier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,14 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added the files i actually need for dao and interfaces and began implementing a clear handler/service.">
-      <option name="closed" value="true" />
-      <created>1708632499039</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1708632499040</updated>
     </task>
     <task id="LOCAL-00007" summary="added handler files to server package.">
       <option name="closed" value="true" />
@@ -567,7 +558,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710914445991</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="list games prettier">
+      <option name="closed" value="true" />
+      <created>1710954599053</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1710954599053</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,7 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added my username and password to the database properties." />
     <MESSAGE value="created MySQL interface files and added stubbed methods." />
     <MESSAGE value="Began mysql user dao implementation." />
     <MESSAGE value="implemented MySQLUserDao" />
@@ -607,7 +605,8 @@
     <MESSAGE value="removed unessecary comments from gameHandler." />
     <MESSAGE value="Login and logout functionality included and tested." />
     <MESSAGE value="all functionality except clear added and tested, edge cases not covered but correct input receives correct output." />
-    <option name="LAST_COMMIT_MESSAGE" value="all functionality except clear added and tested, edge cases not covered but correct input receives correct output." />
+    <MESSAGE value="list games prettier" />
+    <option name="LAST_COMMIT_MESSAGE" value="list games prettier" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -653,11 +652,6 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
           <line>42</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
