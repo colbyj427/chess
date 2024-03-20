@@ -213,20 +213,20 @@ public class Client {
   private String help() {
     if (state == state.SIGNEDOUT) {
       String outputString="";
-      outputString+="Help\n";
-      outputString+="Quit\n";
-      outputString+="Login <username> <password>\n";
-      outputString+="Register <username> <password> <email>";
+      outputString+="Help: display commands and what they do.\n";
+      outputString+="Quit: end the program.\n";
+      outputString+="Login <username> <password> : login to chess240 with a username and password.\n";
+      outputString+="Register <username> <password> <email> : register as a user to chess 240.";
       return outputString;
     }
     else {
       String outputString="";
-      outputString+="Help\n";
-      outputString+="Logout\n";
-      outputString+="CreateGame <game name>\n";
-      outputString+="JoinGame <game id> <team>\n";
-      outputString+="ListGames\n";
-      outputString+="JoinObserver <game id>";
+      outputString+="Help: display commands and what they do.\n";
+      outputString+="Logout: logout of chess and return to main menu.\n";
+      outputString+="CreateGame <game name> : create a new chess game with the given name.\n";
+      outputString+="JoinGame <game id> <team> : join a game at the number listed from listgames as the specified team.\n";
+      outputString+="ListGames: show a list of all created games.\n";
+      outputString+="JoinObserver <game id> : Join the specified game from the listed games as an observer.";
       return outputString;
     }
   }
