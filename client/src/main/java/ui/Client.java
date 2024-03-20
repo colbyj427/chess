@@ -1,7 +1,9 @@
 package ui;
 
 import ServerClientCommunication.ServerFacade;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import dataAccess.DataAccessException;
 import model.AuthRecord;
 import model.GameRecord;
@@ -10,6 +12,7 @@ import model.UserRecord;
 import org.eclipse.jetty.server.Authentication;
 
 import java.io.OutputStream;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -170,12 +173,33 @@ public class Client {
   public String listGames(String... params) throws Exception {
     assertSignedIn();
     try {
-      JsonObject listOfGames=ServerFacade.listGames(null, authToken);
-      return listOfGames.toString();
+      JsonObject games=ServerFacade.listGames(null, authToken);
+      Type collectionType = new TypeToken<Collection<GameRecord>>(){}.getType();
+      Collection<GameRecord> listOfGames = new Gson().fromJson(games.get("games"), collectionType);
+      String listOfGamesString = "";
+      for (GameRecord game: listOfGames) {
+        listOfGamesString+=prettyGame(game);
+      }
+      return listOfGamesString;
     } catch (Exception exception) {
       throw new Exception(exception.getMessage());
     }
   }
+
+  private static String prettyGame(GameRecord game) {
+    String gameString = "";
+    gameString+= "Game: ";
+    gameString+= game.gameName();
+    gameString+= "; ID: ";
+    gameString+= game.gameID();
+    gameString+= "; White Player: ";
+    gameString+= game.whiteUsername();
+    gameString+= "; Black Player: ";
+    gameString+= game.blackUsername();
+    gameString+= ";\n";
+    return gameString;
+  }
+
   private String help() {
     if (state == state.SIGNEDOUT) {
       String outputString="";
