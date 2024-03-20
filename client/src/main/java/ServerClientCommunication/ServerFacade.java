@@ -20,6 +20,12 @@ import java.util.Collection;
 import static ServerClientCommunication.ClientCommunicator.*;
 
 public class ServerFacade {
+  final int port;
+  public ServerFacade(int port) {
+    this.port = port;
+    ClientCommunicator.port = port;
+  }
+
   public static AuthRecord register(UserRecord registerRequest) throws Exception {
     return makeRequest("POST", "user", registerRequest, AuthRecord.class, null);
   }

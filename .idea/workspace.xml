@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="list games prettier">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users.">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +68,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ServerFacadeTests.register">
     <configuration name="DrawBoard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.DrawBoard" />
       <module name="client" />
@@ -99,49 +103,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataAccessTests.MySQLSuccessfulClear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
+    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataAccessTests.*" />
+          <option name="PATTERN" value="clientTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataAccessTests" />
-      <option name="MAIN_CLASS_NAME" value="dataAccessTests.DataAccessTests" />
-      <option name="METHOD_NAME" value="MySQLSuccessfulClear" />
+      <option name="PACKAGE_NAME" value="clientTests" />
+      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerFacadeTests.register" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="clientTests" />
+      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
+      <option name="METHOD_NAME" value="register" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.badAuthJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
+    <configuration name="ServerFacadeTests.sampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="PATTERN" value="clientTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="badAuthJoin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.badColorJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="badColorJoin" />
+      <option name="PACKAGE_NAME" value="clientTests" />
+      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
+      <option name="METHOD_NAME" value="sampleTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,17 +154,17 @@
       <item itemvalue="Application.replloop - 8080" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.DrawBoard" />
-      <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
-      <item itemvalue="JUnit.StandardAPITests.badAuthJoin" />
-      <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
+      <item itemvalue="JUnit.ServerFacadeTests" />
+      <item itemvalue="JUnit.ServerFacadeTests.register" />
+      <item itemvalue="JUnit.ServerFacadeTests.sampleTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServerFacadeTests.register" />
+        <item itemvalue="JUnit.ServerFacadeTests.sampleTest" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.DrawBoard" />
-        <item itemvalue="JUnit.DataAccessTests.MySQLSuccessfulClear" />
-        <item itemvalue="JUnit.StandardAPITests.badAuthJoin" />
-        <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
       </list>
     </recent_temporary>
   </component>
@@ -173,14 +176,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added handler files to server package.">
-      <option name="closed" value="true" />
-      <created>1708632742871</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1708632742871</updated>
     </task>
     <task id="LOCAL-00008" summary="first implementation of clear handler and service.">
       <option name="closed" value="true" />
@@ -566,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710954599053</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users.">
+      <option name="closed" value="true" />
+      <created>1710956045618</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1710956045618</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -581,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created MySQL interface files and added stubbed methods." />
     <MESSAGE value="Began mysql user dao implementation." />
     <MESSAGE value="implemented MySQLUserDao" />
     <MESSAGE value="wrote unit tests for sql add and get user functions for debugging." />
@@ -606,7 +608,8 @@
     <MESSAGE value="Login and logout functionality included and tested." />
     <MESSAGE value="all functionality except clear added and tested, edge cases not covered but correct input receives correct output." />
     <MESSAGE value="list games prettier" />
-    <option name="LAST_COMMIT_MESSAGE" value="list games prettier" />
+    <MESSAGE value="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users." />
+    <option name="LAST_COMMIT_MESSAGE" value="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -652,6 +655,11 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
           <line>42</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
