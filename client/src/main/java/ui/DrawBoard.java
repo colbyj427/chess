@@ -250,12 +250,12 @@ public class DrawBoard {
   }
 
   private static void printWhitePiece(PrintStream out, int row, int col) {
-    out.print(SET_TEXT_COLOR_GREEN);
+    out.print(SET_TEXT_COLOR_RED);
     out.print(squares[row - 1][col]);
   }
 
   private static void printBlackPiece(PrintStream out, int row, int col) {
-    out.print(SET_TEXT_COLOR_YELLOW);
+    out.print(SET_TEXT_COLOR_BLUE);
     out.print(squares[row - 1][col]);
   }
 
