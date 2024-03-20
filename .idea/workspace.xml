@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added untested code for sever facade endpoints.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Login and logout functionality included and tested.">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,22 +176,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00003" summary="fixed authdata constructor">
-      <option name="closed" value="true" />
-      <created>1708567648097</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1708567648098</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added getters and setters to dataModels.">
-      <option name="closed" value="true" />
-      <created>1708570902363</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1708570902363</updated>
     </task>
     <task id="LOCAL-00005" summary="added CRUD operations classes to data access package.">
       <option name="closed" value="true" />
@@ -568,7 +553,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710876573239</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="removed unessecary comments from gameHandler.">
+      <option name="closed" value="true" />
+      <created>1710886799244</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1710886799244</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Login and logout functionality included and tested.">
+      <option name="closed" value="true" />
+      <created>1710886823620</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1710886823620</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -583,8 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Shortened chess piece file to just over 500 lines." />
-    <MESSAGE value="Shortened chess piece file to 500 lines by refactoring loops and correcting checkstyle warnings." />
     <MESSAGE value="Added three starter files for phase 4." />
     <MESSAGE value="added my username and password to the database properties." />
     <MESSAGE value="created MySQL interface files and added stubbed methods." />
@@ -608,7 +607,9 @@
     <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
     <MESSAGE value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
     <MESSAGE value="added untested code for sever facade endpoints." />
-    <option name="LAST_COMMIT_MESSAGE" value="added untested code for sever facade endpoints." />
+    <MESSAGE value="removed unessecary comments from gameHandler." />
+    <MESSAGE value="Login and logout functionality included and tested." />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and logout functionality included and tested." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -651,9 +652,14 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="55" />
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

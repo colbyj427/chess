@@ -1,8 +1,11 @@
 package ui;
 
 import ServerClientCommunication.ServerFacade;
+import com.google.gson.JsonObject;
 import dataAccess.DataAccessException;
 import model.AuthRecord;
+import model.GameRecord;
+import model.JoinGameRecord;
 import model.UserRecord;
 import org.eclipse.jetty.server.Authentication;
 
@@ -11,8 +14,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Scanner;
 
+import static com.sun.tools.javac.util.StringUtils.toUpperCase;
 import static ui.EscapeSequences.*;
 
 public class Client {
@@ -106,29 +111,70 @@ public class Client {
       throw new Exception(exception.getMessage());
     }
   }
-  public String createGame(String... params) throws Exception {
+  public String createGame(String... params) throws Exception { //isnt throwing error when gamename is the same.
     assertSignedIn();
-    DrawBoard.main();
-    return "you created a game";
-    //throw new Exception("Expected: <yourname>");
+    try {
+      if (params.length != 1) {
+        throw new Exception("Expected <game name>");
+      }
+      String gameName=params[0];
+      GameRecord gameRecord=new GameRecord(0, null, null, gameName, null, null);
+      GameRecord newGameRecord=ServerFacade.createGame(gameRecord, authToken);
+      String newGameId = String.valueOf(newGameRecord.gameID());
+      DrawBoard.main();
+      return "Game created with ID: " + newGameId;
+    } catch (Exception exception) {
+      if (exception.getMessage() == null) {
+        throw new Exception("Game name already taken");
+      }
+      throw new Exception(exception.getMessage());
+    }
   }
   public String joinGame(String... params) throws Exception {
     assertSignedIn();
-    DrawBoard.main();
-    return "you joined a game";
-
-    //throw new Exception("Expected: <yourname>");
+    try {
+      if (params.length != 2) {
+        throw new Exception("Expected <game ID> <team>");
+      }
+      int gameID=Integer.valueOf(params[0]);
+      String team = params[1].toUpperCase();
+      JoinGameRecord joinGameRecord=new JoinGameRecord(team, gameID);
+      GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
+      DrawBoard.main();
+      return "";
+    } catch (Exception exception) {
+      if (exception.getMessage() == null) {
+        throw new Exception("Invalid gameID");
+      }
+      throw new Exception(exception.getMessage());
+    }
   }
   public String joinObserver(String... params) throws Exception {
     assertSignedIn();
-    DrawBoard.main();
-    return "you joined a game as an observer";
-    //throw new Exception("Expected: <yourname>");
+    try {
+      if (params.length != 1) {
+        throw new Exception("Expected <game id>");
+      }
+      int gameID=Integer.valueOf(params[0]);
+      JoinGameRecord joinGameRecord=new JoinGameRecord(null, gameID);
+      GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
+      DrawBoard.main();
+      return "";
+    } catch (Exception exception) {
+      if (exception.getMessage() == null) {
+        throw new Exception("Invalid gameID");
+      }
+      throw new Exception(exception.getMessage());
+    }
   }
   public String listGames(String... params) throws Exception {
     assertSignedIn();
-    return "list of games";
-    //throw new Exception("Expected: <yourname>");
+    try {
+      JsonObject listOfGames=ServerFacade.listGames(null, authToken);
+      return listOfGames.toString();
+    } catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
   }
   private String help() {
     if (state == state.SIGNEDOUT) {
@@ -144,9 +190,9 @@ public class Client {
       outputString+="Help\n";
       outputString+="Logout\n";
       outputString+="CreateGame <game name>\n";
-      outputString+="JoinGame <game name> <team>\n";
+      outputString+="JoinGame <game id> <team>\n";
       outputString+="ListGames\n";
-      outputString+="JoinObserver <game name>";
+      outputString+="JoinObserver <game id>";
       return outputString;
     }
   }
@@ -162,7 +208,7 @@ public class Client {
         case "creategame" -> createGame(params);
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();
-        case "joinobserver" -> joinObserver();
+        case "joinobserver" -> joinObserver(params);
         case "quit" -> "quit";
         default -> help();
       };

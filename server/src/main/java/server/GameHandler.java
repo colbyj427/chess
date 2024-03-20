@@ -40,7 +40,7 @@ public class GameHandler {
   }
   public static String listGames(Request req, Response res) throws DataAccessException{
     try {
-      var serializer = new Gson();
+      //var serializer = new Gson();
       String authToken = req.headers("Authorization");
       res.status(200);
       Collection<GameRecord> listOfGames = gameService.listGames(authToken);
