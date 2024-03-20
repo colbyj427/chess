@@ -1,7 +1,6 @@
 package clientTests;
 
 import ServerClientCommunication.ServerFacade;
-import dataAccess.DataAccessException;
 import model.AuthRecord;
 import model.GameRecord;
 import model.JoinGameRecord;

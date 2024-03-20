@@ -1,15 +1,12 @@
 package ServerClientCommunication;
 
 import com.google.gson.Gson;
-import dataAccess.DataAccessException;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.Map;
+
 
 public class ClientCommunicator {
   static String serverURL = "http://localhost:";

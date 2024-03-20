@@ -4,21 +4,14 @@ import ServerClientCommunication.ServerFacade;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import dataAccess.DataAccessException;
 import model.AuthRecord;
 import model.GameRecord;
 import model.JoinGameRecord;
 import model.UserRecord;
-import org.eclipse.jetty.server.Authentication;
 
-import java.io.OutputStream;
 import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import static com.sun.tools.javac.util.StringUtils.toUpperCase;
 import static ui.EscapeSequences.*;
 
 public class Client {
@@ -73,8 +66,6 @@ public class Client {
       if (params.length != 2) {
         throw new Exception("Expected: <username> <password>");
       }
-        String username = params[0];
-        String password = params[1];
         UserRecord registerRequest=new UserRecord(params[0], params[1], null);
         AuthRecord response=ServerFacade.login(registerRequest);
         authToken = response.authToken();
@@ -116,7 +107,7 @@ public class Client {
       throw new Exception(exception.getMessage());
     }
   }
-  public String createGame(String... params) throws Exception { //isnt throwing error when gamename is the same.
+  public String createGame(String... params) throws Exception {
     assertSignedIn();
     try {
       if (params.length != 1) {

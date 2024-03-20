@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="wrote tests for each endpoint in server facade.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added a port for testing the client.">
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +62,26 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ServerFacadeTests">
     <configuration name="replloop - 8080" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
       <option name="PROGRAM_PARAMETERS" value="localhost:8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="clientTests" />
+      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,22 +97,6 @@
       <option name="PACKAGE_NAME" value="clientTests" />
       <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
       <option name="METHOD_NAME" value="BadjoinGame" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.badCreateGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="clientTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="clientTests" />
-      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="badCreateGame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,19 +152,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.replloop - 8080" />
+      <item itemvalue="JUnit.ServerFacadeTests" />
       <item itemvalue="JUnit.ServerFacadeTests.BadjoinGame" />
-      <item itemvalue="JUnit.ServerFacadeTests.badCreateGame" />
       <item itemvalue="JUnit.ServerFacadeTests.badListGames" />
       <item itemvalue="JUnit.ServerFacadeTests.joinGame" />
       <item itemvalue="JUnit.ServerFacadeTests.listGames" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.badListGames" />
         <item itemvalue="JUnit.ServerFacadeTests.listGames" />
         <item itemvalue="JUnit.ServerFacadeTests.BadjoinGame" />
         <item itemvalue="JUnit.ServerFacadeTests.joinGame" />
-        <item itemvalue="JUnit.ServerFacadeTests.badCreateGame" />
       </list>
     </recent_temporary>
   </component>
@@ -177,14 +176,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00011" summary="First implementation of the register endpoint.">
-      <option name="closed" value="true" />
-      <created>1708664082831</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1708664082831</updated>
     </task>
     <task id="LOCAL-00012" summary="Implemented Register endpoint, login endpoint, and first draft of logout endpoint.">
       <option name="closed" value="true" />
@@ -570,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710960850854</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="added a port for testing the client.">
+      <option name="closed" value="true" />
+      <created>1710961520795</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1710961520796</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -585,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MySQL user dao passing all tests, first implementation of mySQL auth dao." />
     <MESSAGE value="MySQL auth dao passing all unit tests." />
     <MESSAGE value="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order." />
     <MESSAGE value="implemented and tested SQL create game, get game, add observer." />
@@ -610,7 +608,8 @@
     <MESSAGE value="ServerFacadeTests file set up and register test implemented. Changes to server facade and client communicator to pass in and update a port to make the URL variable." />
     <MESSAGE value="left out files." />
     <MESSAGE value="wrote tests for each endpoint in server facade." />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote tests for each endpoint in server facade." />
+    <MESSAGE value="added a port for testing the client." />
+    <option name="LAST_COMMIT_MESSAGE" value="added a port for testing the client." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -656,11 +655,6 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
           <line>42</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

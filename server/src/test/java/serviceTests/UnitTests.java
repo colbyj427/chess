@@ -9,7 +9,6 @@ import service.ClearService;
 import service.GameService;
 import service.UserService;
 
-import java.util.ArrayList;
 
 public class UnitTests {
   @Test

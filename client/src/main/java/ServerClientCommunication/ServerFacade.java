@@ -1,21 +1,12 @@
 package ServerClientCommunication;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import dataAccess.DataAccessException;
 import model.AuthRecord;
 import model.GameRecord;
 import model.JoinGameRecord;
 import model.UserRecord;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.util.Collection;
+
 
 import static ServerClientCommunication.ClientCommunicator.*;
 

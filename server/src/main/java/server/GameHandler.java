@@ -30,7 +30,6 @@ public class GameHandler {
       return serializer.toJson(gameRecord);
     }
     catch(DataAccessException createGameException) {
-      //create a status response class. a record with a status code and message, make one out of the exception thrown and return that.
       ErrorResponse caughtError = new ErrorResponse(createGameException.statusCode, createGameException.message);
       res.status(createGameException.statusCode);
       res.body(createGameException.message);
