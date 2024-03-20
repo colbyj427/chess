@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="left out files.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="wrote tests for each endpoint in server facade.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/test-classes/clientTests/ServerFacadeTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/test-classes/clientTests/ServerFacadeTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests.badListGames">
+  <component name="RunManager">
     <configuration name="replloop - 8080" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
@@ -179,14 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00010" summary="First implementation of clear endpoint.">
-      <option name="closed" value="true" />
-      <created>1708654363245</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1708654363245</updated>
     </task>
     <task id="LOCAL-00011" summary="First implementation of the register endpoint.">
       <option name="closed" value="true" />
@@ -572,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710959409980</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="wrote tests for each endpoint in server facade.">
+      <option name="closed" value="true" />
+      <created>1710960850854</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1710960850854</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -587,7 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wrote unit tests for sql add and get user functions for debugging." />
     <MESSAGE value="MySQL user dao passing all tests, first implementation of mySQL auth dao." />
     <MESSAGE value="MySQL auth dao passing all unit tests." />
     <MESSAGE value="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order." />
@@ -612,7 +609,8 @@
     <MESSAGE value="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users." />
     <MESSAGE value="ServerFacadeTests file set up and register test implemented. Changes to server facade and client communicator to pass in and update a port to make the URL variable." />
     <MESSAGE value="left out files." />
-    <option name="LAST_COMMIT_MESSAGE" value="left out files." />
+    <MESSAGE value="wrote tests for each endpoint in server facade." />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote tests for each endpoint in server facade." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -658,6 +656,11 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
           <line>42</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

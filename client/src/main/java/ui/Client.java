@@ -33,6 +33,7 @@ public class Client {
   }
 
   public void run() {
+    ServerFacade facade = new ServerFacade(8080);
     System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
     System.out.print(help() + "\n");
 
@@ -209,7 +210,7 @@ public class Client {
     return gameString;
   }
   public String clear(String... params) throws Exception {
-    assertSignedIn();
+    assertSignedOut();
     try {
       ServerFacade.clear(null);
       return "";
