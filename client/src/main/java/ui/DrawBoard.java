@@ -2,11 +2,9 @@ package ui;
 
 import chess.ChessGame;
 import chess.ChessPiece;
-import chess.ChessPosition;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.sql.Array;
 
 import static ui.EscapeSequences.*;
 
@@ -20,9 +18,9 @@ public class DrawBoard {
 
   public static void main() {
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
-    //setArrayToStartWhiteBottom();
     setArrayToStart();
     out.print(ERASE_SCREEN);
+
     //board with black at bottom
     drawHeadersBackwards(out);
     drawChessBoardBlackBottom(out, squares);
@@ -33,7 +31,6 @@ public class DrawBoard {
     out.println();
 
     //board with white at bottom
-    //setArrayToStartWhiteBottom();
     drawHeaders(out);
     drawChessBoard(out, squares);
     drawHeaders(out);
@@ -82,58 +79,55 @@ public class DrawBoard {
     for (int boardRow=7; boardRow >= 0; --boardRow) {
       String boardRowString=Integer.toString(boardRow + 1);
       if (boardRow % 2 == 0) {
-        drawWhiteRowOfSquaresBlackBottom(out, boardRowString, pieceArray, false);
+        drawWhiteRow(out, boardRowString, pieceArray, false);
       } else {
-        drawBlackRowOfSquaresBlackBottom(out, boardRowString, pieceArray, false);
+        drawBlackRow(out, boardRowString, pieceArray, false);
       }
     }
   }
-  //extra methods to draw second board. could be replaced once pieces array has the color with it.
   private static void drawChessBoardBlackBottom(PrintStream out, ChessPiece[][] pieceArray) {
     for (int boardRow=0; boardRow < BOARD_SIZE_IN_SQUARES; ++boardRow) {
       String boardRowString=Integer.toString(boardRow + 1);
       if (boardRow % 2 == 0) {
-        drawWhiteRowOfSquaresBlackBottom(out, boardRowString, pieceArray, true);
+        drawWhiteRow(out, boardRowString, pieceArray, true);
       } else {
-        drawBlackRowOfSquaresBlackBottom(out, boardRowString, pieceArray, true);
+        drawBlackRow(out, boardRowString, pieceArray, true);
       }
     }
   }
-  private static void drawWhiteRowOfSquaresBlackBottom(PrintStream out, String row, ChessPiece[][] pieceArray, boolean blackBottom) {
-    int intRow=Integer.valueOf(row);
+  private static void drawWhiteRow(PrintStream out, String row, ChessPiece[][] pieceArray, boolean blackBottom) {
     printRowNum(out, row);
     if (blackBottom == true) {
       for (int boardCol=0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) { // draw actual squares, one at a time
-        drawWhiteRow(out, row, pieceArray, boardCol);
+        drawWhiteRowSquares(out, row, pieceArray, boardCol);
       }
     }
     else {
       for (int boardCol=7; boardCol >= 0; --boardCol) { // draw actual squares, one at a time
-        drawWhiteRow(out, row, pieceArray, boardCol);
+        drawWhiteRowSquares(out, row, pieceArray, boardCol);
       }
     }
     printRowNum(out, row);
     setLightGray(out);
     out.println();
   }
-  private static void drawBlackRowOfSquaresBlackBottom(PrintStream out, String row, ChessPiece[][] pieceArray, boolean blackBottom) {
-    int intRow=Integer.valueOf(row);
+  private static void drawBlackRow(PrintStream out, String row, ChessPiece[][] pieceArray, boolean blackBottom) {
     printRowNum(out, row);
     if (blackBottom == true) {
       for (int boardCol=0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) { // draw actual squares, one at a time
-        drawBlackRow(out, row, pieceArray, boardCol);
+        drawBlackRowSquares(out, row, pieceArray, boardCol);
       }
     }
     else {
       for (int boardCol=7; boardCol >= 0; --boardCol) { // draw actual squares, one at a time
-        drawBlackRow(out, row, pieceArray, boardCol);
+        drawBlackRowSquares(out, row, pieceArray, boardCol);
       }
     }
     printRowNum(out, row);
     setLightGray(out);
     out.println();
   }
-  private static void drawWhiteRow(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
+  private static void drawWhiteRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
     if (squares[((Integer.valueOf(row))-1)][boardCol] != null) {
@@ -159,7 +153,7 @@ public class DrawBoard {
     }
   }
 
-  private static void drawBlackRow(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
+  private static void drawBlackRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
     if (squares[(Integer.valueOf(row)-1)][boardCol] != null) {
@@ -184,78 +178,6 @@ public class DrawBoard {
       setBlack(out);
     }
   }
-  //********************
-
-  private static void drawWhiteRowOfSquares(PrintStream out, String row, ChessPiece[][] pieceArray) {
-
-    int intRow=Integer.valueOf(row);
-    printRowNum(out, row);
-    for (int boardCol=0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) { // draw actual squares, one at a time
-      if (boardCol % 2 == 0) {
-        setWhite(out);
-        int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-        int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-        out.print(EMPTY.repeat(prefixLength));
-        if (intRow == 1 || intRow == 2) {
-          printBlackPiece(out, intRow, boardCol);
-        } else {
-          printWhitePiece(out, intRow, boardCol);
-        }
-        out.print(EMPTY.repeat(suffixLength));
-        setBlack(out);
-      } else {
-        setBlack(out);
-        int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-        int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-        out.print(EMPTY.repeat(prefixLength));
-        if (intRow == 1 || intRow == 2) {
-          printBlackPiece(out, intRow, boardCol);
-        } else {
-          printWhitePiece(out, intRow, boardCol);
-        }
-        out.print(EMPTY.repeat(suffixLength));
-        setBlack(out);
-      }
-    }
-    printRowNum(out, row);
-    setLightGray(out);
-    out.println();
-  }
-
-  private static void drawBlackRowOfSquares(PrintStream out, String row, ChessPiece[][] pieceArray) {
-    int intRow=Integer.valueOf(row);
-    printRowNum(out, row);
-    for (int boardCol=0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) { // draw actual squares, one at a time
-      if (boardCol % 2 == 1) {
-        setWhite(out);
-        int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-        int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-        out.print(EMPTY.repeat(prefixLength));
-        if (intRow == 1 || intRow == 2) {
-          printBlackPiece(out, intRow, boardCol);
-        } else {
-          printWhitePiece(out, intRow, boardCol);
-        }
-        out.print(EMPTY.repeat(suffixLength));
-        setBlack(out);
-      } else {
-        setBlack(out);
-        int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-        int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-        out.print(EMPTY.repeat(prefixLength));
-        if (intRow == 1 || intRow == 2) {
-          printBlackPiece(out, intRow, boardCol);
-        } else {
-          printWhitePiece(out, intRow, boardCol);
-        }
-        out.print(EMPTY.repeat(suffixLength));
-        setBlack(out);
-      }
-    }
-    printRowNum(out, row);
-    setLightGray(out);
-    out.println();
-  }
 
   private static void setBlack(PrintStream out) {
     out.print(SET_BG_COLOR_BLACK);
@@ -272,11 +194,6 @@ public class DrawBoard {
     out.print(SET_TEXT_COLOR_LIGHT_GREY);
   }
 
-  private static void setRed(PrintStream out) {
-    out.print(SET_BG_COLOR_RED);
-    out.print(SET_TEXT_COLOR_RED);
-  }
-
   private static void printPiece(PrintStream out, String type, String color) {
     if (type == " ") {
       out.print(" ");
@@ -289,18 +206,7 @@ public class DrawBoard {
       out.print(SET_TEXT_COLOR_RED);
       out.print(type);
     }
-
   }
-  private static void printWhitePiece(PrintStream out, int row, int col) {
-    out.print(SET_TEXT_COLOR_RED);
-    out.print(squares[row - 1][col]);
-  }
-
-  private static void printBlackPiece(PrintStream out, int row, int col) {
-    out.print(SET_TEXT_COLOR_BLUE);
-    out.print(squares[row - 1][col]);
-  }
-
   private static void printRowNum(PrintStream out, String rowNum) {
     out.print(SET_BG_COLOR_LIGHT_GREY);
     out.print(SET_TEXT_COLOR_BLACK);
@@ -332,38 +238,6 @@ public class DrawBoard {
     ChessGame.TeamColor pieceColor = squares[numRow-1][numCol].getTeamColor();
     return pieceColor.toString();
   }
-
-//  private static String[][] setArrayToStart() {
-//    for (int i=0; i < squares.length; i++) {
-//      for (int j=0; j < squares[i].length; j++) {
-//        squares[i][j]=" ";
-//      }
-//    }
-//      for (int boardCol=0; boardCol <= 7; ++boardCol) { //top pawns
-//        squares[1][boardCol]="P";
-//      }
-//      squares[0][0]="R";
-//      squares[0][1]="N";
-//      squares[0][2]="B";
-//      squares[0][3]="K";
-//      squares[0][4]="Q";
-//      squares[0][5]="B";
-//      squares[0][6]="N";
-//      squares[0][7]="R";
-//      for (int boardCol=0; boardCol <= 7; ++boardCol) { //bottom pawns
-//        squares[6][boardCol]="P";
-//      }
-//      squares[7][0]="R";
-//      squares[7][1]="N";
-//      squares[7][2]="B";
-//      squares[7][3]="K";
-//      squares[7][4]="Q";
-//      squares[7][5]="B";
-//      squares[7][6]="N";
-//      squares[7][7]="R";
-//
-//      return squares;
-//    }
   private static ChessPiece[][] setArrayToStart() {
     for (int i=0; i < squares.length; i++) {
       for (int j=0; j < squares[i].length; j++) {

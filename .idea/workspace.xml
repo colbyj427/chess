@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added more verbose help to help command.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="updated client for user ease, full functionality, ready for pass off.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,22 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Implemented createGame, listGames endpoints.">
-      <option name="closed" value="true" />
-      <created>1708820977350</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1708820977350</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Implemented final endpoint, joinGame.">
-      <option name="closed" value="true" />
-      <created>1708825703870</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1708825703870</updated>
     </task>
     <task id="LOCAL-00017" summary="All passoff tests passed locally.">
       <option name="closed" value="true" />
@@ -575,7 +554,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710964362391</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="refactored and corrected code to draw board.">
+      <option name="closed" value="true" />
+      <created>1710987379178</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1710987379179</updated>
+    </task>
+    <task id="LOCAL-00065" summary="updated client for user ease, full functionality, ready for pass off.">
+      <option name="closed" value="true" />
+      <created>1710987729785</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1710987729786</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -590,8 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SQL game methods implemented and passing unit tests." />
-    <MESSAGE value="Fully implemented, passing each test individually but not as a whole." />
     <MESSAGE value="ALl tests passed in autograder, not locally." />
     <MESSAGE value="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary." />
     <MESSAGE value="Fixed null ptr exception in create game." />
@@ -615,7 +608,9 @@
     <MESSAGE value="rremoved imports" />
     <MESSAGE value="changed piece color" />
     <MESSAGE value="added more verbose help to help command." />
-    <option name="LAST_COMMIT_MESSAGE" value="added more verbose help to help command." />
+    <MESSAGE value="refactored and corrected code to draw board." />
+    <MESSAGE value="updated client for user ease, full functionality, ready for pass off." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated client for user ease, full functionality, ready for pass off." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -661,11 +656,6 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
           <line>41</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
-          <line>283</line>
-          <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
