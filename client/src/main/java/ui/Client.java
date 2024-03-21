@@ -70,7 +70,7 @@ public class Client {
         AuthRecord response=ServerFacade.login(registerRequest);
         authToken = response.authToken();
         state=state.SIGNEDIN;
-        return "";
+        return "Welcome to chess 240";
       }
     catch (Exception exception) {
       throw new Exception("Incorrect login info");
@@ -86,7 +86,7 @@ public class Client {
       AuthRecord response=ServerFacade.register(registerRequest);
       authToken = response.authToken();
       state=state.SIGNEDIN;
-      return "";
+      return "You have been registered\nWelcome to chess240";
     }
     catch (Exception exception){
       if (exception.getMessage()  == null) {
@@ -101,7 +101,7 @@ public class Client {
       ServerFacade.logout(null, authToken);
       this.authToken = "";
       state = state.SIGNEDOUT;
-      return "";
+      return "logged out";
     }
     catch (Exception exception) {
       throw new Exception(exception.getMessage());
@@ -116,9 +116,9 @@ public class Client {
       String gameName=params[0];
       GameRecord gameRecord=new GameRecord(0, null, null, gameName, null, null);
       GameRecord newGameRecord=ServerFacade.createGame(gameRecord, authToken);
-      String newGameId = String.valueOf(newGameRecord.gameID());
+      String newGameName = String.valueOf(newGameRecord.gameName());
       DrawBoard.main();
-      return "Game created with ID: " + newGameId;
+      return "Game created with name: " + newGameName;
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
         throw new Exception("Game name already taken");
@@ -137,7 +137,7 @@ public class Client {
       JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       DrawBoard.main();
-      return "";
+      return "You have joined the game";
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
         throw new Exception("Invalid gameID");
@@ -160,7 +160,7 @@ public class Client {
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       DrawBoard.main();
-      return "";
+      return "You are observing the game";
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
         throw new Exception("Invalid gameID");

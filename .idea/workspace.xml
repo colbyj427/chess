@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added a port for testing the client.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="added more verbose help to help command.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ClientCommunicator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +68,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests">
+  <component name="RunManager">
     <configuration name="replloop - 8080" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
@@ -176,30 +182,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Implemented Register endpoint, login endpoint, and first draft of logout endpoint.">
-      <option name="closed" value="true" />
-      <created>1708719998943</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1708719998944</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Logout endpoint runs but does not return correct string.">
-      <option name="closed" value="true" />
-      <created>1708722860787</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1708722860787</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Implemented logout and one clearservice unit test.">
-      <option name="closed" value="true" />
-      <created>1708754120006</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1708754120006</updated>
     </task>
     <task id="LOCAL-00015" summary="Implemented createGame, listGames endpoints.">
       <option name="closed" value="true" />
@@ -569,7 +551,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710961520796</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="rremoved imports">
+      <option name="closed" value="true" />
+      <created>1710962225182</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1710962225183</updated>
+    </task>
+    <task id="LOCAL-00062" summary="changed piece color">
+      <option name="closed" value="true" />
+      <created>1710963594066</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1710963594067</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added more verbose help to help command.">
+      <option name="closed" value="true" />
+      <created>1710964362390</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1710964362391</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,9 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MySQL auth dao passing all unit tests." />
-    <MESSAGE value="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order." />
-    <MESSAGE value="implemented and tested SQL create game, get game, add observer." />
     <MESSAGE value="SQL game methods implemented and passing unit tests." />
     <MESSAGE value="Fully implemented, passing each test individually but not as a whole." />
     <MESSAGE value="ALl tests passed in autograder, not locally." />
@@ -609,7 +612,10 @@
     <MESSAGE value="left out files." />
     <MESSAGE value="wrote tests for each endpoint in server facade." />
     <MESSAGE value="added a port for testing the client." />
-    <option name="LAST_COMMIT_MESSAGE" value="added a port for testing the client." />
+    <MESSAGE value="rremoved imports" />
+    <MESSAGE value="changed piece color" />
+    <MESSAGE value="added more verbose help to help command." />
+    <option name="LAST_COMMIT_MESSAGE" value="added more verbose help to help command." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -653,8 +659,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/GameHandler.java</url>
-          <line>42</line>
+          <line>41</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>283</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
