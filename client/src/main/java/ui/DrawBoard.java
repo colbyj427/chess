@@ -19,6 +19,7 @@ public class DrawBoard {
   public static void main() {
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     setArrayToStart();
+    //ill pass in an array for phase 6 so i wont need to set the array.j
     out.print(ERASE_SCREEN);
 
     //board with black at bottom
