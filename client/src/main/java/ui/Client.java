@@ -1,6 +1,7 @@
 package ui;
 
 import ServerClientCommunication.ServerFacade;
+import ServerClientCommunication.ServerMessageObserver;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -8,13 +9,14 @@ import model.AuthRecord;
 import model.GameRecord;
 import model.JoinGameRecord;
 import model.UserRecord;
+import webSocketMessages.serverMessages.ServerMessage;
 
 import java.lang.reflect.Type;
 import java.util.*;
 
 import static ui.EscapeSequences.*;
 
-public class Client {
+public class Client implements ServerMessageObserver {
   private State state = State.SIGNEDOUT;
 
   private String authToken = "";
@@ -261,6 +263,13 @@ public class Client {
       throw new Exception("You must log out");
     }
   }
+
+  @Override
+  public ServerMessage notify(ServerMessage message) {
+//    give it a switch case for each type of message.
+    return null;
+  }
+
   public enum State {
     SIGNEDOUT,
     SIGNEDIN

@@ -8,7 +8,7 @@ import java.net.URI;
 import java.net.URL;
 
 
-public class ClientCommunicator {
+public class HttpCommunicator {
   static String serverURL = "http://localhost:";
   static public int port;
   public static <T> T makeRequest(String method, String path, Object request, Class<T> responseClass, String authToken) throws Exception {

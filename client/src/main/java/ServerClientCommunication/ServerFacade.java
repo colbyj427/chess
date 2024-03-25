@@ -8,13 +8,13 @@ import model.UserRecord;
 
 
 
-import static ServerClientCommunication.ClientCommunicator.*;
+import static ServerClientCommunication.HttpCommunicator.*;
 
 public class ServerFacade {
   final int port;
   public ServerFacade(int port) {
     this.port = port;
-    ClientCommunicator.port = port;
+    HttpCommunicator.port = port;
   }
 
   public static AuthRecord register(UserRecord registerRequest) throws Exception {
