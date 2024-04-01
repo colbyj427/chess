@@ -4,15 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="Phase 6 starter code added.">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerMessageObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketCommunicator.java" afterDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/WSClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/HttpCommunicator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerMessageObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerMessageObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketCommunicator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/Join_ObserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/Join_ObserverCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/Join_PlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/Join_PlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +61,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="webSocketMessages.serverMessages" />
       <recent name="webSocketMessages.userCommands" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
@@ -74,7 +93,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WebSocketTests">
+  <component name="RunManager">
     <configuration name="replloop - 8080" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
@@ -186,14 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Wrote positive and negative unit tests for each method in UserService class.">
-      <option name="closed" value="true" />
-      <created>1708988096570</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1708988096570</updated>
     </task>
     <task id="LOCAL-00020" summary="Created unit tests for each service class method.">
       <option name="closed" value="true" />
@@ -579,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711393927368</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="created file structure with new servermessage interface and message/notification subclasses.">
+      <option name="closed" value="true" />
+      <created>1711401561112</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1711401561112</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -594,7 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed null ptr exception in create game." />
     <MESSAGE value="Added starter code for phase 5." />
     <MESSAGE value="began drawing chess board." />
     <MESSAGE value="chess board prints except for pieces." />
@@ -619,7 +637,8 @@
     <MESSAGE value="updated client for user ease, full functionality, ready for pass off." />
     <MESSAGE value="cleaned up drawboard class." />
     <MESSAGE value="Phase 6 starter code added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Phase 6 starter code added." />
+    <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
+    <option name="LAST_COMMIT_MESSAGE" value="created file structure with new servermessage interface and message/notification subclasses." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

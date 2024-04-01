@@ -2,6 +2,7 @@ package server;
 
 import dataAccess.*;
 import spark.*;
+import server.WebSocket.WebSocketHandler;
 
 import java.sql.SQLException;
 
@@ -13,6 +14,7 @@ public class Server {
 
     public int run(int desiredPort) {
         Spark.port(desiredPort);
+        WebSocketHandler webSocketHandler = new WebSocketHandler();
 
         try {
             DatabaseManager.configureDatabase();
@@ -25,6 +27,8 @@ public class Server {
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
+        Spark.webSocket("/connect", webSocketHandler);
+
         Spark.post("/user", UserHandler::register);
         Spark.post("/session", UserHandler::login);
         Spark.delete("/session", UserHandler::logout);
@@ -32,6 +36,7 @@ public class Server {
         Spark.post("/game", GameHandler::createGame);
         Spark.put("/game", GameHandler::joinGame);
         Spark.delete("/db", ClearHandler::clear);
+
 
         Spark.awaitInitialization();
         return Spark.port();

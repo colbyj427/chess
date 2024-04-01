@@ -16,6 +16,7 @@ public class DrawBoard {
   //pass in a chessboard object, then get the piece color from the pieces and print that color.
   private static final String EMPTY=" ";
 
+
   public static void main() {
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     setArrayToStart();

@@ -32,6 +32,7 @@ public class ServerFacade {
   public static GameRecord createGame(GameRecord registerRequest, String authToken) throws Exception {
     return makeRequest("POST", "game", registerRequest, GameRecord.class, authToken);
   }
+  //when user joins or observes a game, websocket connection should be established.
   public static GameRecord joinGame(JoinGameRecord registerRequest, String authToken) throws Exception {
     return makeRequest("PUT", "game", registerRequest, null, authToken);
   }

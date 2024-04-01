@@ -10,8 +10,9 @@ import java.util.Objects;
  */
 public class UserGameCommand {
 
-    public UserGameCommand(String authToken) {
+    public UserGameCommand(String authToken, CommandType type) {
         this.authToken = authToken;
+        this.commandType = commandType;
     }
 
     public enum CommandType {

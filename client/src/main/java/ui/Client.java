@@ -2,6 +2,7 @@ package ui;
 
 import ServerClientCommunication.ServerFacade;
 import ServerClientCommunication.ServerMessageObserver;
+import ServerClientCommunication.WebSocketFacade;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -18,9 +19,12 @@ import static ui.EscapeSequences.*;
 
 public class Client implements ServerMessageObserver {
   private State state = State.SIGNEDOUT;
-
   private String authToken = "";
   private Map<Integer, Integer> gameDict = new HashMap<>();
+  private int port = 8080;
+  private String serverURL;
+  private ServerMessageObserver notificationHandler;
+  private WebSocketFacade ws;
 
 
   public static void main(String[] args) {
@@ -28,6 +32,8 @@ public class Client implements ServerMessageObserver {
   }
 
   public void run() {
+    this.serverURL = "http://localhost:" + Integer.valueOf(port);
+    this.notificationHandler = notificationHandler;
     ServerFacade facade = new ServerFacade(8080);
     System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
     System.out.print(help() + "\n");
@@ -36,11 +42,11 @@ public class Client implements ServerMessageObserver {
     Scanner scanner = new Scanner(System.in);
     var result = "";
     while (!result.equals("quit")) {
-      if (state == state.SIGNEDIN) {
-        System.out.print("Chess240 >>> ");
+      if (state == state.SIGNEDOUT) {
+        System.out.print(">>> ");
       }
       else {
-        System.out.print(">>> ");
+        System.out.print("Chess240 >>> ");
       }
       String line = scanner.nextLine();
       try {
@@ -134,11 +140,18 @@ public class Client implements ServerMessageObserver {
       if (params.length != 2) {
         throw new Exception("Expected <game ID> <team>");
       }
+      state = State.INGAME;
+
       int gameNum=Integer.valueOf(params[0]);
       String team = params[1].toUpperCase();
       JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       DrawBoard.main();
+      //****
+      //create a websocket facade and pass the client into it
+      ws = new WebSocketFacade(serverURL, this);
+      //ws.enterPetShop(visitorName);
+      //****
       return "You have joined the game";
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
@@ -158,6 +171,12 @@ public class Client implements ServerMessageObserver {
       if (params.length != 1) {
         throw new Exception("Expected <game id>");
       }
+      state = State.INGAME;
+      //****
+      //create a websocket client and communicator and send it through the serverfacade??
+      ws = new WebSocketFacade(serverURL, notificationHandler);
+      //ws.enterPetShop(visitorName);
+      //****
       int gameNum=Integer.valueOf(params[0]);
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
@@ -180,7 +199,7 @@ public class Client implements ServerMessageObserver {
       int counter = 0;
       for (GameRecord game: listOfGames) {
         counter += 1;
-        listOfGamesString+=prettyGame(game, counter);
+        listOfGamesString+=prettyGameString(game, counter);
         gameDict.put(counter, game.gameID());
       }
       return listOfGamesString;
@@ -189,7 +208,7 @@ public class Client implements ServerMessageObserver {
     }
   }
 
-  private static String prettyGame(GameRecord game, int numGame) {
+  private static String prettyGameString(GameRecord game, int numGame) {
     String gameString = "";
     gameString += numGame;
     gameString += ". ";
@@ -201,6 +220,18 @@ public class Client implements ServerMessageObserver {
     gameString+= game.blackUsername();
     gameString+= ";\n";
     return gameString;
+  }
+  public String leave(String... params) throws Exception {
+    assertInGame();
+    try {
+      //get the gameid
+      //remove the player from the game in database.
+      //send a notification to other players.
+      ws.leave(authToken, 1); //******** hard coded fix this!!!!!
+      return "";
+    } catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
   }
   public String clear(String... params) throws Exception {
     assertSignedOut();
@@ -221,7 +252,7 @@ public class Client implements ServerMessageObserver {
       outputString+="Register <username> <password> <email> : register as a user to chess 240.";
       return outputString;
     }
-    else {
+    else if (state == state.SIGNEDIN) {
       String outputString="";
       outputString+="Help: display commands and what they do.\n";
       outputString+="Logout: logout of chess and return to main menu.\n";
@@ -229,6 +260,16 @@ public class Client implements ServerMessageObserver {
       outputString+="JoinGame <game id> <team> : join a game at the number listed from listgames as the specified team.\n";
       outputString+="ListGames: show a list of all created games.\n";
       outputString+="JoinObserver <game id> : Join the specified game from the listed games as an observer.";
+      return outputString;
+    }
+    else {
+      String outputString="";
+      outputString+="Help: display commands and what they do.\n";
+      outputString+="Redraw: Redraw the chess board.\n";
+      outputString+="Leave: Leave the game, your color can be taken by someone else.\n";
+      outputString+="MakeMove: Input the move you would like to make, if valid it will be executed.\n";
+      outputString+="Resign: You will forfeit the game.\n";
+      outputString+="HighlightMoves: All legal moves will be highlighted for your color.";
       return outputString;
     }
   }
@@ -245,6 +286,11 @@ public class Client implements ServerMessageObserver {
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();
         case "joinobserver" -> joinObserver(params);
+        case "redraw" -> "board redrawn";
+        case "leave" -> leave(params);
+        case "makemove" -> "moveMade";
+        case "resign" -> "forfeited game";
+        case "highlightmoves" -> "validmoves highlighted";
         case "clear" -> clear();
         case "quit" -> "quit";
         default -> help();
@@ -263,15 +309,22 @@ public class Client implements ServerMessageObserver {
       throw new Exception("You must log out");
     }
   }
+  private void assertInGame() throws Exception {
+    if (state == State.INGAME) {
+      throw new Exception("You must be in a game");
+    }
+  }
 
   @Override
-  public ServerMessage notify(ServerMessage message) {
-//    give it a switch case for each type of message.
-    return null;
+  public void notify(ServerMessage message) {
+    System.out.println(message.getServerMessageType());
+    // give it a switch case for each type of message.
+    // then sends it through to either the handler or wsfacade, but the code is in petshop.
   }
 
   public enum State {
     SIGNEDOUT,
-    SIGNEDIN
+    SIGNEDIN,
+    INGAME
   }
 }

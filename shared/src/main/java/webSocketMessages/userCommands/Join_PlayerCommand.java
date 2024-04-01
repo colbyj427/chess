@@ -1,7 +1,11 @@
 package webSocketMessages.userCommands;
 
 public class Join_PlayerCommand extends UserGameCommand {
-  public Join_PlayerCommand(String authToken) {
-    super(authToken);
+  int gameId;
+  String playerColor;
+  public Join_PlayerCommand(String authToken, CommandType type, int gameId, String playerColor) {
+    super(authToken, type);
+    this.gameId = gameId;
+    this.playerColor = playerColor;
   }
 }
