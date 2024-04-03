@@ -39,7 +39,6 @@ public class GameHandler {
   }
   public static String listGames(Request req, Response res) throws DataAccessException{
     try {
-      //var serializer = new Gson();
       String authToken = req.headers("Authorization");
       res.status(200);
       Collection<GameRecord> listOfGames = gameService.listGames(authToken);
@@ -47,7 +46,6 @@ public class GameHandler {
       jsonObject.add("games", new Gson().toJsonTree(listOfGames));
       String jsonString = jsonObject.toString();
       return jsonString;
-
     }
     catch(DataAccessException listGamesException) {
       ErrorResponse caughtError = new ErrorResponse(listGamesException.statusCode, listGamesException.message);
@@ -62,8 +60,9 @@ public class GameHandler {
       var serializer = new Gson();
       String authToken = req.headers("authorization");
       JoinGameRecord joinGameRecord= serializer.fromJson(req.body(), JoinGameRecord.class);
-      gameService.joinGame(authToken, joinGameRecord.playerColor(), joinGameRecord.gameID());
-      return "{}";
+      GameRecord gameRecord = gameService.joinGame(authToken, joinGameRecord.playerColor(), joinGameRecord.gameID());
+//      return "{}"; this line passed the tests up to phase 6
+      return serializer.toJson(gameRecord);
     }
     catch(DataAccessException joinGameException) {
       ErrorResponse caughtError = new ErrorResponse(joinGameException.statusCode, joinGameException.message);

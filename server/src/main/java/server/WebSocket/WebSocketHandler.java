@@ -20,13 +20,22 @@ public class WebSocketHandler {
   @OnWebSocketMessage
   public void onMessage(Session session, String message) throws IOException {
     UserGameCommand command = new Gson().fromJson(message, UserGameCommand.class);
-    //switch (UserGameCommand.CommandType()) {
-      //case Join_Player -> enter(action.visitorName(), session);
-      //case JoinObserver -> exit(action.visitorName());
-   // }
+    switch (command.getCommandType()) {
+      case JOIN_PLAYER -> joinPlayer(command.getAuthString(), session);
+      case JOIN_OBSERVER -> {}
+      case MAKE_MOVE -> {}
+      case LEAVE -> leave(command.getAuthString(), session);
+      case RESIGN -> {}
+      case null -> joinPlayer(command.getAuthString(), session);
+    }
   }
-
-  private void leave(String authToken, Session session) throws IOException{
+  private void joinPlayer(String authToken, Session session) throws IOException {
+    connections.add(authToken, session);
+    var message = String.format("%s has joined the game.", authToken);
+    var notification = new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION);
+    connections.broadcast("", notification);
+  }
+  private void leave(String authToken, Session session) throws IOException {
     connections.remove(authToken);
     var message = String.format("%s has left the game.", authToken);
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);

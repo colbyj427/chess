@@ -12,33 +12,38 @@ public class DrawBoard {
 
   private static final int BOARD_SIZE_IN_SQUARES=8;
   private static final int SQUARE_SIZE_IN_CHARS=3;
-  private static ChessPiece[][] squares=new ChessPiece[8][8];
+  //private static ChessPiece[][] squares=new ChessPiece[8][8];
+  private static ChessPiece[][] squares;
   //pass in a chessboard object, then get the piece color from the pieces and print that color.
   private static final String EMPTY=" ";
 
 
-  public static void main() {
+  public static void main(ChessPiece[][] boardSetup, String color) {
+    squares = boardSetup;
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     setArrayToStart();
-    //ill pass in an array for phase 6 so i wont need to set the array.j
+    //ill pass in an array for phase 6, so I won't need to set the array.
     out.print(ERASE_SCREEN);
+    color = color.toLowerCase();
+    if (color.equals("black")) {
+      //board with black at bottom
+      drawHeadersBackwards(out);
+      drawChessBoardBlackBottom(out, squares);
+      drawHeadersBackwards(out);
 
-    //board with black at bottom
-    drawHeadersBackwards(out);
-    drawChessBoardBlackBottom(out, squares);
-    drawHeadersBackwards(out);
+      out.print(SET_BG_COLOR_BLACK);
+      out.print(SET_TEXT_COLOR_WHITE);
+      out.println();
+    }
+    else {
+      //board with white at bottom
+      drawHeaders(out);
+      drawChessBoard(out, squares);
+      drawHeaders(out);
 
-    out.print(SET_BG_COLOR_BLACK);
-    out.print(SET_TEXT_COLOR_WHITE);
-    out.println();
-
-    //board with white at bottom
-    drawHeaders(out);
-    drawChessBoard(out, squares);
-    drawHeaders(out);
-
-    out.print(SET_BG_COLOR_BLACK);
-    out.print(SET_TEXT_COLOR_WHITE);
+      out.print(SET_BG_COLOR_BLACK);
+      out.print(SET_TEXT_COLOR_WHITE);
+    }
   }
 
   private static void drawHeaders(PrintStream out) {

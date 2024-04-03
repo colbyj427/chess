@@ -10,5 +10,3 @@ public class NotificationMessage extends ServerMessage {
   }
 }
 
-//public record AuthRecord(String authToken, String username) {
-//}

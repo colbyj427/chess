@@ -11,7 +11,6 @@ import java.util.Arrays;
 public class ChessBoard {
     private ChessPiece[][] squares = new ChessPiece[8][8];
     public ChessBoard() {
-        
     }
 
     public ChessBoard(ChessBoard oldBoard) {
@@ -43,6 +42,10 @@ public class ChessBoard {
     public ChessPiece getPiece(ChessPosition position) {
         return squares[position.getRow()][position.getColumn()];
     }
+    public ChessPiece[][] getBoardLayout() {
+        return squares;
+    }
+
 
     @Override
     public boolean equals(Object o) {

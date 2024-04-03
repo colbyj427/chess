@@ -14,7 +14,8 @@ public class ChessGame {
     private ChessBoard board;
 
     public ChessGame() {
-
+        this.board = new ChessBoard();
+        this.board.resetBoard();
     }
 
     /**
@@ -107,7 +108,7 @@ public class ChessGame {
             if (moves.contains(move)) {
                 board.addPiece(move.getEndPosition(), board.getPiece(move.getStartPosition()));
                 board.addPiece(move.getStartPosition(), null);
-                // if theres a promotion piece, put it on the board.
+                // if there's a promotion piece, put it on the board.
                 if (move.getPromotionPiece() != null) {
                     board.addPiece(move.getEndPosition(), new ChessPiece(teamTurn, move.getPromotionPiece()));
                 }
@@ -233,7 +234,7 @@ public class ChessGame {
                         }
                     }
                 }
-                // if by the end of all the squares, false hasn't been given, then its true, in stalemate.
+                // if by the end of all the squares, false hasn't been given, then it's true, in stalemate.
                 return true;
             }
         }

@@ -3,6 +3,7 @@ package ui;
 import ServerClientCommunication.ServerFacade;
 import ServerClientCommunication.ServerMessageObserver;
 import ServerClientCommunication.WebSocketFacade;
+import chess.ChessGame;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +26,7 @@ public class Client implements ServerMessageObserver {
   private String serverURL;
   private ServerMessageObserver notificationHandler;
   private WebSocketFacade ws;
+  private GameRecord currentGame;
 
 
   public static void main(String[] args) {
@@ -125,7 +127,8 @@ public class Client implements ServerMessageObserver {
       GameRecord gameRecord=new GameRecord(0, null, null, gameName, null, null);
       GameRecord newGameRecord=ServerFacade.createGame(gameRecord, authToken);
       String newGameName = String.valueOf(newGameRecord.gameName());
-      DrawBoard.main();
+      ChessGame newGame = newGameRecord.game();
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE");
       return "Game created with name: " + newGameName;
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
@@ -140,17 +143,18 @@ public class Client implements ServerMessageObserver {
       if (params.length != 2) {
         throw new Exception("Expected <game ID> <team>");
       }
-      state = State.INGAME;
-
       int gameNum=Integer.valueOf(params[0]);
       String team = params[1].toUpperCase();
       JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
-      DrawBoard.main();
+      currentGame = newGameRecord;
+      ChessGame newGame = newGameRecord.game();
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), team);
       //****
       //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
-      //ws.enterPetShop(visitorName);
+      ws.joinPlayer(authToken, team, newGameRecord.gameID());
+      state = State.INGAME;
       //****
       return "You have joined the game";
     } catch (Exception exception) {
@@ -180,7 +184,8 @@ public class Client implements ServerMessageObserver {
       int gameNum=Integer.valueOf(params[0]);
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
-      DrawBoard.main();
+      ChessGame newGame = newGameRecord.game();
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE");
       return "You are observing the game";
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
@@ -227,8 +232,9 @@ public class Client implements ServerMessageObserver {
       //get the gameid
       //remove the player from the game in database.
       //send a notification to other players.
-      ws.leave(authToken, 1); //******** hard coded fix this!!!!!
-      return "";
+      ws.leave(authToken, currentGame.gameID());
+      currentGame = null;
+      return "You left the game.";
     } catch (Exception exception) {
       throw new Exception(exception.getMessage());
     }
@@ -314,13 +320,21 @@ public class Client implements ServerMessageObserver {
       throw new Exception("You must be in a game");
     }
   }
-
   @Override
-  public void notify(ServerMessage message) {
-    System.out.println(message.getServerMessageType());
-    // give it a switch case for each type of message.
-    // then sends it through to either the handler or wsfacade, but the code is in petshop.
-  }
+  public void notify(String message) {
+    System.out.println(message);
+  } //below is how the notify method should really work.
+//  @Override
+//  public void notify(ServerMessage message) {
+//    System.out.println(message.getServerMessageType());
+//    // give it a switch case for each type of message.
+//    switch (message.getServerMessageType()) {
+//      case NOTIFICATION -> System.out.println("This is a notificaton");
+//      case LOAD_GAME -> System.out.println("This is a load_game");
+//      case ERROR -> System.out.println("This is an error");
+//    }
+//    // then sends it through to either the handler or wsfacade, but the code is in petshop.?????
+//  }
 
   public enum State {
     SIGNEDOUT,
