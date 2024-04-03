@@ -6,6 +6,7 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.serverMessages.ServerMessage;
+import webSocketMessages.userCommands.JoinPlayerCommand;
 import webSocketMessages.userCommands.LeaveCommand;
 import webSocketMessages.userCommands.UserGameCommand;
 
@@ -21,7 +22,7 @@ public class WebSocketHandler {
   public void onMessage(Session session, String message) throws IOException {
     UserGameCommand command = new Gson().fromJson(message, UserGameCommand.class);
     switch (command.getCommandType()) {
-      case JOIN_PLAYER -> joinPlayer(command.getAuthString(), session);
+      case JOIN_PLAYER -> joinPlayer(message, session);
       case JOIN_OBSERVER -> {}
       case MAKE_MOVE -> {}
       case LEAVE -> leave(command.getAuthString(), session);
@@ -29,14 +30,15 @@ public class WebSocketHandler {
       case null -> joinPlayer(command.getAuthString(), session);
     }
   }
-  private void joinPlayer(String authToken, Session session) throws IOException {
-    connections.add(authToken, session);
-    var message = String.format("%s has joined the game.", authToken);
-    var notification = new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION);
+  private void joinPlayer(String jsonString, Session session) throws IOException {
+    UserGameCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
+    connections.add(command.getAuthString(), session);
+    var message = String.format("%s has joined the game.", command.getAuthString());
+    var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     connections.broadcast("", notification);
   }
   private void leave(String authToken, Session session) throws IOException {
-    connections.remove(authToken);
+    //connections.remove(authToken);
     var message = String.format("%s has left the game.", authToken);
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     connections.broadcast("", notification);

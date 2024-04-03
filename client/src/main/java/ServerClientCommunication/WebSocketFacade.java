@@ -30,11 +30,10 @@ public class WebSocketFacade extends Endpoint {
       this.session.addMessageHandler(new MessageHandler.Whole<String>() {
         @Override
         public void onMessage(String message) {
-          notificationHandler.notify(message); //way i have it commented below is how it ought to work,
-          // this serializing is throwing an error and cutting the processs.
-          ServerMessage notification = new Gson().fromJson(message, ServerMessage.class);
+          notificationHandler.notify(message);
+//          notificationHandler.notify(message); kinda worked
 //          ServerMessage notification = new Gson().fromJson(message, ServerMessage.class);
-//          notificationHandler.notify(message);
+
         }
       });
     } catch (DeploymentException | IOException | URISyntaxException ex) {
@@ -47,8 +46,8 @@ public class WebSocketFacade extends Endpoint {
   }
   public void joinPlayer(String authToken, String team, int gameId) throws Exception {
     try {
-      var notification = new UserGameCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER);
-      //var notification=new JoinPlayerCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER, gameId, team);
+      //var notification = new UserGameCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER);
+      var notification = new JoinPlayerCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER, gameId, team);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
     } catch (IOException e) {
       throw new Exception(e.getMessage());
@@ -56,9 +55,9 @@ public class WebSocketFacade extends Endpoint {
   }
   public void leave(String authToken, int gameId) throws Exception {
     try {
-      var notification=new LeaveCommand(authToken, UserGameCommand.CommandType.LEAVE, gameId);
+      var notification = new LeaveCommand(authToken, UserGameCommand.CommandType.LEAVE, gameId);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
-      this.session.close();
+      //this.session.close();
     } catch (IOException e) {
       throw new Exception(e.getMessage());
     }

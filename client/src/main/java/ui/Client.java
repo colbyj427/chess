@@ -11,6 +11,9 @@ import model.AuthRecord;
 import model.GameRecord;
 import model.JoinGameRecord;
 import model.UserRecord;
+import webSocketMessages.serverMessages.ErrorMessage;
+import webSocketMessages.serverMessages.LoadGameMessage;
+import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.serverMessages.ServerMessage;
 
 import java.lang.reflect.Type;
@@ -24,7 +27,7 @@ public class Client implements ServerMessageObserver {
   private Map<Integer, Integer> gameDict = new HashMap<>();
   private int port = 8080;
   private String serverURL;
-  private ServerMessageObserver notificationHandler;
+  //private ServerMessageObserver notificationHandler;
   private WebSocketFacade ws;
   private GameRecord currentGame;
 
@@ -35,7 +38,7 @@ public class Client implements ServerMessageObserver {
 
   public void run() {
     this.serverURL = "http://localhost:" + Integer.valueOf(port);
-    this.notificationHandler = notificationHandler;
+    //this.notificationHandler = notificationHandler;
     ServerFacade facade = new ServerFacade(8080);
     System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
     System.out.print(help() + "\n");
@@ -178,7 +181,7 @@ public class Client implements ServerMessageObserver {
       state = State.INGAME;
       //****
       //create a websocket client and communicator and send it through the serverfacade??
-      ws = new WebSocketFacade(serverURL, notificationHandler);
+      ws = new WebSocketFacade(serverURL, this);
       //ws.enterPetShop(visitorName);
       //****
       int gameNum=Integer.valueOf(params[0]);
@@ -229,11 +232,10 @@ public class Client implements ServerMessageObserver {
   public String leave(String... params) throws Exception {
     assertInGame();
     try {
-      //get the gameid
+      ws.leave(authToken, currentGame.gameID()); // this is not hitting for some reason.
       //remove the player from the game in database.
-      //send a notification to other players.
-      ws.leave(authToken, currentGame.gameID());
       currentGame = null;
+      state = State.SIGNEDIN;
       return "You left the game.";
     } catch (Exception exception) {
       throw new Exception(exception.getMessage());
@@ -316,25 +318,33 @@ public class Client implements ServerMessageObserver {
     }
   }
   private void assertInGame() throws Exception {
-    if (state == State.INGAME) {
+    if (state != State.INGAME) {
       throw new Exception("You must be in a game");
     }
   }
   @Override
-  public void notify(String message) {
-    System.out.println(message);
-  } //below is how the notify method should really work.
-//  @Override
-//  public void notify(ServerMessage message) {
-//    System.out.println(message.getServerMessageType());
-//    // give it a switch case for each type of message.
-//    switch (message.getServerMessageType()) {
-//      case NOTIFICATION -> System.out.println("This is a notificaton");
-//      case LOAD_GAME -> System.out.println("This is a load_game");
-//      case ERROR -> System.out.println("This is an error");
-//    }
-//    // then sends it through to either the handler or wsfacade, but the code is in petshop.?????
-//  }
+  public void notify(String notification) {
+    ServerMessage message = new Gson().fromJson(notification, ServerMessage.class);
+    System.out.println(message.getServerMessageType());
+    switch (message.getServerMessageType()) {
+      case NOTIFICATION -> handleNotification(notification);
+      case LOAD_GAME -> handleLoadGame(notification);
+      case ERROR -> handleError(notification);
+    }
+  }
+  public void handleNotification(String notification) {
+    NotificationMessage message = new Gson().fromJson(notification, NotificationMessage.class);
+    System.out.print(message.getMessage());
+  }
+  public void handleLoadGame(String notification) {
+    LoadGameMessage message = new Gson().fromJson(notification, LoadGameMessage.class);
+    ChessGame game = message.getGame();
+    DrawBoard.main(game.getBoard().getBoardLayout(), message.getColor());
+  }
+  public void handleError(String notification) {
+    ErrorMessage message = new Gson().fromJson(notification, ErrorMessage.class);
+    System.out.print(message.getErrorMessage());
+  }
 
   public enum State {
     SIGNEDOUT,

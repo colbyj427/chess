@@ -9,21 +9,20 @@ import java.util.Objects;
  * methods.
  */
 public class ServerMessage {
-    ServerMessageType serverMessageType;
+    protected ServerMessageType type;
 
     public enum ServerMessageType {
         LOAD_GAME,
         ERROR,
         NOTIFICATION
     }
-    String message;
 
     public ServerMessage(ServerMessageType type) {
-        this.serverMessageType = type;
+        this.type = type;
     }
 
     public ServerMessageType getServerMessageType() {
-        return this.serverMessageType;
+        return this.type;
     }
 
     @Override
