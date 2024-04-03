@@ -4,29 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="leave and joinplayer implemented but not working.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="leave and joinplayer implemented and working but notifications coming at weird times.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ErrorMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ErrorMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/NotificationMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/NotificationMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +71,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Compound.serverclient">
+  <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -97,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client" type="Application" factoryName="Application">
+    <configuration name="client" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
       <method v="2">
@@ -223,22 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Refactored pawn promotion calculation to remove duplicate code.">
-      <option name="closed" value="true" />
-      <created>1709005782305</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1709005782305</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Refactored pawn single and double moves calculation to remove duplicate code.">
-      <option name="closed" value="true" />
-      <created>1709006160240</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1709006160240</updated>
     </task>
     <task id="LOCAL-00024" summary="Refactored knight and king bounds/move calculation to remove duplicate code.">
       <option name="closed" value="true" />
@@ -616,7 +582,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712154999971</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="leave and joinplayer implemented and working but notifications coming at weird times.">
+      <option name="closed" value="true" />
+      <created>1712171887933</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1712171887933</updated>
+    </task>
+    <task id="LOCAL-00072" summary="leave and joinplayer implemented and working but notifications coming at weird times.">
+      <option name="closed" value="true" />
+      <created>1712171907939</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1712171907940</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -631,7 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chess board prints except for pieces." />
     <MESSAGE value="finished chess board ui for phase 5." />
     <MESSAGE value="Finished Chessboard drawing." />
     <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
@@ -656,7 +637,8 @@
     <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
     <MESSAGE value="began implementing a leave game notification." />
     <MESSAGE value="leave and joinplayer implemented but not working." />
-    <option name="LAST_COMMIT_MESSAGE" value="leave and joinplayer implemented but not working." />
+    <MESSAGE value="leave and joinplayer implemented and working but notifications coming at weird times." />
+    <option name="LAST_COMMIT_MESSAGE" value="leave and joinplayer implemented and working but notifications coming at weird times." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
