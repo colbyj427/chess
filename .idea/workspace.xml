@@ -4,11 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="leave and joinplayer implemented and working but notifications coming at weird times.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="updated passoff dependencies jar.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +90,15 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.Server" />
-      <module name="server" />
+  <component name="RunManager" selected="Compound.ServerTwoClient">
+    <configuration name="client1" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="ui.Client" />
+      <module name="client" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client" type="Application" factoryName="Application" singleton="false">
+    <configuration name="client2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
       <method v="2">
@@ -94,9 +113,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerTwoClient" type="CompoundRunConfigurationType">
+      <toRun name="Server" type="Application" />
+      <toRun name="client1" type="Application" />
+      <toRun name="client2" type="Application" />
+      <method v="2" />
+    </configuration>
     <configuration name="serverclient" type="CompoundRunConfigurationType">
-      <toRun name="Unnamed" type="Application" />
-      <toRun name="client" type="Application" />
+      <toRun name="Server" type="Application" />
+      <toRun name="client1" type="Application" />
       <method v="2" />
     </configuration>
     <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -110,38 +135,6 @@
       <option name="PACKAGE_NAME" value="clientTests" />
       <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.badListGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="clientTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="clientTests" />
-      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="badListGames" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.listGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="clientTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="clientTests" />
-      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="listGames" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,24 +169,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="chessPieceTests in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="serverTests in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.client" />
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.client2" />
+      <item itemvalue="Application.client1" />
       <item itemvalue="Application.replloop - 8080" />
+      <item itemvalue="Compound.ServerTwoClient" />
       <item itemvalue="Compound.serverclient" />
+      <item itemvalue="JUnit.chessPieceTests in shared" />
+      <item itemvalue="JUnit.serverTests in server" />
       <item itemvalue="JUnit.StandardAPITests" />
       <item itemvalue="JUnit.WebSocketTests" />
       <item itemvalue="JUnit.ServerFacadeTests" />
-      <item itemvalue="JUnit.ServerFacadeTests.badListGames" />
-      <item itemvalue="JUnit.ServerFacadeTests.listGames" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.serverTests in server" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
+        <item itemvalue="JUnit.chessPieceTests in shared" />
         <item itemvalue="JUnit.WebSocketTests" />
         <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.ServerFacadeTests.badListGames" />
-        <item itemvalue="JUnit.ServerFacadeTests.listGames" />
       </list>
     </recent_temporary>
   </component>
@@ -205,22 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Refactored knight and king bounds/move calculation to remove duplicate code.">
-      <option name="closed" value="true" />
-      <created>1709006642893</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1709006642893</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Refactored bishop and rook move calculation to remove duplicate code.">
-      <option name="closed" value="true" />
-      <created>1709007223903</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1709007223903</updated>
     </task>
     <task id="LOCAL-00026" summary="Shortened chess piece file to just over 500 lines.">
       <option name="closed" value="true" />
@@ -598,7 +592,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712171907940</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="leave and joinplayer implemented and working">
+      <option name="closed" value="true" />
+      <created>1712173268215</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1712173268216</updated>
+    </task>
+    <task id="LOCAL-00074" summary="updated passoff dependencies jar.">
+      <option name="closed" value="true" />
+      <created>1712173351370</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1712173351370</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -613,8 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finished chess board ui for phase 5." />
-    <MESSAGE value="Finished Chessboard drawing." />
     <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
     <MESSAGE value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
     <MESSAGE value="added untested code for sever facade endpoints." />
@@ -638,7 +646,9 @@
     <MESSAGE value="began implementing a leave game notification." />
     <MESSAGE value="leave and joinplayer implemented but not working." />
     <MESSAGE value="leave and joinplayer implemented and working but notifications coming at weird times." />
-    <option name="LAST_COMMIT_MESSAGE" value="leave and joinplayer implemented and working but notifications coming at weird times." />
+    <MESSAGE value="leave and joinplayer implemented and working" />
+    <MESSAGE value="updated passoff dependencies jar." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated passoff dependencies jar." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -682,7 +692,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>158</line>
+          <line>161</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -717,18 +727,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>161</line>
+          <line>164</line>
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>232</line>
+          <line>235</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>41</line>
+          <line>42</line>
           <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

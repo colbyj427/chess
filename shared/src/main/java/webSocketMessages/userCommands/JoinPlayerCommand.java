@@ -6,8 +6,8 @@ public class JoinPlayerCommand extends UserGameCommand {
 //  }
   int gameId;
   String playerColor;
-  public JoinPlayerCommand(String authToken, CommandType type, int gameId, String playerColor) {
-    super(authToken, type);
+  public JoinPlayerCommand(String authToken, String username, CommandType type, int gameId, String playerColor) {
+    super(authToken, username, type);
     this.gameId = gameId;
     this.playerColor = playerColor;
   }

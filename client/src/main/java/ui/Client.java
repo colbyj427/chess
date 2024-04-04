@@ -24,6 +24,7 @@ import static ui.EscapeSequences.*;
 public class Client implements ServerMessageObserver {
   private State state = State.SIGNEDOUT;
   private String authToken = "";
+  private String username = "";
   private Map<Integer, Integer> gameDict = new HashMap<>();
   private int port = 8080;
   private String serverURL;
@@ -82,6 +83,7 @@ public class Client implements ServerMessageObserver {
         UserRecord registerRequest=new UserRecord(params[0], params[1], null);
         AuthRecord response=ServerFacade.login(registerRequest);
         authToken = response.authToken();
+        username = response.username();
         state=state.SIGNEDIN;
         return "Welcome to chess 240";
       }
@@ -113,6 +115,7 @@ public class Client implements ServerMessageObserver {
     try {
       ServerFacade.logout(null, authToken);
       this.authToken = "";
+      this.username = "";
       state = state.SIGNEDOUT;
       return "logged out";
     }
@@ -156,7 +159,7 @@ public class Client implements ServerMessageObserver {
       //****
       //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
-      ws.joinPlayer(authToken, team, newGameRecord.gameID());
+      ws.joinPlayer(authToken, username, team, newGameRecord.gameID());
       state = State.INGAME;
       //****
       return "You have joined the game";
@@ -232,7 +235,7 @@ public class Client implements ServerMessageObserver {
   public String leave(String... params) throws Exception {
     assertInGame();
     try {
-      ws.leave(authToken, currentGame.gameID()); // this is not hitting for some reason.
+      ws.leave(authToken, username, currentGame.gameID()); // this is not hitting for some reason.
       //remove the player from the game in database.
       currentGame = null;
       state = State.SIGNEDIN;

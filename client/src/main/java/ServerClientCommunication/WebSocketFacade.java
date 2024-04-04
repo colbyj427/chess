@@ -44,18 +44,18 @@ public class WebSocketFacade extends Endpoint {
   @Override
   public void onOpen(Session session, EndpointConfig endpointConfig) {
   }
-  public void joinPlayer(String authToken, String team, int gameId) throws Exception {
+  public void joinPlayer(String authToken, String username, String team, int gameId) throws Exception {
     try {
       //var notification = new UserGameCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER);
-      var notification = new JoinPlayerCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER, gameId, team);
+      var notification = new JoinPlayerCommand(authToken, username, UserGameCommand.CommandType.JOIN_PLAYER, gameId, team);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
     } catch (IOException e) {
       throw new Exception(e.getMessage());
     }
   }
-  public void leave(String authToken, int gameId) throws Exception {
+  public void leave(String authToken, String username, int gameId) throws Exception {
     try {
-      var notification = new LeaveCommand(authToken, UserGameCommand.CommandType.LEAVE, gameId);
+      var notification = new LeaveCommand(authToken, username, UserGameCommand.CommandType.LEAVE, gameId);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
       this.session.close();
     } catch (IOException e) {

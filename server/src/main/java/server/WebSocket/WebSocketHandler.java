@@ -25,23 +25,24 @@ public class WebSocketHandler {
       case JOIN_PLAYER -> joinPlayer(message, session);
       case JOIN_OBSERVER -> {}
       case MAKE_MOVE -> {}
-      case LEAVE -> leave(command.getAuthString(), session);
+      case LEAVE -> leave(message, session);
       case RESIGN -> {}
-      case null -> joinPlayer(command.getAuthString(), session);
+      case null -> joinPlayer(message, session);
     }
   }
   private void joinPlayer(String jsonString, Session session) throws IOException {
     UserGameCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
     connections.add(command.getAuthString(), session);
-    var message = String.format("%s has joined the game.", command.getAuthString());
+    var message = String.format("Player %s has joined the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast("", notification);
+    connections.broadcast(command.getAuthString(), notification);
   }
-  private void leave(String authToken, Session session) throws IOException {
+  private void leave(String jsonString, Session session) throws IOException {
+    UserGameCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
     //connections.remove(authToken);
-    var message = String.format("%s has left the game.", authToken);
+    var message = String.format("Player %s has left the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast("", notification);
+    connections.broadcast(command.getAuthString(), notification);
   }
 
 //  private void enter(String visitorName, Session session) throws IOException {

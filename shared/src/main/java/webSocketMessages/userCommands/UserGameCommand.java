@@ -17,13 +17,15 @@ public class UserGameCommand {
         LEAVE,
         RESIGN
     }
-    public UserGameCommand(String authToken, CommandType type) {
+    public UserGameCommand(String authToken, String username, CommandType type) {
         this.authToken = authToken;
+        this.username = username;
         this.type = type;
     }
 
 
     private final String authToken;
+    private final String username;
 
     public String getAuthString() {
         return authToken;
@@ -32,6 +34,7 @@ public class UserGameCommand {
     public CommandType getCommandType() {
         return this.type;
     }
+    public String getUsername() { return this.username; }
 
     @Override
     public boolean equals(Object o) {
