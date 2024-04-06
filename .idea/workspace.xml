@@ -4,30 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="updated passoff dependencies jar.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="websocket join and leave implemented, only bug is username doesn't print.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +87,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Compound.ServerTwoClient">
+    <configuration name="Server?" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="client1" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="ui.Client" />
       <module name="client" />
@@ -114,13 +117,13 @@
       </method>
     </configuration>
     <configuration name="ServerTwoClient" type="CompoundRunConfigurationType">
-      <toRun name="Server" type="Application" />
+      <toRun name="Server?" type="Application" />
       <toRun name="client1" type="Application" />
       <toRun name="client2" type="Application" />
       <method v="2" />
     </configuration>
     <configuration name="serverclient" type="CompoundRunConfigurationType">
-      <toRun name="Server" type="Application" />
+      <toRun name="Server?" type="Application" />
       <toRun name="client1" type="Application" />
       <method v="2" />
     </configuration>
@@ -186,6 +189,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Server?" />
       <item itemvalue="Application.client2" />
       <item itemvalue="Application.client1" />
       <item itemvalue="Application.replloop - 8080" />
@@ -199,10 +203,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebSocketTests" />
         <item itemvalue="JUnit.serverTests in server" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.chessPieceTests in shared" />
-        <item itemvalue="JUnit.WebSocketTests" />
         <item itemvalue="JUnit.StandardAPITests" />
       </list>
     </recent_temporary>
@@ -215,14 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Shortened chess piece file to just over 500 lines.">
-      <option name="closed" value="true" />
-      <created>1709008791879</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1709008791879</updated>
     </task>
     <task id="LOCAL-00027" summary="Shortened chess piece file to 500 lines by refactoring loops and correcting checkstyle warnings.">
       <option name="closed" value="true" />
@@ -608,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712173351370</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="websocket join and leave implemented, only bug is username doesn't print.">
+      <option name="closed" value="true" />
+      <created>1712208989329</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1712208989329</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -623,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Client menu set up, all endppoints reachable and board draws to console. No http implemented." />
     <MESSAGE value="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database." />
     <MESSAGE value="added untested code for sever facade endpoints." />
     <MESSAGE value="removed unessecary comments from gameHandler." />
@@ -648,7 +651,8 @@
     <MESSAGE value="leave and joinplayer implemented and working but notifications coming at weird times." />
     <MESSAGE value="leave and joinplayer implemented and working" />
     <MESSAGE value="updated passoff dependencies jar." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated passoff dependencies jar." />
+    <MESSAGE value="websocket join and leave implemented, only bug is username doesn't print." />
+    <option name="LAST_COMMIT_MESSAGE" value="websocket join and leave implemented, only bug is username doesn't print." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -681,43 +685,18 @@
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>57</line>
+          <line>62</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>39</line>
+          <line>37</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>32</line>
+          <line>30</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -727,23 +706,48 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="105" />
+          <line>87</line>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>235</line>
-          <option name="timeStamp" value="106" />
+          <line>266</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="107" />
+          <line>64</line>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="108" />
+          <line>372</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>385</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
@@ -777,8 +781,11 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="model.GameRecord" memberName="blackUsername" />
+        <PinnedItemInfo parentTag="chess.ChessGame" memberName="board" />
         <PinnedItemInfo parentTag="model.GameRecord" memberName="whiteUsername" />
+        <PinnedItemInfo parentTag="chess.ChessBoard" memberName="squares" />
         <PinnedItemInfo parentTag="model.GameRecord" memberName="game" />
+        <PinnedItemInfo parentTag="webSocketMessages.serverMessages.LoadGameMessage" memberName="game" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

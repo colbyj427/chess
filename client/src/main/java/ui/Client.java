@@ -4,6 +4,8 @@ import ServerClientCommunication.ServerFacade;
 import ServerClientCommunication.ServerMessageObserver;
 import ServerClientCommunication.WebSocketFacade;
 import chess.ChessGame;
+import chess.ChessMove;
+import chess.ChessPosition;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -31,6 +33,7 @@ public class Client implements ServerMessageObserver {
   //private ServerMessageObserver notificationHandler;
   private WebSocketFacade ws;
   private GameRecord currentGame;
+  private String playerColor = null;
 
 
   public static void main(String[] args) {
@@ -39,7 +42,6 @@ public class Client implements ServerMessageObserver {
 
   public void run() {
     this.serverURL = "http://localhost:" + Integer.valueOf(port);
-    //this.notificationHandler = notificationHandler;
     ServerFacade facade = new ServerFacade(8080);
     System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
     System.out.print(help() + "\n");
@@ -100,6 +102,7 @@ public class Client implements ServerMessageObserver {
       UserRecord registerRequest=new UserRecord(params[0], params[1], params[2]);
       AuthRecord response=ServerFacade.register(registerRequest);
       authToken = response.authToken();
+      username = response.username();
       state=state.SIGNEDIN;
       return "You have been registered\nWelcome to chess240";
     }
@@ -154,6 +157,7 @@ public class Client implements ServerMessageObserver {
       JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       currentGame = newGameRecord;
+      playerColor = team;
       ChessGame newGame = newGameRecord.game();
       DrawBoard.main(newGame.getBoard().getBoardLayout(), team);
       //****
@@ -181,17 +185,17 @@ public class Client implements ServerMessageObserver {
       if (params.length != 1) {
         throw new Exception("Expected <game id>");
       }
-      state = State.INGAME;
-      //****
-      //create a websocket client and communicator and send it through the serverfacade??
-      ws = new WebSocketFacade(serverURL, this);
-      //ws.enterPetShop(visitorName);
-      //****
+
       int gameNum=Integer.valueOf(params[0]);
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       ChessGame newGame = newGameRecord.game();
       DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE");
+      //****
+      ws = new WebSocketFacade(serverURL, this);
+      ws.joinObserver(authToken, username, newGameRecord.gameID());
+      //****
+      state = State.INGAME;
       return "You are observing the game";
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
@@ -235,14 +239,53 @@ public class Client implements ServerMessageObserver {
   public String leave(String... params) throws Exception {
     assertInGame();
     try {
-      ws.leave(authToken, username, currentGame.gameID()); // this is not hitting for some reason.
-      //remove the player from the game in database.
+      ws.leave(authToken, username, currentGame.gameID());
       currentGame = null;
+      playerColor = null;
       state = State.SIGNEDIN;
       return "You left the game.";
     } catch (Exception exception) {
       throw new Exception(exception.getMessage());
     }
+  }
+  public String resign(String... params) throws Exception {
+    assertInGame();
+    try {
+      if (currentGame == null) {
+        return "You are not in a valid game.";
+      }
+      ws.resign(authToken, username, currentGame.gameID());
+      currentGame = null;
+      playerColor = null;
+      state = State.SIGNEDIN;
+      return "You forfeited the match.";
+    } catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
+  }
+  public String makeMove(String... params) throws Exception {
+    assertInGame();
+    if (!playerColor.equals((currentGame.game().getTeamTurn().toString()))) {
+      return "Not your turn.";
+    }
+    try {
+      if (currentGame == null) {
+        return "You are not in a valid game.";
+      }
+      ChessPosition from = parseMove(params[0]);
+      ChessPosition to = parseMove(params[1]);
+      ChessMove move = new ChessMove(from, to, null);
+      String moveString = from + " " + to;
+      ws.makeMove(authToken, username, currentGame.gameID(), playerColor, move, moveString);
+      return "";
+    } catch (Exception exception) {
+      throw new Exception(exception.getMessage());
+    }
+  }
+  public String redraw(String... params) throws Exception{
+    assertInGame();
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor);
+    return "";
   }
   public String clear(String... params) throws Exception {
     assertSignedOut();
@@ -297,10 +340,10 @@ public class Client implements ServerMessageObserver {
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();
         case "joinobserver" -> joinObserver(params);
-        case "redraw" -> "board redrawn";
+        case "redraw" -> redraw(params);
         case "leave" -> leave(params);
-        case "makemove" -> "moveMade";
-        case "resign" -> "forfeited game";
+        case "makemove" -> makeMove(params);
+        case "resign" -> resign(params);
         case "highlightmoves" -> "validmoves highlighted";
         case "clear" -> clear();
         case "quit" -> "quit";
@@ -342,11 +385,21 @@ public class Client implements ServerMessageObserver {
   public void handleLoadGame(String notification) {
     LoadGameMessage message = new Gson().fromJson(notification, LoadGameMessage.class);
     ChessGame game = message.getGame();
-    DrawBoard.main(game.getBoard().getBoardLayout(), message.getColor());
+    DrawBoard.main(game.getBoard().getBoardLayout(), playerColor);
+    currentGame = new GameRecord(currentGame.gameID(), currentGame.whiteUsername(), currentGame.blackUsername(), currentGame.gameName(), game, currentGame.spectators());
   }
   public void handleError(String notification) {
     ErrorMessage message = new Gson().fromJson(notification, ErrorMessage.class);
     System.out.print(message.getErrorMessage());
+  }
+
+  public ChessPosition parseMove(String... params) {
+    //******* finish this
+    //********
+    char firstChar = params[0].charAt(0);
+    int y = firstChar - 'a' + 1;
+    int x = Integer.parseInt(params[0].substring(1));
+    return new ChessPosition(x,y);
   }
 
   public enum State {

@@ -1,14 +1,17 @@
 package server.WebSocket;
 
+import chess.ChessGame;
+import chess.InvalidMoveException;
 import com.google.gson.Gson;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+import server.Server;
+import service.GameService;
+import webSocketMessages.serverMessages.LoadGameMessage;
 import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.serverMessages.ServerMessage;
-import webSocketMessages.userCommands.JoinPlayerCommand;
-import webSocketMessages.userCommands.LeaveCommand;
-import webSocketMessages.userCommands.UserGameCommand;
+import webSocketMessages.userCommands.*;
 
 
 import java.io.IOException;
@@ -19,29 +22,55 @@ public class WebSocketHandler {
   private final ConnectionManager connections = new ConnectionManager();
 
   @OnWebSocketMessage
-  public void onMessage(Session session, String message) throws IOException {
+  public void onMessage(Session session, String message) throws Exception {
     UserGameCommand command = new Gson().fromJson(message, UserGameCommand.class);
     switch (command.getCommandType()) {
       case JOIN_PLAYER -> joinPlayer(message, session);
-      case JOIN_OBSERVER -> {}
-      case MAKE_MOVE -> {}
+      case JOIN_OBSERVER -> joinObserver(message, session);
+      case MAKE_MOVE -> makeMove(message, session);
       case LEAVE -> leave(message, session);
-      case RESIGN -> {}
+      case RESIGN -> resign(message, session);
       case null -> joinPlayer(message, session);
     }
   }
   private void joinPlayer(String jsonString, Session session) throws IOException {
     UserGameCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
     connections.add(command.getAuthString(), session);
-    var message = String.format("Player %s has joined the game.", command.getUsername());
+    var message = String.format("%s has joined the game.", command.getUsername());
+    var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    connections.broadcast(command.getAuthString(), notification);
+  }
+  private void joinObserver(String jsonString, Session session) throws IOException {
+    UserGameCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
+    connections.add(command.getAuthString(), session);
+    var message = String.format("%s is observing the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     connections.broadcast(command.getAuthString(), notification);
   }
   private void leave(String jsonString, Session session) throws IOException {
-    UserGameCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
-    //connections.remove(authToken);
-    var message = String.format("Player %s has left the game.", command.getUsername());
+    UserGameCommand command = new Gson().fromJson(jsonString, LeaveCommand.class);
+    var message = String.format("%s has left the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    connections.broadcast(command.getAuthString(), notification);
+    connections.remove(command.getAuthString());
+  }
+  private void resign(String jsonString, Session session) throws IOException {
+    UserGameCommand command = new Gson().fromJson(jsonString, ResignCommand.class);
+    var message = String.format("%s has forfeited the game.", command.getUsername());
+    var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    connections.broadcast(command.getAuthString(), notification);
+    connections.remove(command.getAuthString());
+  }
+  private void makeMove(String jsonString, Session session) throws Exception {
+    MakeMoveCommand command = new Gson().fromJson(jsonString, MakeMoveCommand.class);
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
+    game.makeMove(command.getMove());
+    //check for checkmate or stalemate and if so the game needs to end.
+    Server.memoryGameDao.updateGame(game, command.getGameId()); //update the database after making the move.
+    var message=String.format("%s moved: %s.", command.getUsername(), command.getMoveString());
+    var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getColor());
+    connections.broadcast("", loadGame);
     connections.broadcast(command.getAuthString(), notification);
   }
 

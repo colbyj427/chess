@@ -59,6 +59,10 @@ public class MemoryGameDao implements GameDaoInterface{
     }
     throw new DataAccessException(403, "already taken");
   }
+
+  @Override
+  public void updateGame(ChessGame game, int gameId) throws Exception {}
+
   public void clear() {
     gameDataArray.clear();
   }

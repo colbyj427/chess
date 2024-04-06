@@ -1,10 +1,9 @@
 package ServerClientCommunication;
 
+import chess.ChessMove;
 import com.google.gson.Gson;
 import webSocketMessages.serverMessages.ServerMessage;
-import webSocketMessages.userCommands.JoinPlayerCommand;
-import webSocketMessages.userCommands.LeaveCommand;
-import webSocketMessages.userCommands.UserGameCommand;
+import webSocketMessages.userCommands.*;
 
 import javax.websocket.*;
 import java.io.IOException;
@@ -25,7 +24,6 @@ public class WebSocketFacade extends Endpoint {
       WebSocketContainer container = ContainerProvider.getWebSocketContainer();
       //getting an error thrown on this line.
       this.session = container.connectToServer(this, socketURI);
-
       //set message handler
       this.session.addMessageHandler(new MessageHandler.Whole<String>() {
         @Override
@@ -46,8 +44,15 @@ public class WebSocketFacade extends Endpoint {
   }
   public void joinPlayer(String authToken, String username, String team, int gameId) throws Exception {
     try {
-      //var notification = new UserGameCommand(authToken, UserGameCommand.CommandType.JOIN_PLAYER);
       var notification = new JoinPlayerCommand(authToken, username, UserGameCommand.CommandType.JOIN_PLAYER, gameId, team);
+      this.session.getBasicRemote().sendText(new Gson().toJson(notification));
+    } catch (IOException e) {
+      throw new Exception(e.getMessage());
+    }
+  }
+  public void joinObserver(String authToken, String username, int gameId) throws Exception {
+    try {
+      var notification = new JoinObserverCommand(authToken, username, UserGameCommand.CommandType.JOIN_OBSERVER, gameId);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
     } catch (IOException e) {
       throw new Exception(e.getMessage());
@@ -58,6 +63,23 @@ public class WebSocketFacade extends Endpoint {
       var notification = new LeaveCommand(authToken, username, UserGameCommand.CommandType.LEAVE, gameId);
       this.session.getBasicRemote().sendText(new Gson().toJson(notification));
       this.session.close();
+    } catch (IOException e) {
+      throw new Exception(e.getMessage());
+    }
+  }
+  public void resign(String authToken, String username, int gameId) throws Exception {
+    try {
+      var notification = new ResignCommand(authToken, username, UserGameCommand.CommandType.RESIGN, gameId);
+      this.session.getBasicRemote().sendText(new Gson().toJson(notification));
+      this.session.close();
+    } catch (IOException e) {
+      throw new Exception(e.getMessage());
+    }
+  }
+  public void makeMove(String authToken, String username, int gameId, String color, ChessMove move, String moveString) throws Exception {
+    try {
+      var notification = new MakeMoveCommand(authToken, username, UserGameCommand.CommandType.MAKE_MOVE, gameId, color, move, moveString);
+      this.session.getBasicRemote().sendText(new Gson().toJson(notification));
     } catch (IOException e) {
       throw new Exception(e.getMessage());
     }

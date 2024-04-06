@@ -134,6 +134,23 @@ public class MySQLGameDao implements GameDaoInterface{
     }
     throw new DataAccessException(403, "already taken");
   }
+  public void updateGame(ChessGame game, int gameId) throws Exception {
+    var serializer = new Gson();
+    String serializedGame = serializer.toJson(game);
+    var statement="UPDATE games SET game = ? WHERE gameID = ?;";
+    try {
+      var conn=DatabaseManager.getConnection();
+      var preparedStatement=conn.prepareStatement(statement);
+      preparedStatement.setString(1, serializedGame);
+      preparedStatement.setInt(2, gameId);
+      int numAffected=preparedStatement.executeUpdate();
+      if (numAffected == 0) {
+        throw new DataAccessException(400, "bad request");
+      }
+    } catch (Exception e) {
+      throw new DataAccessException(400, "bad request");
+    }
+  }
   public void clear() throws DataAccessException {
     var statement="DELETE FROM games;";
     try {
