@@ -110,8 +110,8 @@ public class DrawBoard {
       }
     }
     else {
-      for (int boardCol=0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) { // draw actual squares, one at a time // ******************** could flip this?
-        drawWhiteRowSquares(out, row, pieceArray, boardCol); // int boardCol=7; boardCol >= 0; --boardCol <- original
+      for (int boardCol=7; boardCol >= 0; --boardCol) { // draw actual squares, one at a time // ******************** could flip this? didn't really work?
+        drawWhiteRowSquares(out, row, pieceArray, boardCol);
       }
     }
     printRowNum(out, row);
@@ -137,9 +137,9 @@ public class DrawBoard {
   private static void drawWhiteRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
-    if (pieceArray[((Integer.valueOf(row))-1)][boardCol] != null) {
-      pieceType=getPieceType(row, boardCol, pieceArray);
-      pieceColor=getPieceColor(row, boardCol, pieceArray);
+    if (pieceArray[((Integer.valueOf(row))-1)][7-boardCol] != null) {
+      pieceType=getPieceType(row, 7-boardCol, pieceArray);
+      pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 0) {
       setWhite(out);
@@ -163,9 +163,9 @@ public class DrawBoard {
   private static void drawBlackRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
-    if (pieceArray[(Integer.valueOf(row)-1)][boardCol] != null) { //******************** :) [7-boardcol] only kinda worked. will have to debug.
-      pieceType=getPieceType(row, boardCol, pieceArray);
-      pieceColor=getPieceColor(row, boardCol, pieceArray);
+    if (pieceArray[(Integer.valueOf(row)-1)][7-boardCol] != null) { //******************** :) [7-boardcol] only kinda worked. will have to debug. probalby need an if statement for orientation.
+      pieceType=getPieceType(row, 7-boardCol, pieceArray);
+      pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 1) {
       setWhite(out);

@@ -4,204 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so.">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/glassfish_tyrus_bundles_standalone_client.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_security_spring_core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/10k-architecture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/HttpCommunicator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerMessageObserver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/WSClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/HttpCommunicator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerMessageObserver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/EscapeSequences.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/test-classes/clientTests/ServerFacadeTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/lib/passoff-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AtomicIntegerAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DataAccessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UniqueIDGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/PersistenceTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/WebSocketTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AtomicIntegerAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DataAccessException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DatabaseManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLAuthDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLGameDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLUserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UniqueIDGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/Connection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/ClearService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/GameService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/web/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/dataAccessTests/DataAccessTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/PersistenceTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/StandardAPITests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/WebSocketTests$TestUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/WebSocketTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/shared.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/InvalidMoveException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/AuthRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/GameRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/JoinGameRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/UserRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/TestFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessBoardTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessGameTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessPositionTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/BishopMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/KingMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/KnightMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/PawnMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/QueenMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/RookMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame$TeamColor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessMove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece$PieceType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/InvalidMoveException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/AuthRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/GameRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/JoinGameRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/UserRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ErrorMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/NotificationMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage$ServerMessageType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand$CommandType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/TestFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessBoardTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessGameTests$ValidMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessGameTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessPositionTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/BishopMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/KingMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/KnightMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/PawnMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/QueenMoveTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/RookMoveTests.class" beforeDir="false" />
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="recommit after makemove, all files said i changed them for some reason?">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,22 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Added three starter files for phase 4.">
-      <option name="closed" value="true" />
-      <created>1709272031787</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1709272031787</updated>
-    </task>
-    <task id="LOCAL-00029" summary="added my username and password to the database properties.">
-      <option name="closed" value="true" />
-      <created>1709329908050</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1709329908050</updated>
     </task>
     <task id="LOCAL-00030" summary="created MySQL interface files and added stubbed methods.">
       <option name="closed" value="true" />
@@ -790,7 +581,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712433346204</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="recommit after makemove, all files said i changed them for some reason?">
+      <option name="closed" value="true" />
+      <created>1712433538178</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433538179</updated>
+    </task>
+    <task id="LOCAL-00078" summary="recommit after makemove, all files said i changed them for some reason?">
+      <option name="closed" value="true" />
+      <created>1712433625330</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433625331</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -805,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added untested code for sever facade endpoints." />
     <MESSAGE value="removed unessecary comments from gameHandler." />
     <MESSAGE value="Login and logout functionality included and tested." />
     <MESSAGE value="all functionality except clear added and tested, edge cases not covered but correct input receives correct output." />
@@ -830,7 +636,8 @@
     <MESSAGE value="updated passoff dependencies jar." />
     <MESSAGE value="websocket join and leave implemented, only bug is username doesn't print." />
     <MESSAGE value="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so." />
-    <option name="LAST_COMMIT_MESSAGE" value="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so." />
+    <MESSAGE value="recommit after makemove, all files said i changed them for some reason?" />
+    <option name="LAST_COMMIT_MESSAGE" value="recommit after makemove, all files said i changed them for some reason?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -926,6 +733,26 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
           <line>25</line>
           <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>163</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
