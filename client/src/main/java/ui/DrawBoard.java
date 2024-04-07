@@ -1,10 +1,12 @@
 package ui;
 
 import chess.ChessGame;
+import chess.ChessMove;
 import chess.ChessPiece;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 
 import static ui.EscapeSequences.*;
 
@@ -16,13 +18,12 @@ public class DrawBoard {
   private static ChessPiece[][] squares;
   //pass in a chessboard object, then get the piece color from the pieces and print that color.
   private static final String EMPTY=" ";
+  private static Collection<ChessMove> validMoves = null;
 
-
-  public static void main(ChessPiece[][] boardSetup, String color) {
+  public static void main(ChessPiece[][] boardSetup, String color, Collection<ChessMove> highlightMoves) {
     squares = boardSetup;
+    validMoves = highlightMoves;
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
-    //setArrayToStart();
-    //ill pass in an array for phase 6, so I won't need to set the array.
     out.print(ERASE_SCREEN);
     color = color.toLowerCase();
     if (color.equals("black")) {
@@ -44,8 +45,8 @@ public class DrawBoard {
       out.print(SET_BG_COLOR_BLACK);
       out.print(SET_TEXT_COLOR_WHITE);
     }
+    validMoves = null;
   }
-
   private static void drawHeaders(PrintStream out) {
     setLightGray(out);
 

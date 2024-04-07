@@ -137,7 +137,7 @@ public class Client implements ServerMessageObserver {
       GameRecord newGameRecord=ServerFacade.createGame(gameRecord, authToken);
       String newGameName = String.valueOf(newGameRecord.gameName());
       ChessGame newGame = newGameRecord.game();
-      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE");
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
       return "Game created with name: " + newGameName;
     } catch (Exception exception) {
       if (exception.getMessage() == null) {
@@ -159,7 +159,7 @@ public class Client implements ServerMessageObserver {
       currentGame = newGameRecord;
       playerColor = team;
       ChessGame newGame = newGameRecord.game();
-      DrawBoard.main(newGame.getBoard().getBoardLayout(), team);
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), team, null);
       //****
       //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
@@ -190,7 +190,7 @@ public class Client implements ServerMessageObserver {
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       ChessGame newGame = newGameRecord.game();
-      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE");
+      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
       //****
       ws = new WebSocketFacade(serverURL, this);
       ws.joinObserver(authToken, username, newGameRecord.gameID());
@@ -290,8 +290,15 @@ public class Client implements ServerMessageObserver {
   }
   public String redraw(String... params) throws Exception{
     assertInGame();
-    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor);
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, null);
     return "";
+  }
+  public String highlightMoves(String... params) throws Exception {
+    assertInGame();
+    ChessPosition position = parseMove(params[0]);
+    Collection<ChessMove> validMoves = currentGame.game().validMoves(position);
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, validMoves);
+    return "Valid moves highlighted.";
   }
   public String clear(String... params) throws Exception {
     assertSignedOut();
@@ -346,12 +353,11 @@ public class Client implements ServerMessageObserver {
         case "joingame" -> joinGame(params);
         case "listgames" -> listGames();
         case "joinobserver" -> joinObserver(params);
-        case "redraw" -> redraw(params);
-        case "r" -> redraw(params);
+        case "redraw", "r" -> redraw(params);
         case "leave" -> leave(params);
         case "makemove" -> makeMove(params);
         case "resign" -> resign(params);
-        case "highlightmoves" -> "validmoves highlighted";
+        case "highlightmoves" -> highlightMoves(params);
         case "clear" -> clear();
         case "quit" -> "quit";
         default -> help();
@@ -392,7 +398,7 @@ public class Client implements ServerMessageObserver {
   public void handleLoadGame(String notification) {
     LoadGameMessage message = new Gson().fromJson(notification, LoadGameMessage.class);
     ChessGame game = message.getGame();
-    DrawBoard.main(game.getBoard().getBoardLayout(), playerColor);
+    DrawBoard.main(game.getBoard().getBoardLayout(), playerColor, null);
     currentGame = new GameRecord(currentGame.gameID(), currentGame.whiteUsername(), currentGame.blackUsername(), currentGame.gameName(), game, currentGame.spectators());
   }
   public void handleError(String notification) {
@@ -401,8 +407,6 @@ public class Client implements ServerMessageObserver {
   }
 
   public ChessPosition parseMove(String... params) {
-    //******* finish this
-    //********
     char firstChar = params[0].charAt(0);
     int y = firstChar - 'a' + 1;
     int x = Integer.parseInt(params[0].substring(1));

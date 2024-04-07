@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed board printing pieces reversed.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="adding handling for bad moves and end of game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,14 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708468041140</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Began mysql user dao implementation.">
-      <option name="closed" value="true" />
-      <created>1709668963772</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1709668963772</updated>
     </task>
     <task id="LOCAL-00032" summary="implemented MySQLUserDao">
       <option name="closed" value="true" />
@@ -598,7 +591,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712456931613</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="adding handling for bad moves and end of game.">
+      <option name="closed" value="true" />
+      <created>1712459468478</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1712459468478</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -613,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login and logout functionality included and tested." />
     <MESSAGE value="all functionality except clear added and tested, edge cases not covered but correct input receives correct output." />
     <MESSAGE value="list games prettier" />
     <MESSAGE value="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users." />
@@ -638,7 +638,8 @@
     <MESSAGE value="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so." />
     <MESSAGE value="recommit after makemove, all files said i changed them for some reason?" />
     <MESSAGE value="fixed board printing pieces reversed." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed board printing pieces reversed." />
+    <MESSAGE value="adding handling for bad moves and end of game." />
+    <option name="LAST_COMMIT_MESSAGE" value="adding handling for bad moves and end of game." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -712,12 +713,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>379</line>
+          <line>385</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>392</line>
+          <line>398</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -727,22 +728,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
-          <line>86</line>
+          <line>87</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
-          <line>96</line>
+          <line>97</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
-          <line>137</line>
+          <line>138</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
-          <line>163</line>
+          <line>164</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
