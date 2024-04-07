@@ -8,6 +8,7 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import server.Server;
 import service.GameService;
+import webSocketMessages.serverMessages.ErrorMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
 import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.serverMessages.ServerMessage;
@@ -62,16 +63,32 @@ public class WebSocketHandler {
     connections.remove(command.getAuthString());
   }
   private void makeMove(String jsonString, Session session) throws Exception {
-    MakeMoveCommand command = new Gson().fromJson(jsonString, MakeMoveCommand.class);
+    MakeMoveCommand command=new Gson().fromJson(jsonString, MakeMoveCommand.class);
     ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
-    game.makeMove(command.getMove());
-    //check for checkmate or stalemate and if so the game needs to end.
-    Server.memoryGameDao.updateGame(game, command.getGameId()); //update the database after making the move.
-    var message=String.format("%s moved: %s.", command.getUsername(), command.getMoveString());
-    var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getColor());
-    connections.broadcast("", loadGame);
-    connections.broadcast(command.getAuthString(), notification);
+    try {
+      game.makeMove(command.getMove());
+      //checks if either color is in checkmate or stalemate and if so the game needs to end.
+      if (game.isInCheckmate(ChessGame.TeamColor.WHITE) || game.isInCheckmate(ChessGame.TeamColor.BLACK)){
+        var message=String.format("%s has won the game.", command.getUsername());
+        var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+        connections.broadcast("", notification);
+      }
+      if (game.isInStalemate(ChessGame.TeamColor.WHITE) || game.isInStalemate(ChessGame.TeamColor.BLACK)) {
+        String message = "STALEMATE";
+        var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+        connections.broadcast("", notification);
+      }
+      Server.memoryGameDao.updateGame(game, command.getGameId()); //update the database after making the move.
+      var message=String.format("%s moved: %s.", command.getUsername(), command.getMoveString());
+      var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+      var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getColor());
+      connections.broadcast("", loadGame);
+      connections.broadcast(command.getAuthString(), notification);
+    } catch (InvalidMoveException e) {
+      var message=String.format("Invalid move: %s", e.getMessage());
+      var error=new ErrorMessage(ServerMessage.ServerMessageType.ERROR, message);
+      connections.broadcast("", error); //broadcasting to everyone, probably should only go to the player who made the move.
+    }
   }
 
 //  private void enter(String visitorName, Session session) throws IOException {

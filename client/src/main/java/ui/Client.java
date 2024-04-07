@@ -268,6 +268,12 @@ public class Client implements ServerMessageObserver {
     if (!playerColor.equals((currentGame.game().getTeamTurn().toString()))) {
       return "Not your turn.";
     }
+    if (currentGame.game().isInCheckmate(ChessGame.TeamColor.WHITE) ||
+            currentGame.game().isInCheckmate(ChessGame.TeamColor.BLACK) ||
+            currentGame.game().isInStalemate(ChessGame.TeamColor.WHITE) ||
+            currentGame.game().isInStalemate(ChessGame.TeamColor.BLACK)) {
+      return "Game is over.";
+    }
     try {
       if (currentGame == null) {
         return "You are not in a valid game.";
@@ -341,6 +347,7 @@ public class Client implements ServerMessageObserver {
         case "listgames" -> listGames();
         case "joinobserver" -> joinObserver(params);
         case "redraw" -> redraw(params);
+        case "r" -> redraw(params);
         case "leave" -> leave(params);
         case "makemove" -> makeMove(params);
         case "resign" -> resign(params);
