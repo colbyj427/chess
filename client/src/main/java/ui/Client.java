@@ -19,6 +19,7 @@ import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.serverMessages.ServerMessage;
 
 import java.lang.reflect.Type;
+import java.text.CollationElementIterator;
 import java.util.*;
 
 import static ui.EscapeSequences.*;
@@ -295,9 +296,20 @@ public class Client implements ServerMessageObserver {
   }
   public String highlightMoves(String... params) throws Exception {
     assertInGame();
+    try {
+      if (params.length != 1) {
+        throw new Exception("Expected: <position>");
+      }
+    } catch (Exception e) {
+      return "Expected: <position>";
+    }
     ChessPosition position = parseMove(params[0]);
     Collection<ChessMove> validMoves = currentGame.game().validMoves(position);
-    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, validMoves);
+    Collection<ChessPosition> endPositions = new ArrayList<>();
+    for (ChessMove move: validMoves) {
+      endPositions.add(move.getEndPosition());
+    }
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, endPositions);
     return "Valid moves highlighted.";
   }
   public String clear(String... params) throws Exception {

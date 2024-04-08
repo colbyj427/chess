@@ -1,8 +1,8 @@
 package ui;
 
 import chess.ChessGame;
-import chess.ChessMove;
 import chess.ChessPiece;
+import chess.ChessPosition;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -18,11 +18,11 @@ public class DrawBoard {
   private static ChessPiece[][] squares;
   //pass in a chessboard object, then get the piece color from the pieces and print that color.
   private static final String EMPTY=" ";
-  private static Collection<ChessMove> validMoves = null;
+  private static Collection<ChessPosition> endPositions= null;
 
-  public static void main(ChessPiece[][] boardSetup, String color, Collection<ChessMove> highlightMoves) {
+  public static void main(ChessPiece[][] boardSetup, String color, Collection<ChessPosition> highlightMoves) {
     squares = boardSetup;
-    validMoves = highlightMoves;
+    endPositions= highlightMoves;
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     out.print(ERASE_SCREEN);
     color = color.toLowerCase();
@@ -45,7 +45,7 @@ public class DrawBoard {
       out.print(SET_BG_COLOR_BLACK);
       out.print(SET_TEXT_COLOR_WHITE);
     }
-    validMoves = null;
+    endPositions= null;
   }
   private static void drawHeaders(PrintStream out) {
     setLightGray(out);
@@ -138,55 +138,102 @@ public class DrawBoard {
   private static void drawWhiteRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
+    ChessPosition position = new ChessPosition(Integer.valueOf(row), 7-boardCol);
     if (pieceArray[((Integer.valueOf(row))-1)][7-boardCol] != null) {
       pieceType=getPieceType(row, 7-boardCol, pieceArray);
       pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 0) {
-      setWhite(out);
-      int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-      int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-      out.print(EMPTY.repeat(prefixLength));
-      printPiece(out, pieceType, pieceColor);
-      out.print(EMPTY.repeat(suffixLength));
-      setBlack(out);
+      if (endPositions != null) {
+        if (endPositions.contains(position)) {
+          drawHighligtedWhiteSquare(out, pieceType, pieceColor);
+        } else {
+          drawWhiteSquare(out, pieceType, pieceColor);
+        }
+      }
+      else {
+        drawWhiteSquare(out, pieceType, pieceColor);
+      }
     } else {
-      setBlack(out);
-      int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-      int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-      out.print(EMPTY.repeat(prefixLength));
-      printPiece(out, pieceType, pieceColor);
-      out.print(EMPTY.repeat(suffixLength));
-      setBlack(out);
+      if (endPositions != null) {
+        if (endPositions.contains(position)) {
+          drawHighligtedBlackSquare(out, pieceType, pieceColor);
+        } else {
+          drawBlackSquare(out, pieceType, pieceColor);
+        }
+      } else {
+        drawBlackSquare(out, pieceType, pieceColor);
+      }
     }
   }
 
   private static void drawBlackRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
     String pieceType = " ";
     String pieceColor = "WHITE";
-    if (pieceArray[(Integer.valueOf(row)-1)][7-boardCol] != null) { //******************** :) [7-boardcol] only kinda worked. will have to debug. probalby need an if statement for orientation.
+    ChessPosition position = new ChessPosition(Integer.valueOf(row), 7-boardCol); //may need to decrement row by one or subtract col from 7
+    if (pieceArray[(Integer.valueOf(row)-1)][7-boardCol] != null) {
       pieceType=getPieceType(row, 7-boardCol, pieceArray);
       pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 1) {
-      setWhite(out);
-      int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-      int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-      out.print(EMPTY.repeat(prefixLength));
-      printPiece(out, pieceType, pieceColor);
-      out.print(EMPTY.repeat(suffixLength));
-      setBlack(out);
+      if (endPositions != null) {
+        if (endPositions.contains(position)) {
+        drawHighligtedWhiteSquare(out, pieceType, pieceColor);
+        } else {
+          drawWhiteSquare(out, pieceType, pieceColor);
+        }
+      }
+      else {
+        drawWhiteSquare(out, pieceType, pieceColor);
+      }
     } else {
-      setBlack(out);
-      int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
-      int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
-      out.print(EMPTY.repeat(prefixLength));
-      printPiece(out, pieceType, pieceColor);
-      out.print(EMPTY.repeat(suffixLength));
-      setBlack(out);
+      if (endPositions != null) {
+        if (endPositions.contains(position)) {
+          drawHighligtedBlackSquare(out, pieceType, pieceColor);
+        } else {
+          drawBlackSquare(out, pieceType, pieceColor);
+        }
+      } else {
+        drawBlackSquare(out, pieceType, pieceColor);
+      }
     }
   }
-
+  private static void drawBlackSquare(PrintStream out, String pieceType, String pieceColor) {
+    setBlack(out);
+    int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
+    int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+    out.print(EMPTY.repeat(prefixLength));
+    printPiece(out, pieceType, pieceColor);
+    out.print(EMPTY.repeat(suffixLength));
+    setBlack(out);
+  }
+  private static void drawWhiteSquare(PrintStream out, String pieceType, String pieceColor) {
+    setWhite(out);
+    int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
+    int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+    out.print(EMPTY.repeat(prefixLength));
+    printPiece(out, pieceType, pieceColor);
+    out.print(EMPTY.repeat(suffixLength));
+    setBlack(out);
+  }
+  private static void drawHighligtedWhiteSquare(PrintStream out, String pieceType, String pieceColor) {
+    setGreen(out);
+    int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
+    int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+    out.print(EMPTY.repeat(prefixLength));
+    printPiece(out, pieceType, pieceColor);
+    out.print(EMPTY.repeat(suffixLength));
+    setBlack(out);
+  }
+  private static void drawHighligtedBlackSquare(PrintStream out, String pieceType, String pieceColor) {
+    setDarkGreen(out);
+    int prefixLength=SQUARE_SIZE_IN_CHARS / 2;
+    int suffixLength=SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+    out.print(EMPTY.repeat(prefixLength));
+    printPiece(out, pieceType, pieceColor);
+    out.print(EMPTY.repeat(suffixLength));
+    setBlack(out);
+  }
   private static void setBlack(PrintStream out) {
     out.print(SET_BG_COLOR_BLACK);
     out.print(SET_TEXT_COLOR_BLACK);
@@ -200,6 +247,16 @@ public class DrawBoard {
   private static void setLightGray(PrintStream out) {
     out.print(SET_BG_COLOR_LIGHT_GREY);
     out.print(SET_TEXT_COLOR_LIGHT_GREY);
+  }
+
+  private static void setGreen(PrintStream out) {
+    out.print(SET_BG_COLOR_GREEN);
+    out.print(SET_TEXT_COLOR_GREEN);
+  }
+
+  private static void setDarkGreen(PrintStream out) {
+    out.print(SET_BG_COLOR_DARK_GREEN);
+    out.print(SET_TEXT_COLOR__DARK_GREEN);
   }
 
   private static void printPiece(PrintStream out, String type, String color) {
