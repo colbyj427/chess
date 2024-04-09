@@ -4,15 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="final product after code refactoring, submission 2.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed last code quality issue. submission 3.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/WSClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +114,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Compound.ServerTwoClient">
+  <component name="RunManager" selected="JUnit.WebSocketTests">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -218,8 +232,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WebSocketTests.joinPlayerGood" />
         <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.WebSocketTests.joinPlayerGood" />
         <item itemvalue="JUnit.serverTests in server" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.chessPieceTests in shared" />
@@ -246,14 +260,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00042" summary="Fixed null ptr exception in create game.">
-      <option name="closed" value="true" />
-      <created>1709768354261</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1709768354261</updated>
     </task>
     <task id="LOCAL-00043" summary="Added starter code for phase 5.">
       <option name="closed" value="true" />
@@ -639,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712687183053</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="fixed last code quality issue. submission 3.">
+      <option name="closed" value="true" />
+      <created>1712688110633</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1712688110634</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactored and corrected code to draw board." />
     <MESSAGE value="updated client for user ease, full functionality, ready for pass off." />
     <MESSAGE value="cleaned up drawboard class." />
     <MESSAGE value="Phase 6 starter code added." />
@@ -682,7 +695,8 @@
     <MESSAGE value="final push before fixing test cases" />
     <MESSAGE value="code decompostition fixed, still functioning." />
     <MESSAGE value="final product after code refactoring, submission 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="final product after code refactoring, submission 2." />
+    <MESSAGE value="fixed last code quality issue. submission 3." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed last code quality issue. submission 3." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -716,17 +730,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>59</line>
+          <line>60</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -741,7 +755,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>77</line>
+          <line>78</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

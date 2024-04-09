@@ -34,7 +34,7 @@ public class Client implements ServerMessageObserver {
   //private ServerMessageObserver notificationHandler;
   private WebSocketFacade ws;
   private GameRecord currentGame;
-  private String playerColor = null;
+  private ChessGame.TeamColor playerColor = null;
 
 
   public static void main(String[] args) {
@@ -158,13 +158,13 @@ public class Client implements ServerMessageObserver {
       JoinGameRecord joinGameRecord=new JoinGameRecord(team, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       currentGame = newGameRecord;
-      playerColor = team;
+      playerColor = getTeam(team);
       ChessGame newGame = newGameRecord.game();
       //DrawBoard.main(newGame.getBoard().getBoardLayout(), team, null);
       //****
       //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
-      ws.joinPlayer(authToken, username, team, newGameRecord.gameID());
+      ws.joinPlayer(authToken, username, playerColor, newGameRecord.gameID());
       state = State.INGAME;
       //****
       return "You have joined the game";
@@ -190,7 +190,7 @@ public class Client implements ServerMessageObserver {
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
       currentGame = newGameRecord;
-      playerColor = "WHITE";
+      playerColor = ChessGame.TeamColor.WHITE;
       ChessGame newGame = newGameRecord.game();
       //DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
       //****
@@ -292,7 +292,7 @@ public class Client implements ServerMessageObserver {
   }
   public String redraw(String... params) throws Exception{
     assertInGame();
-    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, null);
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor.toString(), null);
     return "";
   }
   public String highlightMoves(String... params) throws Exception {
@@ -310,7 +310,7 @@ public class Client implements ServerMessageObserver {
     for (ChessMove move: validMoves) {
       endPositions.add(move.getEndPosition());
     }
-    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor, endPositions);
+    DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor.toString(), endPositions);
     return "Valid moves highlighted.";
   }
   public String clear(String... params) throws Exception {
@@ -411,7 +411,7 @@ public class Client implements ServerMessageObserver {
   public void handleLoadGame(String notification) {
     LoadGameMessage message = new Gson().fromJson(notification, LoadGameMessage.class);
     ChessGame game = message.getGame();
-    DrawBoard.main(game.getBoard().getBoardLayout(), playerColor, null);
+    DrawBoard.main(game.getBoard().getBoardLayout(), playerColor.toString(), null);
     currentGame = new GameRecord(currentGame.gameID(), currentGame.whiteUsername(), currentGame.blackUsername(), currentGame.gameName(), game, currentGame.spectators());
   }
   public void handleError(String notification) {
@@ -424,6 +424,14 @@ public class Client implements ServerMessageObserver {
     int y = firstChar - 'a' + 1;
     int x = Integer.parseInt(params[0].substring(1));
     return new ChessPosition(x,y);
+  }
+  public ChessGame.TeamColor getTeam(String team) {
+    if (team.toLowerCase().equals("WHITE")) {
+      return ChessGame.TeamColor.WHITE;
+    }
+    else {
+      return ChessGame.TeamColor.BLACK;
+    }
   }
 
   public enum State {

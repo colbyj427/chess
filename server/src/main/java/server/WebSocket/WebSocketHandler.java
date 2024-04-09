@@ -36,64 +36,64 @@ public class WebSocketHandler {
   }
   private void joinPlayer(String jsonString, Session session) throws IOException, DataAccessException {
     JoinPlayerCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
-    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
-    connections.addUser(command.getAuthString(), session, command.getGameId());
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameID()).game();
+    connections.addUser(command.getAuthString(), session, command.getGameID());
     var message = String.format("%s has joined the game as %s.", command.getUsername(), command.getPlayerColor());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getPlayerColor());
-    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameID(), notification);
     connections.rootBroadcast(command.getAuthString(), loadGame);
   }
   private void joinObserver(String jsonString, Session session) throws IOException, DataAccessException {
     JoinObserverCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
-    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
-    connections.addUser(command.getAuthString(), session, command.getGameId());
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameID()).game();
+    connections.addUser(command.getAuthString(), session, command.getGameID());
     var message = String.format("%s is observing the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, "WHITE");
-    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, ChessGame.TeamColor.WHITE);
+    connections.broadcast(command.getAuthString(), command.getGameID(), notification);
     connections.rootBroadcast(command.getAuthString(), loadGame);
   }
   private void leave(String jsonString, Session session) throws IOException {
     LeaveCommand command = new Gson().fromJson(jsonString, LeaveCommand.class);
     var message = String.format("%s has left the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameID(), notification);
     connections.remove(command.getAuthString());
   }
   private void resign(String jsonString, Session session) throws IOException {
     ResignCommand command = new Gson().fromJson(jsonString, ResignCommand.class);
     var message = String.format("%s has forfeited the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameID(), notification);
     connections.remove(command.getAuthString());
   }
   private void makeMove(String jsonString, Session session) throws Exception {
     MakeMoveCommand command=new Gson().fromJson(jsonString, MakeMoveCommand.class);
-    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameID()).game();
     try {
       game.makeMove(command.getMove());
       //checks if either color is in checkmate or stalemate and if so the game needs to end.
       if (game.isInCheckmate(ChessGame.TeamColor.WHITE) || game.isInCheckmate(ChessGame.TeamColor.BLACK)){
         var message=String.format("%s has won the game.", command.getUsername());
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-        connections.broadcast("", command.getGameId(), notification);
+        connections.broadcast("", command.getGameID(), notification);
       }
       if (game.isInStalemate(ChessGame.TeamColor.WHITE) || game.isInStalemate(ChessGame.TeamColor.BLACK)) {
         String message = "STALEMATE";
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-        connections.broadcast("", command.getGameId(), notification);
+        connections.broadcast("", command.getGameID(), notification);
       }
-      Server.memoryGameDao.updateGame(game, command.getGameId()); //update the database after making the move.
+      Server.memoryGameDao.updateGame(game, command.getGameID()); //update the database after making the move.
       var message=String.format("%s moved: %s.", command.getUsername(), command.getMoveString());
       var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
       var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getColor());
-      connections.broadcast("", command.getGameId(), loadGame);
-      connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+      connections.broadcast("", command.getGameID(), loadGame);
+      connections.broadcast(command.getAuthString(), command.getGameID(), notification);
     } catch (InvalidMoveException e) {
       var message=String.format("Invalid move: %s", e.getMessage());
       var error=new ErrorMessage(ServerMessage.ServerMessageType.ERROR, message);
-      connections.broadcast("", command.getGameId(), error); //broadcasting to everyone, probably should only go to the player who made the move.
+      connections.broadcast("", command.getGameID(), error); //broadcasting to everyone, probably should only go to the player who made the move.
     }
   }
 }
