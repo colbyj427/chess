@@ -3,6 +3,7 @@ package server.WebSocket;
 import chess.ChessGame;
 import chess.InvalidMoveException;
 import com.google.gson.Gson;
+import dataAccess.DataAccessException;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
@@ -33,19 +34,25 @@ public class WebSocketHandler {
       case null -> joinPlayer(message, session);
     }
   }
-  private void joinPlayer(String jsonString, Session session) throws IOException {
+  private void joinPlayer(String jsonString, Session session) throws IOException, DataAccessException {
     JoinPlayerCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
     connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s has joined the game as %s.", command.getUsername(), command.getPlayerColor());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getPlayerColor());
     connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    connections.rootBroadcast(command.getAuthString(), loadGame);
   }
-  private void joinObserver(String jsonString, Session session) throws IOException {
+  private void joinObserver(String jsonString, Session session) throws IOException, DataAccessException {
     JoinObserverCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
+    ChessGame game = Server.memoryGameDao.getGame(command.getGameId()).game();
     connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s is observing the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+    var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, "WHITE");
     connections.broadcast(command.getAuthString(), command.getGameId(), notification);
+    connections.rootBroadcast(command.getAuthString(), loadGame);
   }
   private void leave(String jsonString, Session session) throws IOException {
     LeaveCommand command = new Gson().fromJson(jsonString, LeaveCommand.class);

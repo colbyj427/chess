@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="created maps for grouping connections. tested and functioning.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed error where observer didn't get updated game info.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Compound.ServerTwoClient">
+  <component name="RunManager" selected="JUnit.WebSocketTests.joinPlayerGood">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -245,14 +246,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00038" summary="SQL game methods implemented and passing unit tests.">
-      <option name="closed" value="true" />
-      <created>1709761407466</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1709761407466</updated>
     </task>
     <task id="LOCAL-00039" summary="Fully implemented, passing each test individually but not as a whole.">
       <option name="closed" value="true" />
@@ -638,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712637454356</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="fixed error where observer didn't get updated game info.">
+      <option name="closed" value="true" />
+      <created>1712639122880</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1712639122881</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a port for testing the client." />
     <MESSAGE value="rremoved imports" />
     <MESSAGE value="changed piece color" />
     <MESSAGE value="added more verbose help to help command." />
@@ -681,7 +681,8 @@
     <MESSAGE value="reuploading for different intellij? unversioned" />
     <MESSAGE value="created maps for grouping connections." />
     <MESSAGE value="created maps for grouping connections. tested and functioning." />
-    <option name="LAST_COMMIT_MESSAGE" value="created maps for grouping connections. tested and functioning." />
+    <MESSAGE value="fixed error where observer didn't get updated game info." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error where observer didn't get updated game info." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,7 +746,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>64</line>
+          <line>71</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -775,7 +776,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -805,13 +806,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/WebSocketTests.java</url>
           <line>91</line>
           <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/WebSocketTests.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>

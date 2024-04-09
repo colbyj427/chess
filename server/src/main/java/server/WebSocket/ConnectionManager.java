@@ -54,4 +54,10 @@ public class ConnectionManager {
       connections.remove(c.visitorName);
     }
   }
+  public void rootBroadcast(String authToken, ServerMessage notification) throws IOException {
+    Connection c = connections.get(authToken);
+    if (c.session.isOpen()) {
+      c.send(new Gson().toJson(notification));
+    }
+  }
 }

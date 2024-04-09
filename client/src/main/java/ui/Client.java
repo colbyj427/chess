@@ -160,7 +160,7 @@ public class Client implements ServerMessageObserver {
       currentGame = newGameRecord;
       playerColor = team;
       ChessGame newGame = newGameRecord.game();
-      DrawBoard.main(newGame.getBoard().getBoardLayout(), team, null);
+      //DrawBoard.main(newGame.getBoard().getBoardLayout(), team, null);
       //****
       //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
@@ -192,7 +192,7 @@ public class Client implements ServerMessageObserver {
       currentGame = newGameRecord;
       playerColor = "WHITE";
       ChessGame newGame = newGameRecord.game();
-      DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
+      //DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
       //****
       ws = new WebSocketFacade(serverURL, this);
       ws.joinObserver(authToken, username, newGameRecord.gameID());
