@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="code decompostition fixed, still functioning.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="final product after code refactoring, submission 2.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/WSClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLGameDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WebSocketTests.joinPlayerGood">
+  <component name="RunManager" selected="Compound.ServerTwoClient">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -247,14 +246,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00041" summary="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary.">
-      <option name="closed" value="true" />
-      <created>1709767807908</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1709767807909</updated>
     </task>
     <task id="LOCAL-00042" summary="Fixed null ptr exception in create game.">
       <option name="closed" value="true" />
@@ -640,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712685477186</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="final product after code refactoring, submission 2.">
+      <option name="closed" value="true" />
+      <created>1712687183052</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1712687183053</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added more verbose help to help command." />
     <MESSAGE value="refactored and corrected code to draw board." />
     <MESSAGE value="updated client for user ease, full functionality, ready for pass off." />
     <MESSAGE value="cleaned up drawboard class." />
@@ -683,7 +681,8 @@
     <MESSAGE value="fixed error where observer didn't get updated game info." />
     <MESSAGE value="final push before fixing test cases" />
     <MESSAGE value="code decompostition fixed, still functioning." />
-    <option name="LAST_COMMIT_MESSAGE" value="code decompostition fixed, still functioning." />
+    <MESSAGE value="final product after code refactoring, submission 2." />
+    <option name="LAST_COMMIT_MESSAGE" value="final product after code refactoring, submission 2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -717,12 +716,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>62</line>
+          <line>59</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>37</line>
+          <line>34</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -742,7 +741,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
-          <line>80</line>
+          <line>77</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
