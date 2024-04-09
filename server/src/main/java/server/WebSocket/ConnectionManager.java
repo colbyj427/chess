@@ -56,8 +56,8 @@ public class ConnectionManager {
   }
   public void rootBroadcast(String authToken, ServerMessage notification) throws IOException {
     Connection c = connections.get(authToken);
-    if (c.session.isOpen()) {
-      c.send(new Gson().toJson(notification));
-    }
+    //if (c.session.isOpen()) {
+    c.send(new Gson().toJson(notification));
+    //}
   }
 }

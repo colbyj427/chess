@@ -6,6 +6,7 @@ import model.AuthRecord;
 import model.GameRecord;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -83,14 +84,7 @@ public class MySQLGameDao implements GameDaoInterface{
 
     var statement = "UPDATE games SET spectators = ? WHERE gameID = ?;";
     try {
-      var conn=DatabaseManager.getConnection();
-      var preparedStatement=conn.prepareStatement(statement);
-      preparedStatement.setString(1, serializedSpectators);
-      preparedStatement.setInt(2, gameRecord.gameID());
-      int numAffected = preparedStatement.executeUpdate();
-      if (numAffected == 0) {
-        throw new DataAccessException(400, "bad request");
-      }
+      updatePlayerInDatabase(statement, serializedSpectators, gameRecord.gameID());
       return newGameRecord;
     } catch (Exception dataAccessException) {
       throw new DataAccessException(400, "bad request");
@@ -102,14 +96,7 @@ public class MySQLGameDao implements GameDaoInterface{
               gameRecord.gameName(), gameRecord.game(), gameRecord.spectators());
       var statement="UPDATE games SET whiteUsername = ? WHERE gameID = ?;";
       try {
-        var conn=DatabaseManager.getConnection();
-        var preparedStatement=conn.prepareStatement(statement);
-        preparedStatement.setString(1, username);
-        preparedStatement.setInt(2, gameRecord.gameID());
-        int numAffected=preparedStatement.executeUpdate();
-        if (numAffected == 0) {
-          throw new DataAccessException(400, "bad request");
-        }
+        updatePlayerInDatabase(statement, username, gameRecord.gameID());
         return newGameRecord;
       } catch (Exception e) {
         throw new DataAccessException(400, "bad request");
@@ -119,14 +106,7 @@ public class MySQLGameDao implements GameDaoInterface{
               gameRecord.gameName(), gameRecord.game(), gameRecord.spectators());
       var statement="UPDATE games SET blackUsername = ? WHERE gameID = ?;";
       try {
-        var conn=DatabaseManager.getConnection();
-        var preparedStatement=conn.prepareStatement(statement);
-        preparedStatement.setString(1, username);
-        preparedStatement.setInt(2, gameRecord.gameID());
-        int numAffected=preparedStatement.executeUpdate();
-        if (numAffected == 0) {
-          throw new DataAccessException(400, "bad request");
-        }
+        updatePlayerInDatabase(statement, username, gameRecord.gameID());
         return newGameRecord;
       } catch (Exception e) {
         throw new DataAccessException(400, "bad request");
@@ -134,19 +114,24 @@ public class MySQLGameDao implements GameDaoInterface{
     }
     throw new DataAccessException(403, "already taken");
   }
+
+  private static void updatePlayerInDatabase(String statement, String username, int gameRecord) throws DataAccessException, SQLException {
+    var conn=DatabaseManager.getConnection();
+    var preparedStatement=conn.prepareStatement(statement);
+    preparedStatement.setString(1, username);
+    preparedStatement.setInt(2, gameRecord);
+    int numAffected=preparedStatement.executeUpdate();
+    if (numAffected == 0) {
+      throw new DataAccessException(400, "bad request");
+    }
+  }
+
   public void updateGame(ChessGame game, int gameId) throws Exception {
     var serializer = new Gson();
     String serializedGame = serializer.toJson(game);
     var statement="UPDATE games SET game = ? WHERE gameID = ?;";
     try {
-      var conn=DatabaseManager.getConnection();
-      var preparedStatement=conn.prepareStatement(statement);
-      preparedStatement.setString(1, serializedGame);
-      preparedStatement.setInt(2, gameId);
-      int numAffected=preparedStatement.executeUpdate();
-      if (numAffected == 0) {
-        throw new DataAccessException(400, "bad request");
-      }
+      updatePlayerInDatabase(statement, serializedGame, gameId);
     } catch (Exception e) {
       throw new DataAccessException(400, "bad request");
     }
