@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="highlight moves implemented but highlighting wrong squares.">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/glassfish_tyrus_bundles_standalone_client.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/springframework_security_spring_core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/10k-architecture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/HttpCommunicator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/ServerMessageObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/WSClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/clientTests/ServerFacadeTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/HttpCommunicator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerFacade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/ServerMessageObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ServerClientCommunication/WebSocketFacade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/EscapeSequences.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/WSClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/test-classes/clientTests/ServerFacadeTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/lib/passoff-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AtomicIntegerAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/AuthDaoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/DatabaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/GameDaoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryGameDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryUserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLAuthDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLGameDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/MySQLUserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UniqueIDGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataAccess/UserDaoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ClearHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/GameHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/UserHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/Connection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/web/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataAccessTests/DataAccessTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/PersistenceTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/WebSocketTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/serviceTests/UnitTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AtomicIntegerAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/AuthDaoInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DataAccessException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/DatabaseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/GameDaoInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryAuthDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryGameDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MemoryUserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLAuthDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLGameDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/MySQLUserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UniqueIDGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dataAccess/UserDaoInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ClearHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/GameHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/UserHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/service/ClearService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/service/GameService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/web/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/web/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/dataAccessTests/DataAccessTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/PersistenceTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/StandardAPITests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/WebSocketTests$TestUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/passoffTests/serverTests/WebSocketTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/serviceTests/UnitTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/shared.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/InvalidMoveException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/AuthRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/GameRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/JoinGameRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/UserRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ErrorMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/LoadGameMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/NotificationMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/serverMessages/ServerMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/MakeMoveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/UserGameCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/TestFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessBoardTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessGameTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/ChessPositionTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/BishopMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/KingMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/KnightMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/PawnMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/QueenMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests/RookMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame$TeamColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece$PieceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPiece.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/ChessPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/chess/InvalidMoveException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/AuthRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/GameRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/JoinGameRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/model/UserRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ErrorMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/LoadGameMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/NotificationMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage$ServerMessageType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/serverMessages/ServerMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/MakeMoveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand$CommandType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/UserGameCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/TestFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessBoardTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessGameTests$ValidMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessGameTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/ChessPositionTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/BishopMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/KingMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/KnightMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/PawnMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/QueenMoveTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/test-classes/passoffTests/chessTests/chessPieceTests/RookMoveTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;colbyj427&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/colbyj427/chess.git&quot;,
+    &quot;accountId&quot;: &quot;cf56929d-ab31-43dc-a6be-85699ce027f8&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/src/main/java/ui/Client.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2ceNMUJftLBdhItY0ICe2JHB0Nb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Server?.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client1.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.client2.executor&quot;: &quot;Debug&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.WebSocketTests.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="webSocketMessages.serverMessages" />
+      <recent name="webSocketMessages.userCommands" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="chess.PawnMoveCalculatorMethods" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="webSocketMessages.userCommands" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dataAccess" />
+      <recent name="model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Compound.ServerTwoClient">
+    <configuration name="Server?" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client1" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="ui.Client" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ui.Client" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="replloop - 8080" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ui.Client" />
+      <module name="client" />
+      <option name="PROGRAM_PARAMETERS" value="localhost:8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerTwoClient" type="CompoundRunConfigurationType">
+      <toRun name="Server?" type="Application" />
+      <toRun name="client1" type="Application" />
+      <toRun name="client2" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="serverclient" type="CompoundRunConfigurationType">
+      <toRun name="Server?" type="Application" />
+      <toRun name="client1" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="clientTests" />
+      <option name="MAIN_CLASS_NAME" value="clientTests.ServerFacadeTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.WebSocketTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chessPieceTests in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/shared/src/test/java/passoffTests/chessTests/chessPieceTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="serverTests in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server?" />
+      <item itemvalue="Application.client2" />
+      <item itemvalue="Application.client1" />
+      <item itemvalue="Application.replloop - 8080" />
+      <item itemvalue="Compound.ServerTwoClient" />
+      <item itemvalue="Compound.serverclient" />
+      <item itemvalue="JUnit.chessPieceTests in shared" />
+      <item itemvalue="JUnit.serverTests in server" />
+      <item itemvalue="JUnit.StandardAPITests" />
+      <item itemvalue="JUnit.WebSocketTests" />
+      <item itemvalue="JUnit.ServerFacadeTests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.serverTests in server" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
+        <item itemvalue="JUnit.chessPieceTests in shared" />
+        <item itemvalue="JUnit.StandardAPITests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="" />
+      <created>1708468041140</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708468041140</updated>
+      <workItem from="1712517849042" duration="214000" />
+      <workItem from="1712518069413" duration="4573000" />
+      <workItem from="1712600172114" duration="5663000" />
+      <workItem from="1712621279981" duration="40000" />
+    </task>
+    <task id="LOCAL-00034" summary="MySQL user dao passing all tests, first implementation of mySQL auth dao.">
+      <option name="closed" value="true" />
+      <created>1709752479149</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1709752479149</updated>
+    </task>
+    <task id="LOCAL-00035" summary="MySQL auth dao passing all unit tests.">
+      <option name="closed" value="true" />
+      <created>1709753414750</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1709753414750</updated>
+    </task>
+    <task id="LOCAL-00036" summary="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order.">
+      <option name="closed" value="true" />
+      <created>1709755782040</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1709755782040</updated>
+    </task>
+    <task id="LOCAL-00037" summary="implemented and tested SQL create game, get game, add observer.">
+      <option name="closed" value="true" />
+      <created>1709758766499</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1709758766499</updated>
+    </task>
+    <task id="LOCAL-00038" summary="SQL game methods implemented and passing unit tests.">
+      <option name="closed" value="true" />
+      <created>1709761407466</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1709761407466</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Fully implemented, passing each test individually but not as a whole.">
+      <option name="closed" value="true" />
+      <created>1709763677848</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1709763677848</updated>
+    </task>
+    <task id="LOCAL-00040" summary="ALl tests passed in autograder, not locally.">
+      <option name="closed" value="true" />
+      <created>1709764036487</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1709764036487</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Added positive and negative dataAccess tests for all applicable methods in mySQL data access classes. Added extra error throws where necessary.">
+      <option name="closed" value="true" />
+      <created>1709767807908</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1709767807909</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Fixed null ptr exception in create game.">
+      <option name="closed" value="true" />
+      <created>1709768354261</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709768354261</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Added starter code for phase 5.">
+      <option name="closed" value="true" />
+      <created>1710183806378</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1710183806378</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Added starter code for phase 5.">
+      <option name="closed" value="true" />
+      <created>1710183818203</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1710183818203</updated>
+    </task>
+    <task id="LOCAL-00045" summary="began drawing chess board.">
+      <option name="closed" value="true" />
+      <created>1710363773346</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1710363773346</updated>
+    </task>
+    <task id="LOCAL-00046" summary="chess board prints except for pieces.">
+      <option name="closed" value="true" />
+      <created>1710388417123</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1710388417123</updated>
+    </task>
+    <task id="LOCAL-00047" summary="finished chess board ui for phase 5.">
+      <option name="closed" value="true" />
+      <created>1710393599628</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1710393599628</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Finished Chessboard drawing.">
+      <option name="closed" value="true" />
+      <created>1710446288126</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1710446288126</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Client menu set up, all endppoints reachable and board draws to console. No http implemented.">
+      <option name="closed" value="true" />
+      <created>1710807641923</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1710807641923</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Make request method in server facade. Register endpoint implemented and functioning. It records a new user in the sql database.">
+      <option name="closed" value="true" />
+      <created>1710875413381</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1710875413385</updated>
+    </task>
+    <task id="LOCAL-00051" summary="added untested code for sever facade endpoints.">
+      <option name="closed" value="true" />
+      <created>1710876573238</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1710876573239</updated>
+    </task>
+    <task id="LOCAL-00052" summary="removed unessecary comments from gameHandler.">
+      <option name="closed" value="true" />
+      <created>1710886799244</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1710886799244</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Login and logout functionality included and tested.">
+      <option name="closed" value="true" />
+      <created>1710886823620</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1710886823620</updated>
+    </task>
+    <task id="LOCAL-00054" summary="all functionality except clear added and tested, edge cases not covered but correct input receives correct output.">
+      <option name="closed" value="true" />
+      <created>1710914445989</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1710914445991</updated>
+    </task>
+    <task id="LOCAL-00055" summary="list games prettier">
+      <option name="closed" value="true" />
+      <created>1710954599053</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1710954599053</updated>
+    </task>
+    <task id="LOCAL-00056" summary="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users.">
+      <option name="closed" value="true" />
+      <created>1710956045618</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1710956045618</updated>
+    </task>
+    <task id="LOCAL-00057" summary="ServerFacadeTests file set up and register test implemented. Changes to server facade and client communicator to pass in and update a port to make the URL variable.">
+      <option name="closed" value="true" />
+      <created>1710959390851</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1710959390851</updated>
+    </task>
+    <task id="LOCAL-00058" summary="left out files.">
+      <option name="closed" value="true" />
+      <created>1710959409980</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1710959409980</updated>
+    </task>
+    <task id="LOCAL-00059" summary="wrote tests for each endpoint in server facade.">
+      <option name="closed" value="true" />
+      <created>1710960850854</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1710960850854</updated>
+    </task>
+    <task id="LOCAL-00060" summary="added a port for testing the client.">
+      <option name="closed" value="true" />
+      <created>1710961520795</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1710961520796</updated>
+    </task>
+    <task id="LOCAL-00061" summary="rremoved imports">
+      <option name="closed" value="true" />
+      <created>1710962225182</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1710962225183</updated>
+    </task>
+    <task id="LOCAL-00062" summary="changed piece color">
+      <option name="closed" value="true" />
+      <created>1710963594066</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1710963594067</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added more verbose help to help command.">
+      <option name="closed" value="true" />
+      <created>1710964362390</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1710964362391</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactored and corrected code to draw board.">
+      <option name="closed" value="true" />
+      <created>1710987379178</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1710987379179</updated>
+    </task>
+    <task id="LOCAL-00065" summary="updated client for user ease, full functionality, ready for pass off.">
+      <option name="closed" value="true" />
+      <created>1710987729785</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1710987729786</updated>
+    </task>
+    <task id="LOCAL-00066" summary="cleaned up drawboard class.">
+      <option name="closed" value="true" />
+      <created>1710988458112</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1710988458112</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Phase 6 starter code added.">
+      <option name="closed" value="true" />
+      <created>1711393927368</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1711393927368</updated>
+    </task>
+    <task id="LOCAL-00068" summary="created file structure with new servermessage interface and message/notification subclasses.">
+      <option name="closed" value="true" />
+      <created>1711401561112</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1711401561112</updated>
+    </task>
+    <task id="LOCAL-00069" summary="began implementing a leave game notification.">
+      <option name="closed" value="true" />
+      <created>1712012431820</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1712012431821</updated>
+    </task>
+    <task id="LOCAL-00070" summary="leave and joinplayer implemented but not working.">
+      <option name="closed" value="true" />
+      <created>1712154999971</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1712154999971</updated>
+    </task>
+    <task id="LOCAL-00071" summary="leave and joinplayer implemented and working but notifications coming at weird times.">
+      <option name="closed" value="true" />
+      <created>1712171887933</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1712171887933</updated>
+    </task>
+    <task id="LOCAL-00072" summary="leave and joinplayer implemented and working but notifications coming at weird times.">
+      <option name="closed" value="true" />
+      <created>1712171907939</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1712171907940</updated>
+    </task>
+    <task id="LOCAL-00073" summary="leave and joinplayer implemented and working">
+      <option name="closed" value="true" />
+      <created>1712173268215</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1712173268216</updated>
+    </task>
+    <task id="LOCAL-00074" summary="updated passoff dependencies jar.">
+      <option name="closed" value="true" />
+      <created>1712173351370</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1712173351370</updated>
+    </task>
+    <task id="LOCAL-00075" summary="websocket join and leave implemented, only bug is username doesn't print.">
+      <option name="closed" value="true" />
+      <created>1712208989329</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1712208989329</updated>
+    </task>
+    <task id="LOCAL-00076" summary="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so.">
+      <option name="closed" value="true" />
+      <created>1712433346204</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433346204</updated>
+    </task>
+    <task id="LOCAL-00077" summary="recommit after makemove, all files said i changed them for some reason?">
+      <option name="closed" value="true" />
+      <created>1712433538178</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433538179</updated>
+    </task>
+    <task id="LOCAL-00078" summary="recommit after makemove, all files said i changed them for some reason?">
+      <option name="closed" value="true" />
+      <created>1712433625330</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433625331</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fixed board printing pieces reversed.">
+      <option name="closed" value="true" />
+      <created>1712456931611</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1712456931613</updated>
+    </task>
+    <task id="LOCAL-00080" summary="adding handling for bad moves and end of game.">
+      <option name="closed" value="true" />
+      <created>1712459468478</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1712459468478</updated>
+    </task>
+    <task id="LOCAL-00081" summary="modified drawboard to take in a highlight moves array but havent implemented functionality.">
+      <option name="closed" value="true" />
+      <created>1712465871054</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1712465871056</updated>
+    </task>
+    <task id="LOCAL-00082" summary="highlight moves implemented but highlighting wrong squares.">
+      <option name="closed" value="true" />
+      <created>1712619764582</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1712619764582</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="clear implementd, added functionality to join by number of game on the list output which does not always correspond to the game id to make it easy for users." />
+    <MESSAGE value="ServerFacadeTests file set up and register test implemented. Changes to server facade and client communicator to pass in and update a port to make the URL variable." />
+    <MESSAGE value="left out files." />
+    <MESSAGE value="wrote tests for each endpoint in server facade." />
+    <MESSAGE value="added a port for testing the client." />
+    <MESSAGE value="rremoved imports" />
+    <MESSAGE value="changed piece color" />
+    <MESSAGE value="added more verbose help to help command." />
+    <MESSAGE value="refactored and corrected code to draw board." />
+    <MESSAGE value="updated client for user ease, full functionality, ready for pass off." />
+    <MESSAGE value="cleaned up drawboard class." />
+    <MESSAGE value="Phase 6 starter code added." />
+    <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
+    <MESSAGE value="began implementing a leave game notification." />
+    <MESSAGE value="leave and joinplayer implemented but not working." />
+    <MESSAGE value="leave and joinplayer implemented and working but notifications coming at weird times." />
+    <MESSAGE value="leave and joinplayer implemented and working" />
+    <MESSAGE value="updated passoff dependencies jar." />
+    <MESSAGE value="websocket join and leave implemented, only bug is username doesn't print." />
+    <MESSAGE value="makemove implemented, moves reverse and only sends notification simetimes then stops after 3 moves or so." />
+    <MESSAGE value="recommit after makemove, all files said i changed them for some reason?" />
+    <MESSAGE value="fixed board printing pieces reversed." />
+    <MESSAGE value="adding handling for bad moves and end of game." />
+    <MESSAGE value="modified drawboard to take in a highlight moves array but havent implemented functionality." />
+    <MESSAGE value="highlight moves implemented but highlighting wrong squares." />
+    <option name="LAST_COMMIT_MESSAGE" value="highlight moves implemented but highlighting wrong squares." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="com.google.gson.JsonIOException" package="com.google.gson" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="dataAccess.DataAccessException" package="dataAccess" />
+          <option name="timeStamp" value="20" />
+        </breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>299</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>300</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>268</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>409</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>422</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>279</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>270</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
+          <line>305</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java</url>
+          <line>163</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/server/src/test/java/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>239</line>
+          <properties class="passoffTests.serverTests.StandardAPITests" method="registerTwice">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java</url>
+          <line>11</line>
+          <properties class="dataAccess.MemoryAuthDao" method="addAuth">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataAccess/MemoryAuthDao.java</url>
+          <line>17</line>
+          <properties class="dataAccess.MemoryAuthDao" method="getAuth">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="blackUsername" />
+        <PinnedItemInfo parentTag="chess.ChessGame" memberName="board" />
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="whiteUsername" />
+        <PinnedItemInfo parentTag="chess.ChessBoard" memberName="squares" />
+        <PinnedItemInfo parentTag="model.GameRecord" memberName="game" />
+        <PinnedItemInfo parentTag="webSocketMessages.serverMessages.LoadGameMessage" memberName="game" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/chess$StandardAPITests.ic" NAME="StandardAPITests Coverage Results" MODIFIED="1708639472855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>passoffTests.serverTests.*</FILTER>
+    </SUITE>
+  </component>
+</project>
