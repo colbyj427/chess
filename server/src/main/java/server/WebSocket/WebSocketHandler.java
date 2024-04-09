@@ -7,7 +7,6 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import server.Server;
-import service.GameService;
 import webSocketMessages.serverMessages.ErrorMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
 import webSocketMessages.serverMessages.NotificationMessage;
@@ -36,14 +35,14 @@ public class WebSocketHandler {
   }
   private void joinPlayer(String jsonString, Session session) throws IOException {
     JoinPlayerCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
-    connections.add(command.getAuthString(), session);
+    connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s has joined the game as %s.", command.getUsername(), command.getPlayerColor());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     connections.broadcast(command.getAuthString(), notification);
   }
   private void joinObserver(String jsonString, Session session) throws IOException {
-    UserGameCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
-    connections.add(command.getAuthString(), session);
+    JoinObserverCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
+    connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s is observing the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
     connections.broadcast(command.getAuthString(), notification);
@@ -90,28 +89,4 @@ public class WebSocketHandler {
       connections.broadcast("", error); //broadcasting to everyone, probably should only go to the player who made the move.
     }
   }
-
-//  private void enter(String visitorName, Session session) throws IOException {
-//    connections.add(visitorName, session);
-//    var message = String.format("%s is in the shop", visitorName);
-//    var notification = new Notification(Notification.Type.ARRIVAL, message);
-//    connections.broadcast(visitorName, notification);
-//  }
-//
-//  private void exit(String visitorName) throws IOException {
-//    connections.remove(visitorName);
-//    var message = String.format("%s left the shop", visitorName);
-//    var notification = new Notification(Notification.Type.DEPARTURE, message);
-//    connections.broadcast(visitorName, notification);
-//  }
-
-//  public void makeNoise(String petName, String sound) throws Exception {
-//    try {
-//      var message = String.format("%s says %s", petName, sound);
-//      var notification = new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-//      connections.broadcast("", notification);
-//    } catch (Exception ex) {
-//      throw new Exception(ex.getMessage());
-//    }
-//  }
 }

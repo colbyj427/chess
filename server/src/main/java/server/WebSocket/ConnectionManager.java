@@ -6,25 +6,38 @@ import webSocketMessages.serverMessages.ServerMessage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConnectionManager {
   public final ConcurrentHashMap<String, Connection> connections = new ConcurrentHashMap<>();
+  // have a map of authtokens mapped to sessions.
+  Map<Integer, List<String>> games = new HashMap<>();
+  //have a map with gameid as a key, list of players and observers as values.
 
-  public void add(String visitorName, Session session) {
-    var connection = new Connection(visitorName, session);
-    connections.put(visitorName, connection);
+  public void addUser(String authToken, Session session, int gameId) {
+    var connection = new Connection(authToken, session);
+    connections.put(authToken, connection);
+    if (games.containsKey(gameId)) {
+      games.get(gameId).add(authToken);
+    } else {
+      var list = new ArrayList<String>();
+      list.add(authToken);
+      games.put(gameId, list);
+    }
   }
 
   public void remove(String visitorName) {
     connections.remove(visitorName);
   }
 
-  public void broadcast(String excludeVisitorName, ServerMessage notification) throws IOException {
+  public void broadcast(String excludePlayerName, ServerMessage notification) throws IOException {
     var removeList = new ArrayList<Connection>();
     for (var c : connections.values()) {
       if (c.session.isOpen()) {
-        if (!c.visitorName.equals(excludeVisitorName)) {
+        if (!c.visitorName.equals(excludePlayerName)) {
           c.send(new Gson().toJson(notification));
         }
       } else {
@@ -35,5 +48,8 @@ public class ConnectionManager {
     for (var c : removeList) {
       connections.remove(c.visitorName);
     }
+    // get all the authtokens associated with gameid
+    // add them to a list, and iterate through it.
+    // for each authtoken, send the notification unless it equals exclude string.
   }
 }

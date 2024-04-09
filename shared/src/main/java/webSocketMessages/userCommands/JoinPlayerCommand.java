@@ -14,4 +14,7 @@ public class JoinPlayerCommand extends UserGameCommand {
   public String getPlayerColor() {
     return playerColor;
   }
+    public int getGameId() {
+        return gameId;
+    }
 }
