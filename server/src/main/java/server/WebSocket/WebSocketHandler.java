@@ -38,27 +38,27 @@ public class WebSocketHandler {
     connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s has joined the game as %s.", command.getUsername(), command.getPlayerColor());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
   }
   private void joinObserver(String jsonString, Session session) throws IOException {
     JoinObserverCommand command = new Gson().fromJson(jsonString, JoinObserverCommand.class);
     connections.addUser(command.getAuthString(), session, command.getGameId());
     var message = String.format("%s is observing the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
   }
   private void leave(String jsonString, Session session) throws IOException {
-    UserGameCommand command = new Gson().fromJson(jsonString, LeaveCommand.class);
+    LeaveCommand command = new Gson().fromJson(jsonString, LeaveCommand.class);
     var message = String.format("%s has left the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
     connections.remove(command.getAuthString());
   }
   private void resign(String jsonString, Session session) throws IOException {
-    UserGameCommand command = new Gson().fromJson(jsonString, ResignCommand.class);
+    ResignCommand command = new Gson().fromJson(jsonString, ResignCommand.class);
     var message = String.format("%s has forfeited the game.", command.getUsername());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-    connections.broadcast(command.getAuthString(), notification);
+    connections.broadcast(command.getAuthString(), command.getGameId(), notification);
     connections.remove(command.getAuthString());
   }
   private void makeMove(String jsonString, Session session) throws Exception {
@@ -70,23 +70,23 @@ public class WebSocketHandler {
       if (game.isInCheckmate(ChessGame.TeamColor.WHITE) || game.isInCheckmate(ChessGame.TeamColor.BLACK)){
         var message=String.format("%s has won the game.", command.getUsername());
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-        connections.broadcast("", notification);
+        connections.broadcast("", command.getGameId(), notification);
       }
       if (game.isInStalemate(ChessGame.TeamColor.WHITE) || game.isInStalemate(ChessGame.TeamColor.BLACK)) {
         String message = "STALEMATE";
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
-        connections.broadcast("", notification);
+        connections.broadcast("", command.getGameId(), notification);
       }
       Server.memoryGameDao.updateGame(game, command.getGameId()); //update the database after making the move.
       var message=String.format("%s moved: %s.", command.getUsername(), command.getMoveString());
       var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
       var loadGame=new LoadGameMessage(ServerMessage.ServerMessageType.LOAD_GAME, game, command.getColor());
-      connections.broadcast("", loadGame);
-      connections.broadcast(command.getAuthString(), notification);
+      connections.broadcast("", command.getGameId(), loadGame);
+      connections.broadcast(command.getAuthString(), command.getGameId(), notification);
     } catch (InvalidMoveException e) {
       var message=String.format("Invalid move: %s", e.getMessage());
       var error=new ErrorMessage(ServerMessage.ServerMessageType.ERROR, message);
-      connections.broadcast("", error); //broadcasting to everyone, probably should only go to the player who made the move.
+      connections.broadcast("", command.getGameId(), error); //broadcasting to everyone, probably should only go to the player who made the move.
     }
   }
 }

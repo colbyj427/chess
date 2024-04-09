@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="reuploading for different intellij? unversioned">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="created maps for grouping connections.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinObserverCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/JoinPlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/ConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/LeaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/webSocketMessages/userCommands/ResignCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinObserverCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/JoinPlayerCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/LeaveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared/target/classes/webSocketMessages/userCommands/ResignCommand.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +104,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WebSocketTests.joinPlayerGood">
+  <component name="RunManager">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -244,14 +250,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00036" summary="MySQL auth dao passing all standard API except list multiple games, which is just listing them in the wrong order.">
-      <option name="closed" value="true" />
-      <created>1709755782040</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1709755782040</updated>
     </task>
     <task id="LOCAL-00037" summary="implemented and tested SQL create game, get game, add observer.">
       <option name="closed" value="true" />
@@ -637,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712621721495</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="created maps for grouping connections.">
+      <option name="closed" value="true" />
+      <created>1712636043665</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1712636043665</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="left out files." />
     <MESSAGE value="wrote tests for each endpoint in server facade." />
     <MESSAGE value="added a port for testing the client." />
     <MESSAGE value="rremoved imports" />
@@ -680,7 +685,8 @@
     <MESSAGE value="highlight moves implemented but highlighting wrong squares." />
     <MESSAGE value="reuploading for different intellij?" />
     <MESSAGE value="reuploading for different intellij? unversioned" />
-    <option name="LAST_COMMIT_MESSAGE" value="reuploading for different intellij? unversioned" />
+    <MESSAGE value="created maps for grouping connections." />
+    <option name="LAST_COMMIT_MESSAGE" value="created maps for grouping connections." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -726,11 +732,6 @@
           <url>file://$PROJECT_DIR$/client/src/main/java/ServerClientCommunication/WebSocketFacade.java</url>
           <line>30</line>
           <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocket/ConnectionManager.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>

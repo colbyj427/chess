@@ -33,23 +33,25 @@ public class ConnectionManager {
     connections.remove(visitorName);
   }
 
-  public void broadcast(String excludePlayerName, ServerMessage notification) throws IOException {
-    var removeList = new ArrayList<Connection>();
-    for (var c : connections.values()) {
-      if (c.session.isOpen()) {
-        if (!c.visitorName.equals(excludePlayerName)) {
+  public void broadcast(String excludePlayerName, int gameId, ServerMessage notification) throws IOException {
+    var removeList=new ArrayList<Connection>();
+    // get all the authtokens associated with gameid
+    // add them to a list, and iterate through it.
+    // for each authtoken, send the notification unless it equals exclude string.
+    List<String> authTokens = games.get(gameId);
+    for (String authToken : authTokens) {
+      if (!authToken.equals(excludePlayerName)) {
+        Connection c = connections.get(authToken);
+        if (c.session.isOpen()) {
           c.send(new Gson().toJson(notification));
+        } else {
+          removeList.add(c);
         }
-      } else {
-        removeList.add(c);
       }
     }
     // Clean up any connections that were left open.
     for (var c : removeList) {
       connections.remove(c.visitorName);
     }
-    // get all the authtokens associated with gameid
-    // add them to a list, and iterate through it.
-    // for each authtoken, send the notification unless it equals exclude string.
   }
 }
