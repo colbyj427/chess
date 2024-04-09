@@ -144,26 +144,9 @@ public class DrawBoard {
       pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 0) {
-      if (endPositions != null) {
-        if (endPositions.contains(position)) {
-          drawHighligtedWhiteSquare(out, pieceType, pieceColor);
-        } else {
-          drawWhiteSquare(out, pieceType, pieceColor);
-        }
-      }
-      else {
-        drawWhiteSquare(out, pieceType, pieceColor);
-      }
+      chooseWhiteSquare(out, position, pieceType, pieceColor);
     } else {
-      if (endPositions != null) {
-        if (endPositions.contains(position)) {
-          drawHighligtedBlackSquare(out, pieceType, pieceColor);
-        } else {
-          drawBlackSquare(out, pieceType, pieceColor);
-        }
-      } else {
-        drawBlackSquare(out, pieceType, pieceColor);
-      }
+      chooseBlackSquare(out, position, pieceType, pieceColor);
     }
   }
   private static void drawBlackRowSquares(PrintStream out, String row, ChessPiece[][] pieceArray, int boardCol) {
@@ -175,26 +158,32 @@ public class DrawBoard {
       pieceColor=getPieceColor(row, 7-boardCol, pieceArray);
     }
     if (boardCol % 2 == 1) {
-      if (endPositions != null) {
-        if (endPositions.contains(position)) {
-        drawHighligtedWhiteSquare(out, pieceType, pieceColor);
-        } else {
-          drawWhiteSquare(out, pieceType, pieceColor);
-        }
-      }
-      else {
-        drawWhiteSquare(out, pieceType, pieceColor);
-      }
+      chooseWhiteSquare(out, position, pieceType, pieceColor);
     } else {
-      if (endPositions != null) {
-        if (endPositions.contains(position)) {
-          drawHighligtedBlackSquare(out, pieceType, pieceColor);
-        } else {
-          drawBlackSquare(out, pieceType, pieceColor);
-        }
+      chooseBlackSquare(out, position, pieceType, pieceColor);
+    }
+  }
+  private static void chooseBlackSquare(PrintStream out, ChessPosition position, String pieceType, String pieceColor) {
+    if (endPositions != null) {
+      if (endPositions.contains(position)) {
+        drawHighligtedBlackSquare(out, pieceType, pieceColor);
       } else {
         drawBlackSquare(out, pieceType, pieceColor);
       }
+    } else {
+      drawBlackSquare(out, pieceType, pieceColor);
+    }
+  }
+  private static void chooseWhiteSquare(PrintStream out, ChessPosition position, String pieceType, String pieceColor) {
+    if (endPositions != null) {
+      if (endPositions.contains(position)) {
+        drawHighligtedWhiteSquare(out, pieceType, pieceColor);
+      } else {
+        drawWhiteSquare(out, pieceType, pieceColor);
+      }
+    }
+    else {
+      drawWhiteSquare(out, pieceType, pieceColor);
     }
   }
   private static void drawBlackSquare(PrintStream out, String pieceType, String pieceColor) {
@@ -297,36 +286,5 @@ public class DrawBoard {
     ChessGame.TeamColor pieceColor = squares[numRow-1][numCol].getTeamColor();
     return pieceColor.toString();
   }
-//  private static ChessPiece[][] setArrayToStart() {
-//    for (int i=0; i < squares.length; i++) {
-//      for (int j=0; j < squares[i].length; j++) {
-//        squares[i][j]=null;
-//      }
-//    }
-//    for (int boardCol=0; boardCol <= 7; ++boardCol) { //top pawns
-//      squares[1][boardCol]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN);
-//    }
-//    squares[0][0]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.ROOK);
-//    squares[0][1]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KNIGHT);
-//    squares[0][2]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP);
-//    squares[0][3]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING);
-//    squares[0][4]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN);
-//    squares[0][5]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP);
-//    squares[0][6]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KNIGHT);
-//    squares[0][7]=new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.ROOK);
-//    for (int boardCol=0; boardCol <= 7; ++boardCol) { //bottom pawns
-//      squares[6][boardCol]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN);
-//    }
-//    squares[7][0]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.ROOK);
-//    squares[7][1]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KNIGHT);
-//    squares[7][2]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP);
-//    squares[7][3]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KING);
-//    squares[7][4]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.QUEEN);
-//    squares[7][5]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP);
-//    squares[7][6]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KNIGHT);
-//    squares[7][7]=new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.ROOK);
-//
-//    return squares;
-//  }
 }
 
