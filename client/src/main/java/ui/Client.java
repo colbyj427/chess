@@ -160,9 +160,6 @@ public class Client implements ServerMessageObserver {
       currentGame = newGameRecord;
       playerColor = getTeam(team);
       ChessGame newGame = newGameRecord.game();
-      //DrawBoard.main(newGame.getBoard().getBoardLayout(), team, null);
-      //****
-      //create a websocket facade and pass the client into it
       ws = new WebSocketFacade(serverURL, this);
       ws.joinPlayer(authToken, username, playerColor, newGameRecord.gameID());
       state = State.INGAME;
@@ -267,7 +264,7 @@ public class Client implements ServerMessageObserver {
   }
   public String makeMove(String... params) throws Exception {
     assertInGame();
-    if (!playerColor.equals((currentGame.game().getTeamTurn().toString()))) {
+    if (!playerColor.equals((currentGame.game().getTeamTurn()))) {
       return "Not your turn.";
     }
     if (currentGame.game().isInCheckmate(ChessGame.TeamColor.WHITE) ||
@@ -426,7 +423,7 @@ public class Client implements ServerMessageObserver {
     return new ChessPosition(x,y);
   }
   public ChessGame.TeamColor getTeam(String team) {
-    if (team.toLowerCase().equals("WHITE")) {
+    if (team.toLowerCase().equals("white")) {
       return ChessGame.TeamColor.WHITE;
     }
     else {

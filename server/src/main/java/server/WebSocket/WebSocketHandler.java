@@ -4,6 +4,7 @@ import chess.ChessGame;
 import chess.InvalidMoveException;
 import com.google.gson.Gson;
 import dataAccess.DataAccessException;
+import model.GameRecord;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
@@ -36,7 +37,10 @@ public class WebSocketHandler {
   }
   private void joinPlayer(String jsonString, Session session) throws IOException, DataAccessException {
     JoinPlayerCommand command = new Gson().fromJson(jsonString, JoinPlayerCommand.class);
-    ChessGame game = Server.memoryGameDao.getGame(command.getGameID()).game();
+    GameRecord gameRecord = Server.memoryGameDao.getGame(command.getGameID());
+    ChessGame game = gameRecord.game();
+    //before adding the user to the game, check if the game is full or invalid color.
+    //if (gameRecord.)
     connections.addUser(command.getAuthString(), session, command.getGameID());
     var message = String.format("%s has joined the game as %s.", command.getUsername(), command.getPlayerColor());
     var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
@@ -70,6 +74,7 @@ public class WebSocketHandler {
   }
   private void makeMove(String jsonString, Session session) throws Exception {
     MakeMoveCommand command=new Gson().fromJson(jsonString, MakeMoveCommand.class);
+    GameRecord gameRecord = Server.memoryGameDao.getGame(command.getGameID());
     ChessGame game = Server.memoryGameDao.getGame(command.getGameID()).game();
     try {
       game.makeMove(command.getMove());
@@ -79,9 +84,20 @@ public class WebSocketHandler {
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
         connections.broadcast("", command.getGameID(), notification);
       }
-      if (game.isInStalemate(ChessGame.TeamColor.WHITE) || game.isInStalemate(ChessGame.TeamColor.BLACK)) {
+      else if (game.isInStalemate(ChessGame.TeamColor.WHITE) || game.isInStalemate(ChessGame.TeamColor.BLACK)) {
         String message = "STALEMATE";
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
+        connections.broadcast("", command.getGameID(), notification);
+      }
+      else if (game.isInCheck(ChessGame.TeamColor.WHITE) || game.isInCheck(ChessGame.TeamColor.BLACK)) {
+        var message = "";
+        if (game.isInCheck(ChessGame.TeamColor.WHITE)) {
+          message=String.format("%s is in check.", gameRecord.whiteUsername());
+        }
+        else {
+          message=String.format("%s is in check.", gameRecord.blackUsername());
+        }
+        var notification=new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
         connections.broadcast("", command.getGameID(), notification);
       }
       Server.memoryGameDao.updateGame(game, command.getGameID()); //update the database after making the move.
