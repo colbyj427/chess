@@ -186,10 +186,11 @@ public class Client implements ServerMessageObserver {
       if (params.length != 1) {
         throw new Exception("Expected <game id>");
       }
-
       int gameNum=Integer.valueOf(params[0]);
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
+      currentGame = newGameRecord;
+      playerColor = "WHITE";
       ChessGame newGame = newGameRecord.game();
       DrawBoard.main(newGame.getBoard().getBoardLayout(), "WHITE", null);
       //****
