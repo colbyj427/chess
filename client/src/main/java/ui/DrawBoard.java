@@ -26,6 +26,7 @@ public class DrawBoard {
     var out=new PrintStream(System.out, true, StandardCharsets.UTF_8);
     out.print(ERASE_SCREEN);
     color = color.toLowerCase();
+    out.print("\n");
     if (color.equals("black")) {
       //board with black at bottom
       drawHeadersBackwards(out);

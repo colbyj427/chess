@@ -80,7 +80,7 @@ public class WebSocketHandler {
       game.makeMove(command.getMove());
       //checks if either color is in checkmate or stalemate and if so the game needs to end.
       if (game.isInCheckmate(ChessGame.TeamColor.WHITE) || game.isInCheckmate(ChessGame.TeamColor.BLACK)){
-        var message=String.format("%s has won the game.", command.getUsername());
+        var message=String.format("%s has won the game by checkmate.", command.getUsername());
         var notification = new NotificationMessage(ServerMessage.ServerMessageType.NOTIFICATION, message);
         connections.broadcast("", command.getGameID(), notification);
       }
@@ -109,7 +109,7 @@ public class WebSocketHandler {
     } catch (InvalidMoveException e) {
       var message=String.format("Invalid move: %s", e.getMessage());
       var error=new ErrorMessage(ServerMessage.ServerMessageType.ERROR, message);
-      connections.broadcast("", command.getGameID(), error); //broadcasting to everyone, probably should only go to the player who made the move.
+      connections.rootBroadcast(command.getAuthString(), error); //broadcasting to everyone, probably should only go to the player who made the move
     }
   }
 }

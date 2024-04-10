@@ -253,6 +253,9 @@ public class Client implements ServerMessageObserver {
       if (currentGame == null) {
         return "You are not in a valid game.";
       }
+      if (isGameOver()) {
+        return "Game is over.";
+      }
       ws.resign(authToken, username, currentGame.gameID());
       currentGame = null;
       playerColor = null;
@@ -267,10 +270,7 @@ public class Client implements ServerMessageObserver {
     if (!playerColor.equals((currentGame.game().getTeamTurn()))) {
       return "Not your turn.";
     }
-    if (currentGame.game().isInCheckmate(ChessGame.TeamColor.WHITE) ||
-            currentGame.game().isInCheckmate(ChessGame.TeamColor.BLACK) ||
-            currentGame.game().isInStalemate(ChessGame.TeamColor.WHITE) ||
-            currentGame.game().isInStalemate(ChessGame.TeamColor.BLACK)) {
+    if (isGameOver()) {
       return "Game is over.";
     }
     try {
@@ -280,13 +280,20 @@ public class Client implements ServerMessageObserver {
       ChessPosition from = parseMove(params[0]);
       ChessPosition to = parseMove(params[1]);
       ChessMove move = new ChessMove(from, to, null);
-      String moveString = from + " " + to;
+      String moveString = parseMoveString(move);
       ws.makeMove(authToken, username, currentGame.gameID(), playerColor, move, moveString);
       return "";
     } catch (Exception exception) {
       throw new Exception(exception.getMessage());
     }
   }
+  private boolean isGameOver() {
+    return currentGame.game().isInCheckmate(ChessGame.TeamColor.WHITE) ||
+            currentGame.game().isInCheckmate(ChessGame.TeamColor.BLACK) ||
+            currentGame.game().isInStalemate(ChessGame.TeamColor.WHITE) ||
+            currentGame.game().isInStalemate(ChessGame.TeamColor.BLACK);
+  }
+
   public String redraw(String... params) throws Exception{
     assertInGame();
     DrawBoard.main(currentGame.game().getBoard().getBoardLayout(), playerColor.toString(), null);
@@ -300,6 +307,9 @@ public class Client implements ServerMessageObserver {
       }
     } catch (Exception e) {
       return "Expected: <position>";
+    }
+    if (isGameOver()) {
+      return "Game is over.";
     }
     ChessPosition position = parseMove(params[0]);
     Collection<ChessMove> validMoves = currentGame.game().validMoves(position);
@@ -365,7 +375,7 @@ public class Client implements ServerMessageObserver {
         case "joinobserver" -> joinObserver(params);
         case "redraw", "r" -> redraw(params);
         case "leave" -> leave(params);
-        case "makemove" -> makeMove(params);
+        case "makemove", "m" -> makeMove(params);
         case "resign" -> resign(params);
         case "highlightmoves", "h" -> highlightMoves(params);
         case "clear" -> clear();
@@ -394,7 +404,6 @@ public class Client implements ServerMessageObserver {
   @Override
   public void notify(String notification) {
     ServerMessage message = new Gson().fromJson(notification, ServerMessage.class);
-    System.out.println(message.getServerMessageType());
     switch (message.getServerMessageType()) {
       case NOTIFICATION -> handleNotification(notification);
       case LOAD_GAME -> handleLoadGame(notification);
@@ -421,6 +430,16 @@ public class Client implements ServerMessageObserver {
     int y = firstChar - 'a' + 1;
     int x = Integer.parseInt(params[0].substring(1));
     return new ChessPosition(x,y);
+  }
+  private String parseMoveString(ChessMove move) {
+    ChessPosition start = move.getStartPosition();
+    ChessPosition end = move.getEndPosition();
+    String startRow = String.valueOf(start.getRow() + 1);
+    char startCol = (char) (start.getColumn() +1 + 96);
+    String endRow = String.valueOf(end.getRow() + 1);
+    char endCol = (char) (end.getColumn() + 1 + 96);
+    String moveString = "from " + startCol + startRow + " to " + endCol + endRow;
+    return moveString;
   }
   public ChessGame.TeamColor getTeam(String team) {
     if (team.toLowerCase().equals("white")) {
