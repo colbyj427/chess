@@ -35,6 +35,7 @@ public class Client implements ServerMessageObserver {
   private WebSocketFacade ws;
   private GameRecord currentGame;
   private ChessGame.TeamColor playerColor = null;
+  private Boolean observing = false;
 
 
   public static void main(String[] args) {
@@ -183,6 +184,7 @@ public class Client implements ServerMessageObserver {
       if (params.length != 1) {
         throw new Exception("Expected <game id>");
       }
+      observing = true;
       int gameNum=Integer.valueOf(params[0]);
       JoinGameRecord joinGameRecord=new JoinGameRecord(null, getGameID(gameNum));
       GameRecord newGameRecord=ServerFacade.joinGame(joinGameRecord, authToken);
@@ -241,6 +243,7 @@ public class Client implements ServerMessageObserver {
       ws.leave(authToken, username, currentGame.gameID());
       currentGame = null;
       playerColor = null;
+      observing = false;
       state = State.SIGNEDIN;
       return "You left the game.";
     } catch (Exception exception) {
@@ -269,6 +272,9 @@ public class Client implements ServerMessageObserver {
     assertInGame();
     if (!playerColor.equals((currentGame.game().getTeamTurn()))) {
       return "Not your turn.";
+    }
+    if (observing == true) {
+      return "You are observing the game.";
     }
     if (isGameOver()) {
       return "Game is over.";

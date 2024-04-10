@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="matched message class attribute names with markdown. Passed two tests. submission 4">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="ready for passoff. AGAIN. modified move string to be user friendly or something.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/DrawBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/ui/DrawBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/client_jar/client.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/WebSocket/WebSocketHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +94,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="Compound.ServerTwoClient">
+  <component name="RunManager">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -256,14 +248,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00044" summary="Added starter code for phase 5.">
-      <option name="closed" value="true" />
-      <created>1710183818203</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1710183818203</updated>
     </task>
     <task id="LOCAL-00045" summary="began drawing chess board.">
       <option name="closed" value="true" />
@@ -649,7 +633,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712689993373</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="ready for passoff. AGAIN. modified move string to be user friendly or something.">
+      <option name="closed" value="true" />
+      <created>1712716650364</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1712716650365</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +659,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleaned up drawboard class." />
     <MESSAGE value="Phase 6 starter code added." />
     <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
     <MESSAGE value="began implementing a leave game notification." />
@@ -692,7 +683,8 @@
     <MESSAGE value="final product after code refactoring, submission 2." />
     <MESSAGE value="fixed last code quality issue. submission 3." />
     <MESSAGE value="matched message class attribute names with markdown. Passed two tests. submission 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="matched message class attribute names with markdown. Passed two tests. submission 4" />
+    <MESSAGE value="ready for passoff. AGAIN. modified move string to be user friendly or something." />
+    <option name="LAST_COMMIT_MESSAGE" value="ready for passoff. AGAIN. modified move string to be user friendly or something." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -711,7 +703,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/ui/Client.java</url>
-          <line>281</line>
+          <line>287</line>
           <option name="timeStamp" value="154" />
         </line-breakpoint>
       </breakpoints>
