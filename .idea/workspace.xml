@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="ready for passoff. AGAIN. modified move string to be user friendly or something.">
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed bug where observer could move pieces.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Server?">
     <configuration name="Server?" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="server" />
@@ -248,14 +247,6 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00045" summary="began drawing chess board.">
-      <option name="closed" value="true" />
-      <created>1710363773346</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1710363773346</updated>
     </task>
     <task id="LOCAL-00046" summary="chess board prints except for pieces.">
       <option name="closed" value="true" />
@@ -641,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712716650365</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="fixed bug where observer could move pieces.">
+      <option name="closed" value="true" />
+      <created>1712769128441</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1712769128441</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +658,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Phase 6 starter code added." />
     <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
     <MESSAGE value="began implementing a leave game notification." />
     <MESSAGE value="leave and joinplayer implemented but not working." />
@@ -684,7 +682,8 @@
     <MESSAGE value="fixed last code quality issue. submission 3." />
     <MESSAGE value="matched message class attribute names with markdown. Passed two tests. submission 4" />
     <MESSAGE value="ready for passoff. AGAIN. modified move string to be user friendly or something." />
-    <option name="LAST_COMMIT_MESSAGE" value="ready for passoff. AGAIN. modified move string to be user friendly or something." />
+    <MESSAGE value="fixed bug where observer could move pieces." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where observer could move pieces." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
