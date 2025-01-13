@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="fixed bug where observer could move pieces.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="479728aa-5e5f-478b-a6a9-25598e029f17" name="Changes" comment="updated welcome text." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,32 +49,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Server?.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client1.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.client2.executor&quot;: &quot;Debug&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.WebSocketTests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/colbyjohnson/Documents/CS240/chess&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Server?.executor": "Run",
+    "Application.client1.executor": "Debug",
+    "Application.client2.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.WebSocketTests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/colbyjohnson/Documents/CS240/chess",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="webSocketMessages.serverMessages" />
@@ -230,8 +231,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -247,30 +248,7 @@
       <workItem from="1712518069413" duration="4573000" />
       <workItem from="1712600172114" duration="5663000" />
       <workItem from="1712621279981" duration="40000" />
-    </task>
-    <task id="LOCAL-00046" summary="chess board prints except for pieces.">
-      <option name="closed" value="true" />
-      <created>1710388417123</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1710388417123</updated>
-    </task>
-    <task id="LOCAL-00047" summary="finished chess board ui for phase 5.">
-      <option name="closed" value="true" />
-      <created>1710393599628</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1710393599628</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Finished Chessboard drawing.">
-      <option name="closed" value="true" />
-      <created>1710446288126</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1710446288126</updated>
+      <workItem from="1736742684299" duration="377000" />
     </task>
     <task id="LOCAL-00049" summary="Client menu set up, all endppoints reachable and board draws to console. No http implemented.">
       <option name="closed" value="true" />
@@ -640,7 +618,31 @@
       <option name="project" value="LOCAL" />
       <updated>1712769128441</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="reran and checked DataAccessTests.">
+      <option name="closed" value="true" />
+      <created>1736742889861</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1736742889861</updated>
+    </task>
+    <task id="LOCAL-00096" summary="updated welcome text.">
+      <option name="closed" value="true" />
+      <created>1736743017673</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1736743017673</updated>
+    </task>
+    <task id="LOCAL-00097" summary="updated welcome text.">
+      <option name="closed" value="true" />
+      <created>1736743049046</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1736743049046</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,8 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created file structure with new servermessage interface and message/notification subclasses." />
-    <MESSAGE value="began implementing a leave game notification." />
     <MESSAGE value="leave and joinplayer implemented but not working." />
     <MESSAGE value="leave and joinplayer implemented and working but notifications coming at weird times." />
     <MESSAGE value="leave and joinplayer implemented and working" />
@@ -683,7 +683,9 @@
     <MESSAGE value="matched message class attribute names with markdown. Passed two tests. submission 4" />
     <MESSAGE value="ready for passoff. AGAIN. modified move string to be user friendly or something." />
     <MESSAGE value="fixed bug where observer could move pieces." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where observer could move pieces." />
+    <MESSAGE value="reran and checked DataAccessTests." />
+    <MESSAGE value="updated welcome text." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated welcome text." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,7 +5,9 @@ import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicIntegerAdapter implements JsonSerializer<AtomicInteger>, JsonDeserializer<AtomicInteger> {
-
+// AtomicIntegerAdapter is a class that implements
+// JsonSerializer and JsonDeserializer for AtomicInteger objects.
+  @SuppressWarnings("checkstyle:LineLength")
   @Override
   public JsonElement serialize(AtomicInteger src, Type typeOfSrc, JsonSerializationContext context) {
     return new JsonPrimitive(src.get());
