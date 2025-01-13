@@ -45,7 +45,7 @@ public class Client implements ServerMessageObserver {
   public void run() {
     this.serverURL = "http://localhost:" + Integer.valueOf(port);
     ServerFacade facade = new ServerFacade(8080);
-    System.out.println("♕ Welcome to 240 chess. Type Help to get started.");
+    System.out.println("♕ Welcome to 240 chess. Type Help to get started!");
     System.out.print(help() + "\n");
 
 
